@@ -1,0 +1,7 @@
+---
+
+- name: Copying disableLoginMessage from support to cluster/apps
+  action: shell /opt/splunk/support/bin/disable_login_notification_message.sh
+
+- name: Use the deployer to distribute the disableLoginMessage app to all members
+  command: /opt/splunk/bin/splunk apply shcluster-bundle -target https://10.16.128.211:8089

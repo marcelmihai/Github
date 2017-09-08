@@ -1,0 +1,15 @@
+---
+# Remove manged apps from local apps
+#
+# USAGE:
+# - include tasks: tasks/clean_local_sksh_apps.yml
+#
+- include: tasks/backup_local_apps.yml
+        
+- name: Removing managed apps from local apps
+  file: 
+    path=/opt/splunk/etc/apps/{{ item }} state=absent
+  with_items:
+    - sum
+    - d3plus
+        

@@ -1,0 +1,16 @@
+---
+# Remove old tar backups from /opt/splunk/etc/shcluster/
+#
+# USAGE:
+# - include tasks: tasks/clean_shcluster_apps.yml
+#
+- name: Removing pre-existing backup of shcluter apps
+  file:
+    path=/opt/splunk/etc/shcluster/shcluster-apps.tgz state=absent
+
+- name: Backing up shcluster apps
+  shell: tar -czvf /opt/splunk/etc/shcluster/shcluster-apps.tgz /opt/splunk/etc/shcluster/apps
+
+  become: true
+  become_user: "{{ splunk_user }}"
+

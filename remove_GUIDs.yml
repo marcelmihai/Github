@@ -1,0 +1,8 @@
+---
+- hosts: skid*
+  serial: 1
+  become: yes
+  become_user: splunk
+  tasks:
+  - name: Collecting GUIDs
+    shell: find /opt/splunk/var/run/searchpeers -maxdepth 1 -mtime +1 -exec rm -rf {} \;

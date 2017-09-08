@@ -1,0 +1,8 @@
+---
+
+- copy:
+    src: /splunkds/splunk-configs/indexes.conf 
+    dest: /opt/splunk/etc/system/local/indexes.conf
+    owner: splunk
+    group: splunk
+    mode: 0654

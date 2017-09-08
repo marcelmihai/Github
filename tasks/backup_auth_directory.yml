@@ -1,0 +1,13 @@
+---
+# Backup  /opt/splunk/etc/auth
+
+- name: Removing pre-existing backup of auth directory
+  file:
+    path=/tmp/auth-local.tar.gz state=absent
+
+- name: Backing up auth
+  shell: tar -czf /tmp/auth-local.tar.gz /opt/splunk/etc/auth
+
+  become: true
+  become_user: "{{ splunk_user }}"
+

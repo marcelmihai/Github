@@ -1,0 +1,19 @@
+---  
+- block:
+      - include: tasks/verify_splunk_version.yml
+        vars:
+                EXPECTED_VERSION: "{{ SPLUNK_LEGACY }}"
+
+      - include: tasks/stop_splunk.yml
+
+      - include: tasks/backup_local_apps.yml
+     
+      - include: tasks/backup_shcluser_apps.yml 
+
+      - include: tasks/splunk_tar_extraction.yml
+
+      - include: tasks/start_splunk.yml
+
+      - include: tasks/verify_splunk_version.yml
+        vars:
+                EXPECTED_VERSION: "{{ SPLUNK_VERSION }}"

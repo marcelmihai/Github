@@ -1,0 +1,5 @@
+---
+APPNAME: ansible
+DEST: /opt/splunk/etc/
+ANSIBLE_STAGING: "{{SPLUNK_STAGING}}/splunk_scripts"
+sudo_user: splunk

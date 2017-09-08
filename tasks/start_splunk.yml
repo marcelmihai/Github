@@ -1,0 +1,5 @@
+---
+
+- name: Ensure Splunk is Started
+  command: /opt/splunk/bin/splunk start
+

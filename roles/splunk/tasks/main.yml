@@ -1,0 +1,18 @@
+- name: set hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+  become: true
+
+- name: add splunk user
+  user:
+    name: "{{ splunk_user }}"
+    state: present
+  become: true
+
+- name: unpack splunk.tar.gz
+  unarchive:
+    src: "{{ splunk_tarball }}"
+    dest: "{{ splunk_home }}/.."
+    creates: "{{ splunk_home }}/splunk-6.6.3-xxxxxxxx-linux-2.6-x86_64-manifest"
+  become: true
+  become_user: "{{ splunk_user }}"

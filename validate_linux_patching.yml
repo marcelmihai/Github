@@ -1,0 +1,7 @@
+---
+- hosts: skdp
+  become: true
+  become_user: splunk
+  tasks:
+    - include: tasks/linux_patch_checking.yml
+      static: no

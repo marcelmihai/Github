@@ -1,0 +1,7 @@
+---
+- hosts: s*
+  become: true
+  become_user: splunk
+  tasks:
+    - include: tasks/splunk_patch_checking.yml
+
