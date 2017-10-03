@@ -26,6 +26,9 @@ usstlecpsecap45 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstlecpsecap46 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstlecpsecap47 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 
+[skcm_usstl]
+usstlecpsplcm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
+
 [skid_usstl]
 usstlecpsecap48 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstlecpsecap49 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
@@ -58,6 +61,9 @@ usstlecpsecap42 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstlecpinfap44  		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstlecpinfap45  		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 
+[skcm_cnhk]
+cnhkgecpsplcm01 	  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+
 [skid_cnhk]
 cnhkgecpsecap10 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 cnhkgecpsecap11 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
@@ -67,6 +73,9 @@ cnhkgecpsecap13 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 [skhf_cnhk]
 cnhkgecpinfap07 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 cnhkgecpinfap08 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+
+[skcm_gblo]
+gblonecpsplcm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 
 [skid_gblo]
 gblonecpsecap20 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
@@ -85,5 +94,5 @@ usstlecpsecap20.extemr.org 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 
 [current]
 usstlecpsplcm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
-gblonecpsplcm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
-cnhkgecpsplcm01 	  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+gblonecpsplcm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+cnhkgecpsplcm01 	  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
