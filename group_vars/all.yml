@@ -11,3 +11,8 @@ SPLUNK_RELEASE_DEST: "{{SPLUNK_ETC}}/deployment-apps"
 SPLUNK_BINARY: "{{ ANSIBLE_HOME }}/splunk_binaries/splunk-6.6.2-4b804538c686-Linux-x86_64.tgz"
 SPLUNK_VERSION: "6.6.2"
 SPLUNK_LEGACY: "6.5.1"
+splunk_new_password: ji395CaJ1cY5MXL
+splunklib_1_6_5_location: /opt/splunk/support/bin
+cluster_master: cluster-mster
+cluster_secret: splunk123
+indexer_discovery_secret: splunk12345
