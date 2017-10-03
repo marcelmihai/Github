@@ -4,3 +4,36 @@
     dest: "{{ splunk_home}}/etc/apps"
   become: true
   become_user: "{{ splunk_user }}"
+
+- name: restart splunk
+  command: "{{ splunk_home }}/bin/splunk restart"
+  become: true
+  become_user: "{{ splunk_user }}"
+
+- name: configure pass4SymmKey
+  splunk_config_stanza:
+   auth_user: admin
+   auth_password: "{{ splunk_new_password }}"
+   app: cluster_master_app
+   file: server
+   stanza: clustering
+   values:
+     mode: master
+     pass4SymmKey: ""{{ cluster_secret }}
+   splunklib: "{{ splunklib_1_6_5_location }}/splunklib-1.6.5"
+
+- name: configure indexer discovery pass4SymmKey
+  splunk_config_stanza:
+   auth_user: admin
+   auth_password: "{{ splunk_new_password }}"
+   app: cluster_master_app
+   file: server
+   stanza: indexer_discovery
+   values:
+     pass4SymmKey: "{{ indexer_discovery_secret }}"
+   splunklib: "{{ splunklib_1_6_5_location}}/splunklib-1.6.5"
+
+- name: restart splunk
+- inlcude: "{{ splunk_home }}/bin/splunk restart"
+  become: true
+  become_user: "{{ splunk_user }}"
