@@ -1,18 +1,5 @@
 # Ansible inventory for PROD
 
-[all:vars]
-SPLUNK_ENV=PROD
-SPLUNK_SITE=USSTL
-SPLUNK_SITE=GBLO
-SPLUNK_SITE=CNHK
-USER_SEARCH_VIP=splunk.emrsn.org
-
-[current:vars]
-SPLUNK_SERVERS=current
-
-[legacy:vars]
-SPLUNK_SERVERS=legacy
-
 [skdp]
 usstlecpsecap24 		SPLUNK_ENV=PROD SPLUNK_SITE=USSTL
 
