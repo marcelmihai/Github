@@ -1,5 +1,5 @@
 ---
-ANSIBLE_HOME: "/opt/splunk/ansible4splunk/"
+ANSIBLE_HOME: "/export/home/mmuralikri/ansible4splunk/"
 splunk_user: "splunk"
 splunk_group: "splunk"
 SPLUNK_HOME: "/opt/splunk"
