@@ -3,7 +3,7 @@
 from ansible.module_utils.basic import AnsibleModule
 
 import sys
-#sys.path.append('/opt/splunk/support/bin/splunklib-1.6.6')
+#sys.path.append('/tmp/splunklib-1.6.6')
 #import splunklib.client as client
 
 def main():
