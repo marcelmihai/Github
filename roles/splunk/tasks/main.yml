@@ -5,27 +5,27 @@
 
 - name: add splunk user
   user:
-    name: "{{ splunk_user }}"
+    name: "{{ SPLUNK_USER }}"
     state: present
   become: true
 
 - name: unpack splunk.tar.gz
   unarchive:
     src: "{{ SPLUNK_BINARY }}"
-    dest: "{{ splunk_home }}/.."
-    creates: "{{ splunk_home }}/splunk-6.6.3-e21ee54bc796-Linux-x86_64-manifest"
+    dest: "{{ SPLUNK_HOME }}/.."
+    creates: "{{ SPLUNK_HOME }}/splunk-6.6.3-e21ee54bc796-Linux-x86_64-manifest"
   become: true
-  become_user: "{{ splunk_user }}"
+  become_user: "{{ SPLUNK_USER }}"
 
 - name: start splunk and accept license
-  command: "{{ splunk_home }}/bin/splunk start --accept-license"
+  command: "{{ SPLUNK_HOME }}/bin/splunk start --accept-license"
   args:
-    creates: "{{ splunk_home }}/etc/splunk-launch.conf"
+    creates: "{{ SPLUNK_HOME }}/etc/splunk-launch.conf"
   become: true
-  become_user: "{{ splunk_user }}"
+  become_user: "{{ SPLUNK_USER }}"
 
 - name: enable boot start
-  command: "{{ splunk_home }}/bin/splunk enable boot-start -user {{ splunk_user }}"
+  command: "{{ SPLUNK_HOME }}/bin/splunk enable boot-start -user {{ SPLUNK_USER }}"
   args:
     creates: /etc/init.d/splunk
   become: true
