@@ -11,7 +11,7 @@
 
 - name: unpack splunk.tar.gz
   unarchive:
-    src: "{{ splunk_tarball }}"
+    src: "{{ SPLUNK_BINARY }}"
     dest: "{{ splunk_home }}/.."
     creates: "{{ splunk_home }}/splunk-6.6.3-e21ee54bc796-Linux-x86_64-manifest"
   become: true
