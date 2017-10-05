@@ -12,7 +12,7 @@ SPLUNK_BINARY: "{{ ANSIBLE_HOME }}/splunk_binary/splunk-6.6.3-e21ee54bc796-Linux
 SPLUNK_VERSION: "6.6.2"
 SPLUNK_LEGACY: "6.5.1"
 splunk_new_password: ji395CaJ1cY5MXL
-splunklib_1_6_6_location: /opt
+splunklib_1_6_6_location: /tmp
 cluster_master: cluster-mster
 cluster_secret: splunk123
 indexer_discovery_secret: splunk12345
