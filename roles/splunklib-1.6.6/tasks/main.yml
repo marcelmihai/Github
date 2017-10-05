@@ -3,3 +3,5 @@
     src: /export/home/mmuralikri/ansible4splunk/library/splunklib-1.6.6
     dest: "{{ splunklib_1_6_6_location }}"
     force: no
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
