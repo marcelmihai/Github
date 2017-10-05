@@ -9,4 +9,4 @@
     creates: "{{ SPLUNK_HOME }}/splunk-6.6.2-4b804538c686-Linux-x86_64-mainfest"
 
   become: true
-  become_user: "{{ splunk_user }}"
+  become_user: "{{ SPLUNK_USER }}"
