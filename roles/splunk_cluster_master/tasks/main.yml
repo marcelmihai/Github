@@ -1,14 +1,14 @@
 - name: install cluster_master_app
   copy:
     src: cluster_master_app
-    dest: "{{ splunk_home}}/etc/apps"
+    dest: "{{ SPLUNK_HOME }}/etc/apps"
   become: true
-  become_user: "{{ splunk_user }}"
+  become_user: "{{ SPLUNK_USER }}"
 
 - name: restart splunk
-  command: "{{ splunk_home }}/bin/splunk restart"
+  command: "{{ SPLUNK_HOME }}/bin/splunk restart"
   become: true
-  become_user: "{{ splunk_user }}"
+  become_user: "{{ SPLUNK_USER }}"
 
 - name: configure pass4SymmKey
   splunk_config_stanza:
@@ -19,7 +19,7 @@
    stanza: clustering
    values:
      mode: master
-     pass4SymmKey: ""{{ cluster_secret }}
+     pass4SymmKey: "{{ cluster_secret }}"
    splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
 
 - name: configure indexer discovery pass4SymmKey
@@ -34,6 +34,6 @@
    splunklib: "{{ splunklib_1_6_6_location}}/splunklib-1.6.6"
 
 - name: restart splunk
-- inlcude: "{{ splunk_home }}/bin/splunk restart"
+- inlcude: "{{ SPLUNK_HOME }}/bin/splunk restart"
   become: true
-  become_user: "{{ splunk_user }}"
+  become_user: "{{ SPLUNK_USER }}"
