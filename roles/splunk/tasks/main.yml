@@ -9,7 +9,13 @@
     state: present
   become: true
 
-- include: tasks/splunk_tar_extraction.yml
+- name: unpack splunk.tar.gz
+  unarchive:
+    src: "{{ SPLUNK_BINARY }}"
+    dest: "{{ SPLUNK_HOME }}/.."
+    creates: "{{ SPLUNK_HOME }}/splunk-6.6.3-e21ee54bc796-Linux-x86_64-manifest"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
 
 - name: start splunk and accept license
   command: "{{ SPLUNK_HOME }}/bin/splunk start --accept-license"
