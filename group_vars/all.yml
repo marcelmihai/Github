@@ -2,7 +2,7 @@
 ANSIBLE_HOME: "/export/home/mmuralikri/ansible4splunk/"
 SPLUNK_USER: "splunk"
 splunk_group: "splunk"
-SPLUNK_HOME: "/opt"
+SPLUNK_HOME: "/opt/splunk"
 SPLUNK_ETC: "{{SPLUNK_HOME}}/etc"
 SPLUNK_APP_DEST: "{{SPLUNK_HOME}}/etc/apps/"
 SPLUNK_DEPLOYMENT: "{{SPLUNK_ETC}}/deployment-apps"
