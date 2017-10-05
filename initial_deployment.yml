@@ -1,11 +1,3 @@
-- hosts: skcm&:skcs
+- hosts: dev
   roles:
     - role: splunk
-    
-- hosts: skcm
-  roles:
-    - role: splunk_cluster_master
-
-- hosts: skcs
-  roles:
-    - role: splunk_cluster_slave
