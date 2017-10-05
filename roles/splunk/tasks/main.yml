@@ -18,7 +18,7 @@
     owner={{ SPLUNK_USER }}
     group={{ SPLUNK_USER }}
     mode=0755
-    creates: "{{ SPLUNK_HOME }}/splunk-6.6.3-e21ee54bc796-Linux-x86_64-manifest"
+    creates= "{{ SPLUNK_HOME }}/splunk-6.6.3-e21ee54bc796-Linux-x86_64-manifest"
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
