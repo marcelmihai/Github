@@ -1,14 +1,3 @@
-- name: set hostname
-  hostname:
-    name: "{{ inventory_hostname }}"
-  become: true
-
-- name: add splunk user
-  user:
-    name: "{{ SPLUNK_USER }}"
-    state: present
-  become: true
-
 - name: unpack splunk.tar.gz
   unarchive:
     src: "{{ SPLUNK_BINARY }}"
