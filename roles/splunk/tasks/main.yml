@@ -14,11 +14,12 @@
     src: "{{ SPLUNK_BINARY }}"
     # dest is $SPLUNK_HOME/.., as the tarball contains splunk/ directory
     dest: "{{ SPLUNK_HOME }}/.."
+    creates: "{{ splunk_home }}/splunk-6.6.3-e21ee54bc796-Linux-x86_64-manifest"
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
 - name: start splunk and accept license
-  command: "{{ SPLUNK_HOME }}/bin/splunk start --accept-license"
+  command: "{{ SPLUNK_HOME }}/bin/splunk start --answer-yes --no-prompt --accept-license"
   args:
     creates: "{{ SPLUNK_HOME }}/etc/splunk-launch.conf"
   become: true
