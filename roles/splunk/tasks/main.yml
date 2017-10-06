@@ -1,8 +1,3 @@
-- name: make/opt writable by splunk
-  tags:
-   - install
-  file: path=/opt mode=777
-
 - name: Checking if splunk is install
   tags: install
   stat: path="{{ SPLUNK_HOME }}"
