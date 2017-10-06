@@ -36,4 +36,3 @@
     auth_password: changeme
     name: admin
     password: "{{ splunk_new_password }}"
-    splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
