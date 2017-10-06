@@ -31,8 +31,6 @@
   become: true
 
 - name: change default password
-  splunk_user:
-    auth_user: admin
-    auth_password: changeme
-    name: admin
-    password: "{{ splunk_new_password }}"
+  command: "{{SPLUNK_HOME}}/bin/splunk edit user admin -password {{ splunk_new_password }} -role admin -auth admin:changeme"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
