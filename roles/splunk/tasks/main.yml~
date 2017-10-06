@@ -1,0 +1,39 @@
+- name: set hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+  become: true
+
+- name: add splunk user
+  user:
+    name: "{{ SPLUNK_USER }}"
+    state: present
+  become: true
+
+- name: unpack splunk.tar.gz
+  unarchive:
+    src: "{{ SPLUNK_BINARY }}"
+    # dest is $SPLUNK_HOME/.., as the tarball contains splunk/ directory
+    dest: "{{ SPLUNK_HOME }}/.."
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+- name: start splunk and accept license
+  command: "{{ SPLUNK_HOME }}/bin/splunk start --accept-license"
+  args:
+    creates: "{{ SPLUNK_HOME }}/etc/splunk-launch.conf"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+- name: enable boot start
+  command: "{{ SPLUNK_HOME }}/bin/splunk enable boot-start -user {{ SPLUNK_USER }}"
+  args:
+    creates: /etc/init.d/splunk
+  become: true
+
+- name: change default password
+  splunk_user:
+    auth_user: admin
+    auth_password: changeme
+    name: admin
+    password: "{{ splunk_new_password }}"
+    splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
