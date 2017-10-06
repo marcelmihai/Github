@@ -39,5 +39,9 @@
   when: splunk_path.stat.exists == false
 
 - name: copy indexes.conf
-tasks:
--include: tasks\copy_indexes.yml
+  copy:
+    src: /splunkds/splunk-configs/indexes.conf
+    dest: /opt/splunk/etc/system/local/indexes.conf
+    owner: splunk
+    group: splunk
+    mode: 0654
