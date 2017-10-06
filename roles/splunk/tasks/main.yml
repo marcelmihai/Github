@@ -1,14 +1,13 @@
-- name: set hostname
-  hostname:
-    name: "{{ inventory_hostname }}"
-  become: true
+- name: Checking if splunk is install
+  tags: install
+  stat: path="{{ SPLUNK_HOME }}"
+  register: splunk_path
 
-- name: add splunk user
-  user:
-    name: "{{ SPLUNK_USER }}"
-    state: present
-  become: true
-
+- name: is Splunk installed?
+  tags: install
+  debug: msg='splunk is already installed under /opt/splunk'
+  when: splunk_path.stat.exists
+  
 - name: unpack splunk.tar.gz
   unarchive:
     src: "{{ SPLUNK_BINARY }}"
