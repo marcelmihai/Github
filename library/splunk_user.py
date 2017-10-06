@@ -3,8 +3,8 @@
 from ansible.module_utils.basic import AnsibleModule
 
 import sys
-#sys.path.append('/tmp/splunklib-1.6.6')
-#import splunklib.client as client
+sys.path.append('/tmp/splunklib-1.6.6')
+import splunklib.client as client
 
 def main():
     module = AnsibleModule(
