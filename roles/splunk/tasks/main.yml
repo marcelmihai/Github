@@ -23,12 +23,14 @@
     creates: "{{ SPLUNK_HOME }}/etc/splunk-launch.conf"
   become: true
   become_user: "{{ SPLUNK_USER }}"
+  when: splunk_path.stat.exists == false
 
 - name: enable boot start
   command: "{{ SPLUNK_HOME }}/bin/splunk enable boot-start -user {{ SPLUNK_USER }}"
   args:
     creates: /etc/init.d/splunk
   become: true
+  when: splunk_path.stat.exists == false
 
 - name: change default password
   command: "{{SPLUNK_HOME}}/bin/splunk edit user admin -password '{{ splunk_new_password }}' -role admin -auth admin:changeme"
