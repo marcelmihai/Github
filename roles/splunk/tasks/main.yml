@@ -45,3 +45,5 @@
     owner: splunk
     group: splunk
     mode: 0654
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
