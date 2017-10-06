@@ -37,13 +37,3 @@
   become: true
   become_user: "{{ SPLUNK_USER }}"
   when: splunk_path.stat.exists == false
-
-- name: copy indexes.conf
-  copy:
-    src: /splunkds/splunk-configs/indexes.conf
-    dest: /opt/splunk/etc/system/local/indexes.conf
-    owner: splunk
-    group: splunk
-    mode: 0654
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
