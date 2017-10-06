@@ -1,3 +1,8 @@
+- name: make/opt writable by splunk
+  tags:
+   - install
+  file: path=/opt mode=777
+
 - name: Checking if splunk is install
   tags: install
   stat: path="{{ SPLUNK_HOME }}"
@@ -7,7 +12,7 @@
   tags: install
   debug: msg='splunk is already installed under /opt/splunk'
   when: splunk_path.stat.exists
-  
+
 - name: unpack splunk.tar.gz
   unarchive:
     src: "{{ SPLUNK_BINARY }}"
@@ -15,6 +20,7 @@
     dest: "{{ SPLUNK_HOME }}/.."
   become: true
   become_user: "{{ SPLUNK_USER }}"
+  when: splunk_path.stat.exists == false
 
 - name: start splunk and accept license
   command: "{{ SPLUNK_HOME }}/bin/splunk start --answer-yes --no-prompt --accept-license"
