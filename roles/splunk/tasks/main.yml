@@ -1,11 +1,11 @@
 - name: Checking if splunk is install
   tags: install
-  stat: path="{{ SPLUNK_HOME }}"
+  stat: path="{{ SPLUNK_HOME }}/.."
   register: splunk_path
 
 - name: is Splunk installed?
   tags: install
-  debug: msg='splunk is already installed under /opt/splunk'
+  debug: msg='splunk is already installed under /opt/splunk/'
   when: splunk_path.stat.exists
 
 - name: unpack splunk.tar.gz
