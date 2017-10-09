@@ -8,7 +8,7 @@ SPLUNK_APP_DEST: "{{SPLUNK_HOME}}/etc/apps/"
 SPLUNK_DEPLOYMENT: "{{SPLUNK_ETC}}/deployment-apps"
 SPLUNK_RELEASE_SLEEPTIME: "480"
 SPLUNK_RELEASE_DEST: "{{SPLUNK_ETC}}/deployment-apps"
-SPLUNK_BINARY: "{{ ANSIBLE_HOME }}/splunk_binary/splunk-6.6.3-e21ee54bc796-Linux-x86_64.tgz"
+SPLUNK_BINARY: "{{ ANSIBLE_HOME }}/splunk_binary/splunk-7.0.0-c8a78efdd40f-Linux-x86_64.tgz"
 SPLUNK_VERSION: "6.6.2"
 SPLUNK_LEGACY: "6.5.1"
 splunk_new_password: ji395CaJ1cY5MXL
