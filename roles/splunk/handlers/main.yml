@@ -1,4 +1,4 @@
 - name: restart splunk
-  service: name=splunk state=restarted
+  command: /opt/splunk/bin/splunk restart
   become: true
   become_user: "{{ SPLUNK_USER }}"
