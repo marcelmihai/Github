@@ -27,8 +27,8 @@
 
 - name: enable boot start
   command: "{{ SPLUNK_HOME }}/bin/splunk enable boot-start -user {{ SPLUNK_USER }}"
-  args:
-    creates: /etc/init.d/splunk
+#  args:
+#    creates: /etc/init.d/splunk
   become: true
   when: splunk_path.stat.exists == false
 
