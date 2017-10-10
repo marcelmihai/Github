@@ -1,0 +1,33 @@
+- name: Checking if splunk is install
+  tags: install
+  stat: path="{{ SPLUNK_HOME }}/bin"
+  register: splunk_path
+
+- name: is Splunk installed?
+  tags: install
+  debug: msg='splunk is already installed under /opt/splunk/bin'
+  when: splunk_path.stat.exists
+
+- name: unpack splunk.tar.gz
+  unarchive:
+    src: "{{ SPLUNK_BINARY }}"
+    # dest is $SPLUNK_HOME/.., as the tarball contains splunk/ directory
+    dest: "{{ SPLUNK_HOME }}/.."
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  when: splunk_path.stat.exists == false
+
+- name: start splunk and accept license
+  command: "{{ SPLUNK_HOME }}/bin/splunk start --answer-yes --no-prompt --accept-license"
+  args:
+    creates: "{{ SPLUNK_HOME }}/etc/splunk-launch.conf"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  when: splunk_path.stat.exists == false
+
+- name: enable boot start
+  command: "{{ SPLUNK_HOME }}/bin/splunk enable boot-start -user {{ SPLUNK_USER }}"
+#  args:
+#    creates: /etc/init.d/splunk
+  become: true
+  when: splunk_path.stat.exists == false
