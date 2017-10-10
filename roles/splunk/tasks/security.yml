@@ -5,7 +5,7 @@
    - install
    - security
   copy:
-    src=splunk_creds/{{splunk_password}}
+    src=splunk_creds/{{splunk_passwd}}
     dest=/opt/splunk/etc
     owner=splunk
     group=splunk
