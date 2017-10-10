@@ -1,6 +1,6 @@
 - name: copy indexes.conf
   copy:
-    src: /splunkds/splunk-configs/indexes.conf
+    src: opt/splunk/etc/system/local/indexes.conf
     dest: /opt/splunk/etc/system/local/indexes.conf
     owner: splunk
     group: splunk
