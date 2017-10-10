@@ -16,3 +16,8 @@ splunklib_1_6_6_location: /tmp
 cluster_master: cluster-mster
 cluster_secret: splunk123
 indexer_discovery_secret: splunk12345
+splunk_passwd: 'passwd'
+splunk_ca: 'cert.pem'
+splunk_pem: 'server-key.pem'
+splunk_authentication: 'authentication.conf'
+splunk_authorize: 'authorize.conf'
