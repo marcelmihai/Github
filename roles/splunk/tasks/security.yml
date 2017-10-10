@@ -1,5 +1,11 @@
 ---
 # This playbook sets up basic splunk security
+- name: change default password
+  command: "{{SPLUNK_HOME}}/bin/splunk edit user admin -password '{{ splunk_new_password }}' -role admin -auth admin:changeme"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  when: splunk_path.stat.exists == false
+  
 - name: copy splunk password file
   tags:
    - install
