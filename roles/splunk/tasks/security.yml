@@ -57,7 +57,7 @@
     - install
     - security
   copy:
-    src=splunk_creds/{{splunk_authorize}}
+    src=opt/splunk/etc/system/local/authorize.conf
     dest=/opt/splunk/etc/system/local
     owner=splunk
     group=splunk
@@ -70,7 +70,7 @@
     - install
     - security
   copy:
-    src=splunk_creds/{{splunk_authentication}}
+    src=opt/splunk/etc/system/local/authentication.conf
     dest=/opt/splunk/etc/system/local
     owner=splunk
     group=splunk
