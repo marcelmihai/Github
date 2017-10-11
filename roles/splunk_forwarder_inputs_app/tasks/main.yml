@@ -27,5 +27,3 @@
     - Splunk_TA_paloalto
   register: rsync_result
   failed_when: rsync_result.rc > 1
-    become: true
-    become_user: "{{ SPLUNK_USER }}"
