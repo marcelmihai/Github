@@ -1,7 +1,7 @@
 - name: install forwarder inputs app
   copy:
-  src: /export/home/mmuralikri/ansible4splunk/roles/splunk_forwarder_inputs_app/files/{{ item }}
-  dest: "{{ forwarder_inputs_app_location }}"
+    src: /export/home/mmuralikri/ansible4splunk/roles/splunk_forwarder_inputs_app/files/{{ item }}
+    dest: "{{ forwarder_inputs_app_location }}"
   with_items:
   - all_deploymentclients
   - emr_all_indexers_base
