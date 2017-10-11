@@ -1,6 +1,6 @@
 - name: install forwarder inputs app
   copy:
-    src: {{ item }}
+    src: /export/home/mmuralikri/ansible4splunk/roles/splunk_forwarder_inputs_app/files/{{ item }}
     dest: "{{ forwarder_inputs_app_location }}"
   with_items:
   - alert_logevent
