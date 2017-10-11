@@ -25,5 +25,7 @@
   - TA-DomainController-NT6
   - TA-sepapp11
   - TA-sepapp12
+  register: rsync_result
+	failed_when: rsync_result.rc > 1
   become: true
   become_user: "{{ SPLUNK_USER }}"
