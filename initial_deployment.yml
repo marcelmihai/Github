@@ -1,4 +1,5 @@
 - hosts: current
+  strategy: debug
   roles:
     - role: splunk
 - hosts: current
