@@ -1,0 +1,4 @@
+- name: stop splunk
+  command: "{{ SPLUNK_HOME }}/bin/splunk stop"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
