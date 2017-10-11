@@ -1,3 +1,5 @@
 dependencies:
     - role: splunk_forwarder_inputs_app
       forwarder_inputs_app_location: "{{ SPLUNK_HOME }}/etc/master-apps"
+      become: true
+      become_user: "{{ SPLUNK_USER }}"
