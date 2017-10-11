@@ -1,29 +1,29 @@
 - name: install forwarder inputs app
   copy:
-    src: /export/home/mmuralikri/ansible4splunk/roles/splunk_forwarder_inputs_app/files/{{ item }}
-    dest: "{{ forwarder_inputs_app_location }}"
-    with_items:
-    - all_deploymentclients
-    - emr_all_indexers_base
-    - forwarder_inputs_app
-    - global_citrix2003_inputs
-    - global_citrix2008_inputs
-    - global_misc_props
-    - global_unix_inputs
-    - isamonitor
-    - Splunk_CiscoISE
-    - Splunk_TA_BIT9-CarbonBlack
-    - Splunk_TA_bro_json
-    - Splunk_TA_bro_props
-    - Splunk_TA_cisco-esa
-    - Splunk_TA_windows_props
-    - SSL-versions
-    - TA-cisco-asa
-    - TA-Damballa-Failsafe-520-v101
-    - TA-DNSServer-NT6
-    - TA-DomainController-NT6
-    - TA-sepapp11
-    - TA-sepapp12
-    - Splunk_TA_paloalto
+  src: /export/home/mmuralikri/ansible4splunk/roles/splunk_forwarder_inputs_app/files/{{ item }}
+  dest: "{{ forwarder_inputs_app_location }}"
+  with_items:
+  - all_deploymentclients
+  - emr_all_indexers_base
+  - forwarder_inputs_app
+  - global_citrix2003_inputs
+  - global_citrix2008_inputs
+  - global_misc_props
+  - global_unix_inputs
+  - isamonitor
+  - Splunk_CiscoISE
+  - Splunk_TA_BIT9-CarbonBlack
+  - Splunk_TA_bro_json
+  - Splunk_TA_bro_props
+  - Splunk_TA_cisco-esa
+  - Splunk_TA_windows_props
+  - SSL-versions
+  - TA-cisco-asa
+  - TA-Damballa-Failsafe-520-v101
+  - TA-DNSServer-NT6
+  - TA-DomainController-NT6
+  - TA-sepapp11
+  - TA-sepapp12
+  - Splunk_TA_paloalto
   register: rsync_result
   failed_when: rsync_result.rc > 1
