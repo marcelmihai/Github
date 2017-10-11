@@ -1,4 +1,4 @@
 - name: install forwarder inputs app
   copy:
-    src: forwarder_inputs_app
+    src: *
     dest: "{{ forwarder_inputs_app_location }}"
