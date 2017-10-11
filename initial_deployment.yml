@@ -1,6 +1,6 @@
-- hosts: dev
+- hosts: current
   roles:
     - role: splunk
-- hosts: dev
+- hosts: current
   roles:
     - role: splunk_cluster_master
