@@ -16,7 +16,6 @@
   - Splunk_TA_bro_json
   - Splunk_TA_bro_props
   - Splunk_TA_cisco-esa
-  - Splunk_TA_paloalto
   - Splunk_TA_windows_props
   - SSL-versions
   - TA-cisco-asa
@@ -25,6 +24,7 @@
   - TA-DomainController-NT6
   - TA-sepapp11
   - TA-sepapp12
+  - Splunk_TA_paloalto
   register: rsync_result
 	failed_when: rsync_result.rc > 1
   become: true
