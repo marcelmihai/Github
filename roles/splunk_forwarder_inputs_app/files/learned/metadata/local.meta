@@ -1,0 +1,294 @@
+[props/http_event_collector_metrics-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1460123145.860485000
+
+[props/first_install-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1460123145.873127000
+
+[props/splunkd_stdout-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1460123145.891065000
+
+[props/export_metrics-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1460123155.862867000
+
+[props/splunk_app_stream-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1460124429.384133000
+
+[props/stream_installer-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1460124439.389407000
+
+[props/streamfwd-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1460129043.444469000
+
+[props/splunk_app_stream-2]
+owner = nobody
+version = 6.3.1
+modtime = 1461278422.208187000
+
+[sourcetypes/%2Fopt%2Fsplunk%2Fvar%2Flog%2Fsplunk%2Fsplunk_app_stream.log_Thu_Apr_21_22%3A40%3A22_2016_163937740]
+owner = nobody
+version = 6.3.1
+modtime = 1461278422.324361000
+
+[props/splunkd_stdout-2]
+owner = nobody
+version = 6.3.1
+modtime = 1461278422.389409000
+
+[sourcetypes/%2Fopt%2Fsplunk%2Fvar%2Flog%2Fsplunk%2Fsplunkd_stdout.log_Thu_Apr_21_22%3A40%3A22_2016_1832052757]
+owner = nobody
+version = 6.3.1
+modtime = 1461278422.467909000
+
+[props/paloalto_ta_installer-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1468537861.441492000
+
+[props/anaconda.yum]
+owner = nobody
+version = 6.3.1
+modtime = 1470344460.504616000
+
+[sourcetypes/%2Fvar%2Flog%2Fanaconda.yum.log_Thu_Aug__4_21%3A01%3A00_2016_1868382302]
+owner = nobody
+version = 6.3.1
+modtime = 1470344460.620617000
+
+[props/maillog-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1470344460.664134000
+
+[props/dracut]
+owner = nobody
+version = 6.3.1
+modtime = 1470344461.061311000
+
+[sourcetypes/%2Fvar%2Flog%2Fdracut.log_Thu_Aug__4_21%3A01%3A01_2016_2063940671]
+owner = nobody
+version = 6.3.1
+modtime = 1470344461.215999000
+
+[props/messages-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1470344461.582114000
+
+[props/anaconda.program]
+owner = nobody
+version = 6.3.1
+modtime = 1470344461.859549000
+
+[sourcetypes/%2Fvar%2Flog%2Fanaconda.program.log_Thu_Aug__4_21%3A01%3A01_2016_290457868]
+owner = nobody
+version = 6.3.1
+modtime = 1470344461.965408000
+
+[props/yum]
+owner = nobody
+version = 6.3.1
+modtime = 1470344462.041470000
+
+[sourcetypes/%2Fvar%2Flog%2Fyum.log_Thu_Aug__4_21%3A01%3A02_2016_1293791829]
+owner = nobody
+version = 6.3.1
+modtime = 1470344462.135988000
+
+[props/anaconda.storage]
+owner = nobody
+version = 6.3.1
+modtime = 1470344462.241688000
+
+[sourcetypes/%2Fvar%2Flog%2Fanaconda.storage.log_Thu_Aug__4_21%3A01%3A02_2016_1689846890]
+owner = nobody
+version = 6.3.1
+modtime = 1470344462.330371000
+
+[sourcetypes/%2Fvar%2Flog%2Fanaconda.storage.log_Thu_Aug__4_21%3A01%3A02_2016_370892123]
+owner = nobody
+version = 6.3.1
+modtime = 1470344462.418780000
+
+[props/anaconda.ifcfg]
+owner = nobody
+version = 6.3.1
+modtime = 1470344462.689599000
+
+[sourcetypes/%2Fvar%2Flog%2Fanaconda.ifcfg.log_Thu_Aug__4_21%3A01%3A02_2016_259697144]
+owner = nobody
+version = 6.3.1
+modtime = 1470344462.772966000
+
+[props/prelink]
+owner = nobody
+version = 6.3.1
+modtime = 1470344462.855282000
+
+[sourcetypes/%2Fvar%2Flog%2Fprelink%2Fprelink.log_Thu_Aug__4_21%3A01%3A02_2016_1691623121]
+owner = nobody
+version = 6.3.1
+modtime = 1470344462.930137000
+
+[props/prelink-2]
+owner = nobody
+version = 6.3.1
+modtime = 1470757666.471890000
+
+[sourcetypes/%2Fvar%2Flog%2Fprelink%2Fprelink.log_Tue_Aug__9_15%3A47%3A46_2016_255601163]
+owner = nobody
+version = 6.3.1
+modtime = 1470757666.550242000
+
+[props/prelink-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1471060147.064986000
+
+[props/prelink-4]
+owner = nobody
+version = 6.3.1
+modtime = 1471442789.175241000
+
+[sourcetypes/%2Fvar%2Flog%2Fprelink%2Fprelink.log_Wed_Aug_17_14%3A06%3A29_2016_1396383304]
+owner = nobody
+version = 6.3.1
+modtime = 1471442789.284839000
+
+[props/prelink-5]
+owner = nobody
+version = 6.3.1
+modtime = 1473176886.687922000
+
+[sourcetypes/%2Fvar%2Flog%2Fprelink%2Fprelink.log_Tue_Sep__6_15%3A48%3A06_2016_419335148]
+owner = nobody
+version = 6.3.1
+modtime = 1473176886.765587000
+
+[props/faup]
+owner = nobody
+version = 6.3.1
+modtime = 1473777929.949977000
+
+[sourcetypes/%2Fopt%2Fsplunk%2Fvar%2Flog%2Fsplunk%2Ffaup.log_Tue_Sep_13_14%3A45%3A30_2016_1397844180]
+owner = nobody
+version = 6.3.1
+modtime = 1473777930.551564000
+
+[props/streamfwd-2]
+owner = nobody
+version = 6.3.1
+modtime = 1474736828.921407000
+
+[sourcetypes/%2Fopt%2Fsplunk%2Fvar%2Flog%2Fsplunk%2Fstreamfwd.log_Sat_Sep_24_17%3A07%3A08_2016_915910071]
+owner = nobody
+version = 6.3.1
+modtime = 1474736829.017191000
+
+[props/sudo-too_small]
+owner = nobody
+version = 6.3.1
+modtime = 1474922221.320583000
+
+[props/paloalto_ta_installer-2]
+owner = nobody
+version = 6.3.1
+modtime = 1477432636.616698000
+
+[sourcetypes/%2Fopt%2Fsplunk%2Fvar%2Flog%2Fsplunk%2Fpaloalto_ta_installer.log_Tue_Oct_25_21%3A57%3A16_2016_1118034340]
+owner = nobody
+version = 6.3.1
+modtime = 1477432636.709911000
+
+[props/sudo-2]
+owner = nobody
+version = 6.3.1
+modtime = 1483530051.365479000
+
+[sourcetypes/%2Fvar%2Flog%2Fsudo.log_Wed_Jan__4_11%3A40%3A51_2017_2021940011]
+owner = nobody
+version = 6.3.1
+modtime = 1483530051.466011000
+
+[props/splunkd_stdout-3]
+owner = nobody
+version = 6.5.1
+modtime = 1488897359.497207000
+
+[sourcetypes/%2Fopt%2Fsplunk%2Fvar%2Flog%2Fsplunk%2Fsplunkd_stdout.log_Tue_Mar__7_14%3A35%3A59_2017_1584658044]
+owner = nobody
+version = 6.5.1
+modtime = 1488897359.582179000
+
+[props/sudo-3]
+owner = nobody
+version = 6.5.1
+modtime = 1490368130.535408000
+
+[sourcetypes/%2Fvar%2Flog%2Fsudo.log_Fri_Mar_24_15%3A08%3A50_2017_113271166]
+owner = nobody
+version = 6.5.1
+modtime = 1490368130.623154000
+
+[props/sudo-4]
+owner = nobody
+version = 6.5.1
+modtime = 1496243689.305290000
+
+[sourcetypes/%2Fvar%2Flog%2Fsudo.log_Wed_May_31_15%3A14%3A49_2017_176676025]
+owner = nobody
+version = 6.5.1
+modtime = 1496243689.403393000
+
+[sourcetypes/%2Fvar%2Flog%2Fsudo.log_Wed_May_31_15%3A14%3A49_2017_288327934]
+owner = nobody
+version = 6.5.1
+modtime = 1496243689.483539000
+
+[props/sudo-5]
+owner = nobody
+version = 6.5.1
+modtime = 1496676854.473881000
+
+[sourcetypes/%2Fvar%2Flog%2Fsudo.log_Mon_Jun__5_15%3A34%3A14_2017_1496527827]
+owner = nobody
+version = 6.5.1
+modtime = 1496676854.553194000
+
+[props/splunk_ta_paloalto_autofocus_export-too_small]
+owner = nobody
+version = 6.5.1
+modtime = 1500677396.242329000
+
+[props/yum-too_small]
+owner = nobody
+version = 6.6.2
+modtime = 1505793212.988254000
+
+[props/cron]
+owner = nobody
+version = 6.6.2
+modtime = 1505794009.499967000
+
+[sourcetypes/%2Fvar%2Flog%2Fcron_Tue_Sep_19_04%3A06%3A49_2017_466131557]
+owner = nobody
+version = 6.6.2
+modtime = 1505794009.596635000
+
+[props/cron-too_small]
+owner = nobody
+version = 6.6.2
+modtime = 1507434402.889185000

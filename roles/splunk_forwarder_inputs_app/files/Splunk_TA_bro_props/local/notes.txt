@@ -1,0 +1,2 @@
+| rest /servicesNS/-/-/search/jobs splunk_server=local | head 1 | fields - fieldMetadata* id bundleVersion remoteSearchLogs *Search searchProviders *.addinfo.* *.archivebuckets.* *.metadata.* *.pannewapps.* *.rest.* | rename performance.* AS * | fields command.*  
+| foreach command.*.* matchseg1="#matchseg1#" matchseg2="#matchseg2#" [eval commands=if(isnotnull("<<FIELD>>"),mvappend(commands,"#matchseg1#".":"."#matchseg2#"."=".'<<FIELD>>'),NULL)]

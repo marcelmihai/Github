@@ -1,0 +1,11 @@
+<% _.each(thresholds, function(threshold) { %>
+<li 
+    <%= threshold.classes ? "class=\"" + threshold.classes + "\"" : "" %>
+    data-range="<%- threshold.rangeName %>"
+    data-toggle="tooltip"
+    data-placement="top"
+    data-title="<%- threshold.rangeLabel %>"
+    data-animation="false"
+    style="background-color: <%= threshold.color %>;"
+    ><a><%- threshold.count %></a></li>
+<% }) %>

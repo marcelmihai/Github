@@ -1,0 +1,102 @@
+<dashboard>
+  <label>System Health</label>
+  <row>
+    <chart>
+      <title>CPU Utilization % (-24h)</title>
+      <searchString>sourcetype="cisco:ise:syslog" MESSAGE_CLASS="System-Stats" | timechart span=1m avg(SysStatsUtilizationCpu) as Percent_Utilized by host</searchString>
+      <earliestTime>0</earliestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    <chart>
+      <title>Memory Utilization % (-24h)</title>
+      <searchString>sourcetype="cisco:ise:syslog" MESSAGE_CLASS="System-Stats" | timechart span=1m avg(SysStatsUtilizationMemory) as Percent_Utilized by host</searchString>
+      <earliestTime>0</earliestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    <chart>
+      <title>Disk Space Usage % (-24h)</title>
+      <searchString>sourcetype="cisco:ise:syslog" MESSAGE_CLASS="System-Stats" | timechart span=1m avg(SysStatsUtilizationDiskSpace) as Percent_Utilized by host</searchString>
+      <earliestTime>0</earliestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+  </row>
+  <row>
+    <chart>
+      <title>Auth Latency (RADIUS)</title>
+      <searchString>sourcetype="cisco:ise:syslog" MESSAGE_CLASS="System-Stats" | timechart avg(AverageRadiusRequestLatency) as Seconds by host</searchString>
+      <earliestTime>0</earliestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    <chart>
+      <title>Auth Latency (TACACS)</title>
+      <searchString>sourcetype="cisco:ise:syslog" MESSAGE_CLASS="System-Stats" | timechart avg(AverageTacacsRequestLatency) as Seconds by host</searchString>
+      <earliestTime>0</earliestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    <table>
+      <title>Number of CPUs per ISE server</title>
+      <searchString>sourcetype="cisco:ise:syslog" MESSAGE_CLASS="System-Stats" | stats max(SysStatsCpuCount) as Number_of_CPUs by host</searchString>
+      <earliestTime>0</earliestTime>
+    </table>
+  </row>
+</dashboard>

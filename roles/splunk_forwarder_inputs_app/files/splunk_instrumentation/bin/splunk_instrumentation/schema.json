@@ -1,0 +1,177 @@
+{
+  "delivery": {
+    "checksum": "true",
+    "compress": "true",
+    "encoding": "UTF-8",
+    "format": "JSON",
+    "frequency": "daily",
+    "version": "2"
+  },
+  "classes": [
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.performance.indexing",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "interval": "nightly",
+      "component": "performance.indexing",
+      "priority": "high",
+      "visibility": "anonymous"
+    },
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.performance.search",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "interval": "nightly",
+      "component": "performance.search",
+      "priority": "high",
+      "visibility": "anonymous"
+    },
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.usage.search.concurrent",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "interval": "nightly",
+      "component": "usage.search.concurrent",
+      "priority": "high",
+      "visibility": "anonymous"
+    },
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.usage.users.active",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "interval": "nightly",
+      "component": "usage.users.active",
+      "priority": "high",
+      "visibility": "anonymous"
+    },
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.deployment.node",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "interval": "nightly",
+      "component": "deployment.node",
+      "priority": "high",
+      "visibility": "anonymous"
+    },
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.usage.search.type",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "interval": "nightly",
+      "component": "usage.search.type",
+      "priority": "high",
+      "visibility": "anonymous"
+    },
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.licensing.stack",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "on_send": true,
+      "interval": "nightly",
+      "component": "licensing.stack",
+      "priority": "high",
+      "visibility": "anonymous,license"
+    },
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.deployment.forwarders",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "interval": "nightly",
+      "component": "deployment.forwarders",
+      "priority": "high",
+      "visibility": "anonymous"
+    },
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.usage.indexing.sourcetype",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "interval": "nightly",
+      "component": "usage.indexing.sourcetype",
+      "priority": "high",
+      "visibility": "anonymous"
+    },
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.deployment.clustering.indexer",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "interval": "nightly",
+      "component": "deployment.clustering.indexer",
+      "priority": "high",
+      "visibility": "anonymous"
+    },
+    {
+      "dataPoints": [
+        {
+          "saved_search": "instrumentation.usage.app.page",
+          "type": "SPLDataPoint"
+        }
+      ],
+      "interval": "nightly",
+      "component": "usage.app.page",
+      "priority": "high",
+      "visibility": "anonymous"
+    },
+    {
+      "dataPoints": [
+        {
+          "type": "ReportDataPoint",
+          "mapping" : [
+            {
+              "path" : "queries",
+              "report_path": "components"
+            },
+            {
+              "path" : "roles",
+              "report_path": "profile.roles"
+            },
+             {
+              "path" : "instance_type",
+              "report_path": "instance.type"
+            },
+            {
+              "path" : "timezone",
+              "date_value": "%z"
+            }
+
+
+          ]
+
+        }
+      ],
+      "interval": "nightly",
+      "component": "instrumentation.performance",
+      "priority": "high",
+      "visibility": "anonymous"
+    }
+  ]
+}

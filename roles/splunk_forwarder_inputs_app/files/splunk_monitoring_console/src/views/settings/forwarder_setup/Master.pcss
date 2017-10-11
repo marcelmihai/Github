@@ -1,0 +1,52 @@
+.dmc-forwarder-setup-button-section {
+	padding-bottom: 30px;
+}
+
+.forwarder-monitoring-settings {
+  padding: 15px 0;
+}
+
+.rebuild-forwarder-section {
+	padding-top: 30px;
+
+	.rebuild-dmc-forwarder-assets-explanation {
+	  padding-top: 5px;
+	}	
+}
+
+.section-header {
+	padding-bottom: 0;
+}
+
+@if $theme == lite {
+
+	.splunkmonitoringconsole-views-settings-forwardersetup {
+		max-width: inherit;
+	}
+
+	.section-header {
+		padding: 0;
+		.section-title {
+			padding: 15px 20px;
+		    font-size: 24px;
+		    margin: 0;
+		    background: $grayLighter;
+		    border-bottom: 1px solid $grayLightMedium;
+		    font-weight: 200;
+		}
+	}
+
+	.main-section-body {
+		background: $white;
+	}
+
+	.data-collection-interval {
+		.control-label {
+			width: auto;
+			margin-right: 10px;
+		}
+		.controls {
+			margin-left: 0px;
+		}
+	}
+}
