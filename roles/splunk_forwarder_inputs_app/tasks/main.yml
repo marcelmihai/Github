@@ -1,4 +1,14 @@
 - name: install forwarder inputs app
   copy:
-    src: /export/home/mmuralikri/ansible4splunk/roles/splunk_forwarder_inputs_app/files/*
+    src: {{ item }}
     dest: "{{ forwarder_inputs_app_location }}"
+  with_items:
+  - alert_logevent
+  - alert_webhook
+  - all_deploymentclients
+  - appsbrowser
+  - emr_all_indexers_base
+  - forwarder_inputs_app
+  - framework
+  - gettingstarted
+  - global_citrix2003_inputs
