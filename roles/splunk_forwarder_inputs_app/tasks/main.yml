@@ -12,3 +12,5 @@
   - framework
   - gettingstarted
   - global_citrix2003_inputs
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
