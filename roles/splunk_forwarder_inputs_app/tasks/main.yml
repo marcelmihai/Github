@@ -25,5 +25,5 @@
     - TA-sepapp11
     - TA-sepapp12
     - Splunk_TA_paloalto
-    register: rsync_result
-    failed_when: rsync_result.rc > 1
+  register: rsync_result
+  failed_when: rsync_result.rc > 1
