@@ -82,7 +82,7 @@ usstlecpsecap20.extemr.org 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 [current]
 usstlecpsplcm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 gblonecpsplcm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
-cnhkgecpsplcm01 	  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+cnhkgecpsplcm01 	        SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 
 [dev]
 10.240.147.61
