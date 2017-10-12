@@ -85,12 +85,12 @@ gblonecpsplcm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 cnhkgecpsplcm01 	        SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 
 [dev]
-10.240.147.61
+10.240.146.166
 
 [cluster_master]
 usstlecpsplcm01
 
 [cluster_slave]
-10.240.147.235
-10.240.146.90
-10.240.147.140
+10.240.146.25
+10.240.146.137
+10.240.147.146
