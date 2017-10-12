@@ -1,0 +1,21 @@
+# Ansible inventory for Infr
+
+[skdp]
+usmtnecdsplsd01
+
+[sksh]
+usmtnecdsplsh01
+usmtnecdsplsh02
+usmtnecdsplsh03
+
+[skid_usstl]
+usmtnecdsplix01
+
+[skid_cnhk]
+usmtnecdsplix02
+
+[skid_gblo]
+usmtnecdsplix03
+
+[skhf]
+usmtnecdsplhf01
