@@ -2,7 +2,7 @@
   strategy: debug
   roles:
     - role: splunk
-- hosts: current
+- hosts: dev
   roles:
     - role: splunk_cluster_master
 - hosts: cluster_slave
