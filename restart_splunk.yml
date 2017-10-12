@@ -7,7 +7,7 @@
 # #  Restart current (v6) deployment servers:
 # #     ansible-playbook -i <inventory> -l "skdp*" restart_splunk.yml
 # #
-# #  Restart one search head: 
+# #  Restart one search head:
 # #     ansible-playbook -i <inventory> -l "usstlecpsecap43" restart_splunk.yml
 # #
 # #
@@ -21,4 +21,4 @@
   - name: Restart the Splunk service
   tasks:
   - include: tasks/restart_splunk_service.yml
-
+    when: SPLUNK_SITE == SITE
