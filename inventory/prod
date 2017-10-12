@@ -86,3 +86,8 @@ cnhkgecpsplcm01 	        SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 
 [dev]
 10.240.147.61
+
+[cluster_slave]
+10.240.147.235
+10.240.146.90
+10.240.147.140

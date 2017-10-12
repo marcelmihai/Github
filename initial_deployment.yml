@@ -1,7 +1,10 @@
-- hosts: current
+- hosts: current:&cluster_slave
   strategy: debug
   roles:
     - role: splunk
 - hosts: current
   roles:
     - role: splunk_cluster_master
+- hosts: cluster_slave
+  roles:
+    - role: splunk_cluster_slave
