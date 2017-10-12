@@ -1,8 +1,8 @@
-- hosts: cluster_master,cluster_slave
+- hosts: dev,cluster_slave
   strategy: debug
   roles:
     - role: splunk
-- hosts: cluster_master
+- hosts: dev
   roles:
     - role: splunk_cluster_master
 - hosts: cluster_slave
