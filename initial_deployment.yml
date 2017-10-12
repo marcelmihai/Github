@@ -1,4 +1,4 @@
-- hosts: current:&cluster_slave
+- hosts: dev:&cluster_slave
   strategy: debug
   roles:
     - role: splunk
