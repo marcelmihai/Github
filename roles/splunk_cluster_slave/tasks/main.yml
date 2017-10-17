@@ -10,6 +10,18 @@
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
+- name: configure pass4SymmKey
+  splunk_config_stanza:
+    auth_user: admin
+    auth_password: "{{ splunk_new_password }}"
+    app: cluster_slave_app
+    file: server
+    stanza: clustering
+    values:
+        mode: slave
+        pass4SymmKey: "{{ cluster_secret }}"
+    splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
+
 - name: configure master_uri
   splunk_config_stanza:
     auth_user: admin

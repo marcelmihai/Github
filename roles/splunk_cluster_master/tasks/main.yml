@@ -6,7 +6,7 @@
   become_user: "{{ SPLUNK_USER }}"
 
 - name: restart splunk
-  command: "{{ SPLUNK_HOME }}/bin/splunk restart"
+  command: "{{ SPLUNK_HOME }}/bin/splunk start"
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
