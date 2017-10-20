@@ -15,6 +15,7 @@ splunk_new_password: ji395CaJ1cY5MXL
 splunklib_1_6_6_location: /opt/splunk
 cluster_master: cluster-mster
 cluster_secret: splunk123
+sh_cluster_secret: splunk8789
 indexer_discovery_secret: splunk12345
 splunk_passwd: 'passwd'
 splunk_ca: 'cert.pem'

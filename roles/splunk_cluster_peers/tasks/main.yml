@@ -14,7 +14,23 @@
   wait_for: port=8089 timeout=30
   ignore_errors: yes
 
-- name: configure pass4SymmKey
+- name: configure pass4SymmKey for sh cluster
+  splunk_config_stanza:
+   auth_user: admin
+   auth_password: "{{ splunk_new_password }}"
+   app: cluster_master_app
+   file: server
+   stanza: shclustering
+   values:
+     conf_deploy_fetch_url: https://172.31.16.36:8089
+     disabled: 0
+     mgmt_uri: https://{{ ansible_hostname }}:8089
+     pass4SymmKey: "{{ sh_cluster_secret }}"
+     replication_factor: 2
+     shcluster_label: shcluster1
+   splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
+
+- name: configure indexer master-uri on searcheads
   splunk_config_stanza:
    auth_user: admin
    auth_password: "{{ splunk_new_password }}"
@@ -22,20 +38,10 @@
    file: server
    stanza: clustering
    values:
-     mode: master
+     mode: searchhead
+     master_uri: https://172.31.20.107:8089
      pass4SymmKey: "{{ cluster_secret }}"
    splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
-
-- name: configure indexer discovery pass4SymmKey
-  splunk_config_stanza:
-   auth_user: admin
-   auth_password: "{{ splunk_new_password }}"
-   app: cluster_master_app
-   file: server
-   stanza: indexer_discovery
-   values:
-     pass4SymmKey: "{{ indexer_discovery_secret }}"
-   splunklib: "{{ splunklib_1_6_6_location}}/splunklib-1.6.6"
 
 - name: restart splunk
   command: "{{ SPLUNK_HOME }}/bin/splunk restart"

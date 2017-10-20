@@ -20,22 +20,10 @@
    auth_password: "{{ splunk_new_password }}"
    app: cluster_master_app
    file: server
-   stanza: clustering
+   stanza: shclustering
    values:
-     mode: master
-     pass4SymmKey: "{{ cluster_secret }}"
+     pass4SymmKey: "{{ sh_cluster_secret }}"
    splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
-
-- name: configure indexer discovery pass4SymmKey
-  splunk_config_stanza:
-   auth_user: admin
-   auth_password: "{{ splunk_new_password }}"
-   app: cluster_master_app
-   file: server
-   stanza: indexer_discovery
-   values:
-     pass4SymmKey: "{{ indexer_discovery_secret }}"
-   splunklib: "{{ splunklib_1_6_6_location}}/splunklib-1.6.6"
 
 - name: restart splunk
   command: "{{ SPLUNK_HOME }}/bin/splunk restart"
@@ -45,3 +33,4 @@
 - name: Wait for Splunk startup
   wait_for: port=8089 timeout=30
   ignore_errors: yes
+
