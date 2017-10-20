@@ -1,10 +1,21 @@
-- hosts: dev
-  strategy: debug
+- hosts: sk*
   roles:
     - role: splunk
-- hosts: dev
+
+- hosts: skdp
+  roles:
+    - role: splunk_cluster_deployer
+
+- hosts: sksh
+  roles:
+    - role: splunk_cluster_peers
+
+- hosts:  skcm
   roles:
     - role: splunk_cluster_master
-- hosts: cluster_slave
+
+- hosts: skcs
   roles:
     - role: splunk_cluster_slave
+
+- include: bring_up_sh_cluster_captain.yml
