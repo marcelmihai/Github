@@ -8,25 +8,10 @@ usmtnecdsplsh01
 usmtnecdsplsh02
 usmtnecdsplsh03
 
-[skid_usstl]
+[skcs]
 usmtnecdsplix01
-
-[skid_cnhk]
 usmtnecdsplix02
-
-[skid_gblo]
 usmtnecdsplix03
 
-[skhf]
+[skcm]
 usmtnecdsplhf01
-
-[dev]
-10.240.147.61
-
-[cluster_master]
-usstlecpsplcm01
-
-[cluster_slave]
-10.240.147.235
-10.240.146.90
-10.240.147.140

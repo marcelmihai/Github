@@ -1,0 +1,8 @@
+- hosts: usmtnecdsplsh01
+  serial: 100%
+  name:  Bring up the cluster captain
+  become: true
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/splunk_bring_up_cluster_captain.yml

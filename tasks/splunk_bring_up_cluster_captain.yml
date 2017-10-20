@@ -1,0 +1,10 @@
+---
+
+- name: Bring up the cluster captain
+  command: /opt/splunk/bin/splunk bootstrap shcluster-captain -servers_list "https://usmtnecdsplsh01:8089,https://usmtnecdsplsh02:8089,https://usmtnecdsplsh03:8089" -auth admin:ji395CaJ1cY5MXL
+
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+- name: 60 sec sleeping to let the SHC cluster to come up
+  pause: seconds=60
