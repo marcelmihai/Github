@@ -10,12 +10,12 @@
     promt: "Splunk User ID"
     private: no
   - name: SPLUNK_PWD
-  promt: "Splunk Password"
-  private: yes
+    promt: "Splunk Password"
+    private: yes
   - name: MODE
     prompt: "Display Captain"
-  private: no
-  default: host
+    private: no
+    default: host
   become: true
   become_user: splunk
  tasks:
