@@ -12,8 +12,11 @@
     action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain'
     register: search_output
   - debug: var=search_output.stdout_lines
+  - add_host:
+      name: "{{ search_output }}"
+      groups: sksh_captain1
 
-- hosts: localhost
+- hosts: sksh_captain1
   serial: 1
   vars_prompt:
   - name: target_host
