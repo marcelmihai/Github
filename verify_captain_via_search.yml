@@ -5,7 +5,6 @@
 - hosts: usstlecpsecap43
   serial: 1
   name: Verify search heads
-  -  vars_prompt:
   - name: MODE
     prompt: "Display Captain"
     private: no
