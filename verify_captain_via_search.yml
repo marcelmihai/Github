@@ -25,3 +25,19 @@
     when: MODE == "Captain"
   - debug: var=search_output.stdout_lines
     when: MODE == "Captain"
+
+- hosts: localhost
+  gather_facts: no
+  vars_prompt:
+  - name: target_host
+    prompt: please enter the target host captain
+    private: no
+  tasks:
+    - add_host:
+        name: "{{ target_host }}"
+        groups: SearchHeads_Captain
+- hosts: SearchHeads_Captain
+  name: Apply rolling restart
+  command: /opt/splunk/bin/splunk rolling-restart shcluster-members
+  become: true
+  become_user: splunk
