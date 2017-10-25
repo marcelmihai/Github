@@ -44,5 +44,5 @@
   become: true
   become_user: splunk
   tasks:
-    - name: SearchHead rolling-restart
-      action: shell /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
+  - name: SearchHead rolling restart
+    shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD }}"
