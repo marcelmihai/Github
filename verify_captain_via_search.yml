@@ -6,12 +6,6 @@
   serial: 1
   name: Verify search heads
   vars_prompt:
-  - name: SPLUNK_USER
-    promt: "Splunk User ID"
-    private: no
-  - name: SPLUNK_PWD
-    promt: "Splunk Password"
-    private: yes
   - name: MODE
 #    prompt: "Display Captain"
 #    private: no
@@ -20,7 +14,7 @@
   become_user: splunk
   tasks:
   - name: Get_Captain
-    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -earliest_time -30m -preview false -output table -app search -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
+    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -earliest_time -30m -preview false -output table -app search
     register: search_output
     when: MODE == "Captain"
   - debug: var=search_output.stdout_lines
@@ -41,8 +35,15 @@
 
 - hosts: sksh_captain
   serial: 1
+  vars_prompt:
+  - name: SPLUNK_USER
+    promt: "Splunk User ID"
+    private: no
+  - name: SPLUNK_PWD
+    promt: "Splunk Password"
+    private: yes
   become: true
   become_user: splunk
   tasks:
   - name: SearchHead rolling restart
-    shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth admin:ji395CaJ1cY5MXL
+    shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}""
