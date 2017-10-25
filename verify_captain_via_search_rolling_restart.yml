@@ -1,0 +1,44 @@
+---
+
+# INFO: Verify captain via a splunk search
+#
+- hosts: usmtnecdsplsh01
+  serial: 1
+  name: Verify search heads
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+  - name: Get_Captain
+    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain'
+    register: search_output
+  - debug: var=search_output.stdout_lines
+
+- hosts: localhost
+  serial: 1
+  vars_prompt:
+  - name: target_host
+    prompt: please select the target captain
+    private: no
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+    - add_host:
+        name: "{{ target_host }}"
+        groups: sksh_captain
+
+# INFO: Apply the SearchHead rolling-restart
+
+- hosts: sksh_captain
+  serial: 1
+  vars_prompt:
+  - name: SPLUNK_USER
+    promt: "Splunk User ID"
+    private: no
+  - name: SPLUNK_PWD
+    promt: "Splunk Password"
+    private: yes
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+  - name: SearchHead rolling restart
+    shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
