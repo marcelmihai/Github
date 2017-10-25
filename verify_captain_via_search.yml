@@ -5,7 +5,7 @@
 - hosts: usstlecpsecap43
   serial: 1
   name: Verify search heads
-  - vars_prompt:
+  vars_prompt:
   - name: SPLUNK_USER
     promt: "Splunk User ID"
     private: no
