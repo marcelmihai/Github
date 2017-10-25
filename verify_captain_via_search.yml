@@ -36,5 +36,5 @@
   become: true
   become_user: splunk
   tasks:
-  - name: SearchHead rolling-restart
+  - name: SearchHead rolling restart
     action: /opt/splunk/bin/splunk rolling-restart shcluster-members
