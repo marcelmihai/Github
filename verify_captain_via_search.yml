@@ -7,7 +7,7 @@
   name: Verify search heads
   vars_prompt:
   - name: SPLUNK_USER
-	promt: "Splunk User ID"
+	  promt: "Splunk User ID"
 	private: no
   - name: SPLUNK_PWD
     promt: yes
