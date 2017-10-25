@@ -39,6 +39,7 @@
 
 - hosts: sksh
   tasks:
-    command: /opt/splunk/bin/splunk rolling-restart shcluster-members
+  - name: SearchHead rolling-restart
+    action: /opt/splunk/bin/splunk rolling-restart shcluster-members
   become: true
   become_user: splunk
