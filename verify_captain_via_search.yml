@@ -13,8 +13,8 @@
     promt: "Splunk Password"
     private: yes
   - name: MODE
-    prompt: "Display Captain"
-    private: no
+#    prompt: "Display Captain"
+#    private: no
     default: Captain
   become: true
   become_user: splunk
