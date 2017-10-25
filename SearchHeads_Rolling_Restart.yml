@@ -7,9 +7,9 @@
   tasks:
     - add_host:
         name: "{{ target_host }}"
-        groups: dynamically_created_hosts
+        groups: sksh
 
-- hosts: dynamically_created_hosts
+- hosts: sksh
   tasks:
     command: /opt/splunk/bin/splunk rolling-restart shcluster-members
   become: true
