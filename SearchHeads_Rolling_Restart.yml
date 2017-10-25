@@ -1,0 +1,16 @@
+- hosts: localhost
+  gather_facts: no
+  vars_prompt:
+  - name: target_host
+    prompt: please enter the target host captain
+    private: no
+  tasks:
+    - add_host:
+        name: "{{ target_host }}"
+        groups: dynamically_created_hosts
+
+- hosts: dynamically_created_hosts
+  tasks:
+    command: /opt/splunk/bin/splunk rolling-restart shcluster-members
+  become: true
+  become_user: splunk
