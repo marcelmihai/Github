@@ -9,7 +9,7 @@
   become_user: splunk
   tasks:
   - name: Get_Captain
-    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain'
+    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -earliest_time -30m -preview false -output table -app search
     register: search_output
   - debug: var=search_output.stdout_lines
 
@@ -26,8 +26,7 @@
         name: "{{ target_host }}"
         groups: sksh_captain
 
-# INFO: Apply the SearchHead rolling-restart
-
+# INFO: SearchHead Rolling Restart
 - hosts: sksh_captain
   serial: 1
   vars_prompt:
