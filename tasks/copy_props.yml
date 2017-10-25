@@ -1,0 +1,8 @@
+---
+
+- copy:
+    src: /splunkds/splunk-configs/props.conf
+    dest: /opt/splunk/etc/system/local/props.conf
+    owner: splunk
+    group: splunk
+    mode: 0654
