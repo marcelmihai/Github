@@ -11,4 +11,4 @@
   - name: Get Captain
     action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain'
     register: search_output
-  - debug: msg="Captain ---/ {{search_output.stdout}}/{{search_output.stderr}}"
+  - debug: msg=search_output.stdout_lines
