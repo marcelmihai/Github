@@ -9,5 +9,5 @@
   become_user: splunk
   tasks:
   - name: Get Captain
-    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -earliest_time -30m -preview false -output table -app search -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
+    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain'
     register: search_output
