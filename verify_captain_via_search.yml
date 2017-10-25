@@ -8,16 +8,16 @@
   vars_prompt:
   - name: SPLUNK_USER
     promt: "Splunk User ID"
-	private: no
+  private: no
   - name: SPLUNK_PWD
-    promt: "Splunk Password"
+  promt: "Splunk Password"
   private: yes
   - name: MODE
     prompt: "Display Captain"
-	private: no
-	default: host
- become: true
- become_user: splunk
+  private: no
+  default: host
+  become: true
+  become_user: splunk
  tasks:
  - name: Get Captain
    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -earliest_time -30m -preview false -output table -app search -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
