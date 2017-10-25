@@ -1,4 +1,4 @@
-- hosts: sksh
+- hosts: sksh_usstl
   serial: 100
   name: Copying props.conf to all PROD SearchHeads
   become: yes
