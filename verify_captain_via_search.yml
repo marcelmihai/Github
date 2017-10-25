@@ -38,6 +38,7 @@
         groups: SearchHeads_Captain
 - hosts: SearchHeads_Captain
   name: Apply rolling restart
-  command: /opt/splunk/bin/splunk rolling-restart shcluster-members
+  tasks:
+    command: /opt/splunk/bin/splunk rolling-restart shcluster-members
   become: true
   become_user: splunk
