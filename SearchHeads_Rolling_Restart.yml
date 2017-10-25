@@ -7,12 +7,12 @@
   tasks:
     - add_host:
         name: "{{ target_host }}"
-        groups: sksh
+        groups: sksh_captain
 
-- hosts: sksh
+- hosts: sksh_captain
   serial: 1
   become: true
   become_user: splunk
   tasks:
   - name: SearchHead rolling-restart
-    action: /opt/splunk/bin/splunk rolling-restart shcluster-members
+    action: shell /opt/splunk/bin/splunk rolling-restart shcluster-members
