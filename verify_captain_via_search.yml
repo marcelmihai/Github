@@ -19,22 +19,16 @@
   become: true
   become_user: splunk
   tasks:
-  - name: Get Captain
+  - name: Get_Captain
     action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -earliest_time -30m -preview false -output table -app search -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
     register: search_output
     when: MODE == "Captain"
   - debug: var=search_output.stdout_lines
     when: MODE == "Captain"
 
-- hosts: localhost
-  gather_facts: no
-  vars_prompt:
-  - name: target_host
-    prompt: please enter the target host captain
-    private: no
   tasks:
     - add_host:
-        name: "{{ target_host }}"
+        name: "{{ Get_Captain }}"
         groups: sksh
 
 - hosts: sksh
