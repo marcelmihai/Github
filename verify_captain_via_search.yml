@@ -35,9 +35,9 @@
   tasks:
     - add_host:
         name: "{{ target_host }}"
-        groups: SearchHeads_Captain
-- hosts: SearchHeads_Captain
-  name: Apply rolling restart
+        groups: dynamically_created_hosts
+
+- hosts: dynamically_created_hosts
   tasks:
     command: /opt/splunk/bin/splunk rolling-restart shcluster-members
   become: true
