@@ -31,6 +31,19 @@
         name: "{{ target_host }}"
         groups: sksh_captain
 
+- hosts: localhost
+  serial: 1
+  vars_prompt:
+  - name: target_host
+    prompt: please enter the target host captain
+    private: no
+  become: true
+  become_user: splunk
+  tasks:
+    - add_host:
+        name: "{{ target_host }}"
+        groups: sksh_captain
+
 - hosts: sksh_captain
   serial: 1
   vars_prompt:
@@ -40,5 +53,5 @@
   become: true
   become_user: splunk
   tasks:
-  - name: SearchHead rolling-restart
-    action: shell /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
+    - name: SearchHead rolling-restart
+      action: shell /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
