@@ -4,6 +4,12 @@
   - name: target_host
     prompt: please enter the target host captain
     private: no
+  - name: SPLUNK_USER
+    promt: "Splunk User ID"
+    private: no
+  - name: SPLUNK_PWD
+    promt: "Splunk Password"
+    private: yes
   tasks:
     - add_host:
         name: "{{ target_host }}"
@@ -15,4 +21,4 @@
   become_user: splunk
   tasks:
   - name: SearchHead rolling-restart
-    action: shell /opt/splunk/bin/splunk rolling-restart shcluster-members
+    action: shell /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
