@@ -15,7 +15,7 @@
   - name: MODE
     prompt: "Display Captain"
     private: no
-    default: usstl-splunk-sh1
+    default: Captain
   become: true
   become_user: splunk
   tasks:
