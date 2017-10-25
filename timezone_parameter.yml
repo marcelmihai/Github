@@ -1,0 +1,8 @@
+- hosts: sksh
+  serial: 100
+  name: Copying props.conf to all PROD SearchHeads
+  become: yes
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/copy_props.yml
