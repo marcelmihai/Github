@@ -8,7 +8,7 @@
   vars_prompt:
   - name: SPLUNK_USER
     promt: "Splunk User ID"
-  private: no
+    private: no
   - name: SPLUNK_PWD
   promt: "Splunk Password"
   private: yes
