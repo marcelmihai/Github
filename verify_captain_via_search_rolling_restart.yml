@@ -16,7 +16,7 @@
   become_user: "{{ SPLUNK_USER }}"
   tasks:
   - name: Get_Captain
-    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain'
+    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
     register: search_output
   - debug: var=search_output.stdout_lines
 
@@ -48,4 +48,4 @@
   become_user: "{{ SPLUNK_USER }}"
   tasks:
   - name: SearchHead rolling restart
-    shell: /opt/splunk/bin/splunk rolling-restart shcluster-members
+    shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth {{ SPLUNK_USER }}:{{ SPLUNK_PWD}}
