@@ -2,7 +2,7 @@
 
 # INFO: Verify captain via a splunk search
 #
-- hosts: usmtnecdsplsh01
+- hosts: usstlecpsecap43
   serial: 1
   name: Verify search heads
   become: true
@@ -31,7 +31,7 @@
 - hosts: sksh_captain
   serial: 1
   vars_prompt:
-  - name: SPLUNK_ADMIN
+  - name: SPLUNK_USER
     promt: "Splunk User ID"
     private: no
   - name: SPLUNK_PWD
@@ -41,4 +41,4 @@
   become_user: "{{ SPLUNK_USER }}"
   tasks:
   - name: SearchHead rolling restart
-    shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_ADMIN }}:{{ SPLUNK_PWD}}"
+shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_USER }}:{{ SPLUNK_PWD}}"
