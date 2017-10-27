@@ -4,58 +4,48 @@
   shell: cat /etc/redhat-release
   register: facter_output
 - debug: msg=facter_output.stdout_lines
-- debug: msg=facter_output.stderr_lines
 
 - name: Checking linux kernel
   shell: uname -a
   register: check_linux_patch_status
 - debug: msg=check_linux_patch_status.stdout_lines
-- debug: msg=check_linux_patch_status.stderr_lines
-- lineinfile: create=yes regexp="NONEXISTENTLINE" dest=/tmp/ansible.log line="current_linux_patch_status ---/{{check_linux_patch_status.stdout}}" state=present
 
 - name: Checking current linux patch applied date
   shell: lsb_release -a
   register: check_linux_patch_date
-- debug: msg="Patch_Date ---/ {{check_linux_patch_date.stdout}}/{{check_linux_patch_date.stderr}}"
-- lineinfile: create=yes regexp="NONEXISTENTLINE" dest=/tmp/ansible.log line="current_linux_patch_applied_date ---/{{check_linux_patch_date.stdout}}" state=present
+- debug: msg=check_linux_patch_date.stdout_lines
 
 - name: Checking /opt/splunk ownership
   shell: ls -ld /opt/splunk | awk '{print $3}'
   register: OptSplunk_Ownership
-- debug: msg="OptSplunk_Ownership ---/ {{OptSplunk_Ownership.stdout}}/{{OptSplunk_Ownership.stderr}}"
-- lineinfile: create=yes regexp="NONEXISTENTLINE" dest=/tmp/ansible.log line="OptSplunk_Ownership ---/{{OptSplunk_Ownership.stdout}}" state=present
+- debug: msg=OptSplunk_Ownership.stdout_lines
 
 - name: Checking /opt/splunk/group ownership
   shell: ls -ld /opt/splunk | awk '{print $4}'
   register: OptSplunkGroup_Ownership
-- debug: msg="OptSplunkGroup_Ownership ---/ {{OptSplunkGroup_Ownership.stdout}}/{{OptSplunkGroup_Ownership.stderr}}"
-- lineinfile: create=yes regexp="NONEXISTENTLINE" dest=/tmp/ansible.log line="OptSplunkGroup_Ownership ---/{{OptSplunkGroup_Ownership.stdout}}" state=present
+- debug: msg=OptSplunkGroup_Ownership.stdout_lines
 
 - name: Checking permissions on /opt/splunk (read/write)
   shell: ls -l /opt/splunk | awk '{print $1}'
   register: OptSplunk_rw_Permission
-- debug: msg="OptSplunk_rw_Permission ---/ {{OptSplunk_rw_Permission.stdout}}/{{OptSplunk_rw_Permission.stderr}}"
-- lineinfile: create=yes regexp="NONEXISTENTLINE" dest=/tmp/ansible.log line="OptSplunk_rw_Permission ---/{{OptSplunk_rw_Permission.stdout}}" state=present
+- debug: msg=OptSplunk_rw_Permission.stdout_lines
 
 - name: Checking /opt/splunk/bin files are executable by splunk
   shell: ls -l /opt/splunk/bin | awk '{print $3}'
   register: exe_by_splunk
-- debug: msg="Usage ---/ {{exe_by_splunk.stdout}}/{{exe_by_splunk.stderr}}"
-- lineinfile: create=yes regexp="NONEXISTENTLINE" dest=/tmp/ansible.log line="exe_by_splunk ---/{{exe_by_splunk.stdout}}" state=present
+- debug: msg=exe_by_splunk.stdout_lines
 
 - name: FileSystem Size
   shell: export usage=$(df -lah /opt/splunk|grep "/opt/splunk" | awk '{print int($1)}') ; echo $usage
   register: check_filesystem_size
-- debug: msg="Usage ---/ {{check_filesystem_size.stdout}}/{{check_filesystem_size.stderr}}"
-- lineinfile: create=yes regexp="NONEXISTENTLINE" dest=/tmp/ansible.log line="FilesystemSize ---/{{check_filesystem_size.stdout}}" state=present
+- debug: msg=check_filesystem_size.stdout_lines
 
 - name: FileSystem usage
   shell: export usage=$(df -lah /opt/splunk|grep "/opt/splunk" | awk '{print int($4)}') ; echo $usage
   register: check_filesystem_usage
-- debug: msg="Usage ---/ {{check_filesystem_usage.stdout}}/{{check_filesystem_usage.stderr}}"
-- lineinfile: create=yes regexp="NONEXISTENTLINE" dest=/tmp/ansible.log line="FilesystemUsage ---/{{check_filesystem_usage.stdout}}" state=present
+- debug: msg=check_filesystem_usage.stdout_lines
 
 - name: Checking current splunk status
   command: /opt/splunk/bin/splunk status
   register: splunk_status
-- debug: msg="Splunk Status is ---/ {{splunk_status.stdout}}/{{splunk_status.stderr}}"
+- debug: msg=splunk_status.stdout_lines
