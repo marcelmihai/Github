@@ -1,7 +1,7 @@
 ---
-- hosts: skdp
+- hosts: s*
   become: true
-  become_user: splunk
+  become_user: "{{ SPLUNK_USER }}"
   tasks:
     - include: tasks/linux_patch_checking.yml
       static: no
