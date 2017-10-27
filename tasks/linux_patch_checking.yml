@@ -9,7 +9,8 @@
 - name: Checking linux kernel
   shell: uname -a
   register: check_linux_patch_status
-- debug: msg="Patch_Status ---/ {{check_linux_patch_status.stdout}}/{{check_linux_patch_status.stderr}}"
+- debug: msg="Patch_Status ---/ {{ check_linux_patch_status.stdout }}"
+- debug: msg="Patch_Status ---/ {{ check_linux_patch_status.stderr }}"
 - lineinfile: create=yes regexp="NONEXISTENTLINE" dest=/tmp/ansible.log line="current_linux_patch_status ---/{{check_linux_patch_status.stdout}}" state=present
 
 - name: Checking current linux patch applied date
