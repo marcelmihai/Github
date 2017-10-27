@@ -3,7 +3,8 @@
 - name: Checking current linux patch status
   shell: cat /etc/redhat-release
   register: facter_output
-- debug: msg="Patch ---/ "{{facter_output.stdout}}"/"{{facter_output.stderr}}""
+- debug: msg="{{facter_output.stdout}}"
+- debug: msg="{{facter_output.stderr}}"
 
 - name: Checking linux kernel
   shell: uname -a
