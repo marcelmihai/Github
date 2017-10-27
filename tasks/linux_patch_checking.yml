@@ -4,13 +4,13 @@
   shell: cat /etc/redhat-release
   register: facter_output
 - debug: msg=facter_output.stdout_lines
-- debug: msg=facter_output.stderr.lines
+- debug: msg=facter_output.stderr_lines
 
 - name: Checking linux kernel
   shell: uname -a
   register: check_linux_patch_status
-- debug: msg="Patch_Status ---/ {{ check_linux_patch_status.stdout }}"
-- debug: msg="Patch_Status ---/ {{ check_linux_patch_status.stderr }}"
+- debug: msg=check_linux_patch_status.stdout_lines
+- debug: msg=check_linux_patch_status.stderr_lines
 - lineinfile: create=yes regexp="NONEXISTENTLINE" dest=/tmp/ansible.log line="current_linux_patch_status ---/{{check_linux_patch_status.stdout}}" state=present
 
 - name: Checking current linux patch applied date
