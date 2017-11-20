@@ -48,33 +48,45 @@ usstl-splunk-hf02 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-hf03  		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-hf04  		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 
-[skcm_cnhk]
-uklon-splunk-cm01 	  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
-
-[skid_cnhk]
-uklon-splunk-idx1 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
-uklon-splunk-idx2 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
-uklon-splunk-idx3 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
-uklon-splunk-idx4 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
-
-[skhf_cnhk]
-uklon-splunk-hf1 		  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
-uklon-splunk-hf2		  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
-
 [skcm_gblo]
-cnhkg-splunk-cm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+uklon-splunk-cm01 	  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 
 [skid_gblo]
-cnhkg-splunk-idx1 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
-cnhkg-splunk-idx2 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
-cnhkg-splunk-idx3 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
-cnhkg-splunk-idx4 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+uklon-splunk-idx1 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+uklon-splunk-idx2 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+uklon-splunk-idx3 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+uklon-splunk-idx4 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 
 [skhf_gblo]
-cnhkg-splunk-hf1 		  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
-cnhkg-splunk-hf2 		  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+uklon-splunk-hf1 		  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+uklon-splunk-hf2		  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+
+[skcm_gblo]
+cnhkg-splunk-cm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+
+[skid_gblo]
+cnhkg-splunk-idx1 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+cnhkg-splunk-idx2 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+cnhkg-splunk-idx3 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+cnhkg-splunk-idx4 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+
+[skhf_gblo]
+cnhkg-splunk-hf1 		  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+cnhkg-splunk-hf2 		  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 
 [skhf_dmz]
 usstl-splunk-hfdmz 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 
-[syslog]
+[syslog_usstl]
+usstl-splunk-hf01 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
+usstl-splunk-hf02 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
+usstl-splunk-hf03  		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
+usstl-splunk-hf04  		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
+
+[syslog_gblo]
+uklon-splunk-hf1 		  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+uklon-splunk-hf2		  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+
+[syslog_cnhk]
+cnhkg-splunk-hf1 		  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+cnhkg-splunk-hf2 		  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
