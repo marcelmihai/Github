@@ -26,6 +26,7 @@
      pass4SymmKey: "{{ cluster_secret }}"
    splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
 
+# Discuss about this one with Mike
 - name: configure indexer discovery pass4SymmKey
   splunk_config_stanza:
    auth_user: admin
