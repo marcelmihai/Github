@@ -25,6 +25,7 @@
    values:
      mode: searchhead
      master_uri: clustermaster:usstl, clustermaster:gblon, clustermaster:cnhkg
+   splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
 
 - name: configure USSTL indexer master-uri on searcheads
   splunk_config_stanza:
