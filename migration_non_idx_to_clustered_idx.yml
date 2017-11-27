@@ -1,0 +1,11 @@
+- hosts:  skcm
+  roles:
+    - role: splunk_cluster_master_node
+
+- hosts: skcs
+  roles:
+    - role: splunk_cluster_peer_nodes
+
+- hosts: sksh
+  roles:
+    - role: splunk_integrate_sh_cluster_with_idx_cluster
