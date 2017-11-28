@@ -1,0 +1,37 @@
+- name: install cluster_peer_app
+  copy:
+    src: cluster_peer_app
+    dest: "{{ SPLUNK_HOME }}/etc/apps"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+- name: restart splunk
+  command: "{{ SPLUNK_HOME }}/bin/splunk restart"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+- name: Wait for Splunk startup
+  wait_for: port=8089 timeout=30
+  ignore_errors: yes
+
+- name: configure pass4SymmKey
+  splunk_config_stanza:
+    auth_user: admin
+    auth_password: "{{ splunk_new_password }}"
+    app: cluster_peer_app
+    file: server
+    stanza: clustering
+    values:
+        mode: slave
+        pass4SymmKey: "{{ cluster_secret }}"
+        master_uri: "https://{{ cluster_master_cnhk }}:8089"
+    splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
+
+- name: restart splunk
+  command: "{{ SPLUNK_HOME }}/bin/splunk restart"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+- name: Wait for Splunk startup
+  wait_for: port=8089 timeout=30
+  ignore_errors: yes

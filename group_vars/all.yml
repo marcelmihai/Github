@@ -12,7 +12,9 @@ SPLUNK_BINARY: "{{ ANSIBLE_HOME }}/splunk_binary/splunk-6.6.3-e21ee54bc796-Linux
 SPLUNK_VERSION: "6.6.2"
 SPLUNK_LEGACY: "6.5.1"
 splunklib_1_6_6_location: /opt/splunk
-cluster_master: usmtnecdsplhf01
+cluster_master_usstl: usstl-splunk-cm01
+cluster_master_gblo: uklon-splunk-cm01
+cluster_master_cnhk: cnhkg-splunk-cm01
 splunk_ca: 'cert.pem'
 splunk_pem: 'server-key.pem'
 splunk_authentication: 'authentication.conf'
