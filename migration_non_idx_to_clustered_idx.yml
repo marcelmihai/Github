@@ -1,4 +1,4 @@
-- hosts:  skcm
+- hosts: skcm_*
   roles:
     - role: splunk_cluster_master_node
 
