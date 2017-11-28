@@ -1,10 +1,18 @@
-- hosts:  skcm
+- hosts: skcm_*
   roles:
     - role: splunk_cluster_master_node
 
-- hosts: skcs
+- hosts: skid_usstl
   roles:
-    - role: splunk_cluster_peer_nodes
+    - role: splunk_cluster_peer_usstl
+
+- hosts: skid_gblo
+  roles:
+    - role: splunk_cluster_peer_gblo
+
+- hosts: skid_cnhk
+  roles:
+    - role: splunk_cluster_peer_cnhk
 
 - hosts: sksh
   roles:
