@@ -1,6 +1,6 @@
-- name: install cluster_slave_app
+- name: install cluster_peer_app
   copy:
-    src: cluster_slave_app
+    src: cluster_peer_app
     dest: "{{ SPLUNK_HOME }}/etc/apps"
   become: true
   become_user: "{{ SPLUNK_USER }}"
@@ -18,7 +18,7 @@
   splunk_config_stanza:
     auth_user: admin
     auth_password: "{{ splunk_new_password }}"
-    app: cluster_slave_app
+    app: cluster_peer_app
     file: server
     stanza: clustering
     values:
