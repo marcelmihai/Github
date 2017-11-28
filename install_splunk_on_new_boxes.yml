@@ -1,3 +1,3 @@
-- hosts: new_skid_*
+- hosts: new_*_*
   roles:
     - role: splunk
