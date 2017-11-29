@@ -122,8 +122,12 @@ uklon-splunk-hf2		  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 cnhkg-splunk-hf1 		  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 cnhkg-splunk-hf2 		  SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 
-[new_cm_idx]
+[new_cm]
 usstl-splunk-cm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
+uklon-splunk-cm01 	  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
+cnhkg-splunk-cm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
+
+[new_idx]
 usstl-splunk-idx25 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-idx26 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-idx27 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
@@ -132,9 +136,7 @@ usstl-splunk-idx29 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-idx30 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-idx31 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-idx32 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
-uklon-splunk-cm01 	  SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 uklon-splunk-idx05 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 uklon-splunk-idx06 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
-cnhkg-splunk-cm01 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 cnhkg-splunk-idx05 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 cnhkg-splunk-idx06 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
