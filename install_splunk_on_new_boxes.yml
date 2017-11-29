@@ -1,3 +1,3 @@
-- hosts: new_*_*
+- hosts: new_*
   roles:
     - role: splunk
