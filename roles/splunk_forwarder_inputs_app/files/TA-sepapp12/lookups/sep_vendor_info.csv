@@ -1,0 +1,12 @@
+sourcetype,vendor,product,ids_type
+sep12:admin,Symantec,Endpoint Protection,
+sep12:agent,Symantec,Endpoint Protection,
+sep12:agt_system,Symantec,Endpoint Protection,
+sep12:behavior,Symantec,Endpoint Protection,host
+sep12:ids,Symantec,Endpoint Protection,host
+sep12:policy,Symantec,Endpoint Protection,
+sep12:proactive,Symantec,Endpoint Protection,
+sep12:risk,Symantec,Endpoint Protection,
+sep12:scan,Symantec,Endpoint Protection,
+sep12:scm_system,Symantec,Endpoint Protection,
+sep12:traffic,Symantec,Endpoint Protection,

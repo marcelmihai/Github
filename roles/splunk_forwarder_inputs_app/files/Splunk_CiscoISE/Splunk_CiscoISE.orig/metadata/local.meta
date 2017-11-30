@@ -1,0 +1,42 @@
+[views/profiler]
+owner = admin
+version = 6.0
+modtime = 1388511448.271229000
+
+[nav/default]
+version = 6.0
+modtime = 1387232032.552483000
+
+[views/management_auditing]
+owner = admin
+version = 6.0
+modtime = 1386641040.923012000
+
+[inputs/udp%3A%2F%2F1514]
+owner = admin
+version = 6.0
+modtime = 1386695417.719470000
+
+[inputs/udp%3A%2F%2F5140]
+owner = admin
+version = 6.0
+modtime = 1386698374.715559000
+
+[app/install/is_configured]
+version = 6.0
+modtime = 1388513259.618587000
+
+[inputs/udp%3A%2F%2F10000]
+owner = admin
+version = 6.0
+modtime = 1386699578.617298000
+
+[views/system_health]
+owner = admin
+version = 6.0
+modtime = 1387231988.166286000
+
+[views/authentication_summary]
+owner = admin
+version = 6.0
+modtime = 1387237443.225669000

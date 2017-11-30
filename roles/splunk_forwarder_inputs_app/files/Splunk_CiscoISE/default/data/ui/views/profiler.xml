@@ -1,0 +1,51 @@
+<dashboard>
+  <label>Profiler</label>
+  <row>
+    <chart>
+      <title>Profiled Devices</title>
+      <searchString>sourcetype="cisco:ise:syslog" MESSAGE_CODE=80002  | timechart usenull=f count by EndpointIdentityGroup</searchString>
+      <earliestTime>-90d</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    <chart>
+      <title>Unregistered Devices by type</title>
+      <searchString>sourcetype="cisco:ise:syslog" MESSAGE_CODE=80002 "deviceregistrationstatus=notregistered" | timechart count by EndpointMatchedPolicy</searchString>
+      <earliestTime>-90d</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">area</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+  </row>
+  <row>
+    <table>
+      <title>Most common devices</title>
+      <searchString>sourcetype="cisco:ise:syslog" MESSAGE_CODE=80002 | top EndpointMatchedPolicy</searchString>
+      <earliestTime>-90d</earliestTime>
+      <latestTime>now</latestTime>
+    </table>
+  </row>
+</dashboard>
