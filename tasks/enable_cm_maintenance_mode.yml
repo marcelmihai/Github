@@ -1,0 +1,9 @@
+- name: enable maintainence mode
+  command: "{{ SPLUNK_HOME }}/bin/splunk enable maintenance-mode"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+- name: determine maintenance mode status
+  command: "{{ SPLUNK_HOME }}/bin/splunk show maintenance-mode"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"

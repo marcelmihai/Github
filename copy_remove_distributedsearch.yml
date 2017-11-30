@@ -1,0 +1,9 @@
+- hosts: sksh*
+  serial: 100
+  name: copy and remove distsearch stanza in /etc/system/local/distsearch.conf on all searchheads
+  become: yes
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/copy_distributedsearch.yml
+        - include: tasks/remove_distributedseach.yml

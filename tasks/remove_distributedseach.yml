@@ -1,0 +1,9 @@
+# Remove the distsearch stanza in /etc/system/local/distsearch.conf on all searchheads
+- name: remove distributedSearch stanza in distsearch.conf
+  blockinfile:
+    dest: /opt/splunk/etc/system/local/distsearch.conf
+    marker: "<!-- {[distributedSearch]} ANSIBLE MANAGED BLOCK -->"
+    state: absent
+    backup: yes
+  become: true
+  become_user: "{{ SPLUNK_USER }}"

@@ -3,9 +3,60 @@
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
-  #Add a new task for removing all custom apps under /opt/splunk/etc/apps/
+- name: removing pre-existing backup of local apps
+  file:
+    path=/opt/splunk/etc/apps-local.tar.gz state=absent
 
-  # Add a task for removing indexes.conf in all indexers
+- name: backing up local apps
+  shell: tar -czf /opt/splunk/etc/apps-local.tar.gz /opt/splunk/etc/apps
+  become: true
+  become_user: "{{ splunk_user }}"
+
+# Added a new task for removing all custom apps under /opt/splunk/etc/apps/
+- name: remove all custom apps in the existing indexers
+  file:
+    state: absent
+    path: "/opt/splunk/etc/apps/{{ item }}"
+  with_items:
+  - all_deploymentclients
+  - emr_all_indexers_base
+  - forwarder_inputs_app
+  - global_citrix2003_inputs
+  - global_citrix2008_inputs
+  - global_misc_props
+  - global_unix_inputs
+  - isamonitor
+  - Splunk_CiscoISE
+  - Splunk_TA_BIT9-CarbonBlack
+  - Splunk_TA_bro_json
+  - Splunk_TA_bro_props
+  - Splunk_TA_cisco-esa
+  - Splunk_TA_windows_props
+  - SSL-versions
+  - TA-cisco-asa
+  - TA-Damballa-Failsafe-520-v101
+  - TA-DNSServer-NT6
+  - TA-DomainController-NT6
+  - TA-sepapp11
+  - TA-sepapp12
+  - Splunk_TA_paloalto
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+- name: backing up indexes.conf
+  shell: cp /opt/splunk/etc/system/local/indexes.conf /tmp/
+  become: true
+  become_user: "{{ splunk_user }}"
+
+# removing indexes.conf in all indexers
+- name: remove indexes.conf
+  file:
+    state: absent
+    path: "/opt/splunk/etc/system/local/{{ item }}"
+  with_items:
+  - indexes.conf
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
 
 - name: install cluster_peer_app
   copy:
@@ -26,7 +77,7 @@
         mode: slave
         pass4SymmKey: "{{ cluster_secret }}"
         master_uri: "https://{{ cluster_master_cnhk }}:8089"
-    splunklib: "{{ splunklib_1_6_6_location }}/splunklib-1.6.6"
+    splunklib: "{{ splunklib_1_6_2_location }}/splunklib-1.6.2"
 
 - name: restart splunk
   command: "{{ SPLUNK_HOME }}/bin/splunk restart"
@@ -34,5 +85,5 @@
   become_user: "{{ SPLUNK_USER }}"
 
 - name: Wait for Splunk startup
-  wait_for: port=8089 timeout=900 delay=30
+  wait_for: port=8089 timeout=30
   ignore_errors: yes

@@ -2,7 +2,11 @@
   roles:
     - role: splunk_cluster_master_node
 
-# put all cluster masters in maintainence mode
+# Enable maintenance mode
+- include: enable_maintenance_mode.yml
+
+# copy and remove distsearch stanza in /etc/system/local/distsearch.conf on all searchheads
+- include: copy_remove_distributedsearch.yml
 
 - hosts: skid_usstl
   roles:
@@ -17,6 +21,7 @@
     - role: splunk_cluster_peer_cnhk
 
 # disable maintainence mode on cluster masters
+- include: disable_maintenance_mode.yml
 
 - hosts: sksh
   roles:
