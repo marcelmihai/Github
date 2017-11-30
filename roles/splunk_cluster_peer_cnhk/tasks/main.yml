@@ -1,3 +1,12 @@
+- name: stop splunk
+  command: /opt/splunk/bin/splunk stop
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+  #Add a new task for removing all custom apps under /opt/splunk/etc/apps/
+
+  # Add a task for removing indexes.conf in all indexers
+
 - name: install cluster_peer_app
   copy:
     src: cluster_peer_app
@@ -5,16 +14,8 @@
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
-- name: restart splunk
-  command: "{{ SPLUNK_HOME }}/bin/splunk restart"
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
-
-- name: Wait for Splunk startup
-  wait_for: port=8089 timeout=30
-  ignore_errors: yes
-
 - name: configure pass4SymmKey
+  validate_certs: false
   splunk_config_stanza:
     auth_user: admin
     auth_password: "{{ splunk_new_password }}"
@@ -33,5 +34,5 @@
   become_user: "{{ SPLUNK_USER }}"
 
 - name: Wait for Splunk startup
-  wait_for: port=8089 timeout=30
+  wait_for: port=8089 timeout=900 delay=30
   ignore_errors: yes

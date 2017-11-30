@@ -2,6 +2,8 @@
   roles:
     - role: splunk_cluster_master_node
 
+# put all cluster masters in maintainence mode
+
 - hosts: skid_usstl
   roles:
     - role: splunk_cluster_peer_usstl
@@ -13,6 +15,8 @@
 - hosts: skid_cnhk
   roles:
     - role: splunk_cluster_peer_cnhk
+
+# disable maintainence mode on cluster masters
 
 - hosts: sksh
   roles:
