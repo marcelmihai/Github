@@ -65,6 +65,15 @@
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
+- name: restart splunk
+  command: "{{ SPLUNK_HOME }}/bin/splunk restart"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+- name: Wait for Splunk startup
+  wait_for: port=8089 timeout=900 delay=30
+  ignore_errors: yes
+
 - name: configure pass4SymmKey
   validate_certs: false
   splunk_config_stanza:
@@ -75,6 +84,7 @@
     stanza: clustering
     values:
         mode: slave
+        multisite: true
         pass4SymmKey: "{{ cluster_secret }}"
         master_uri: "https://{{ cluster_master_usstl }}:8089"
     splunklib: "{{ splunklib_1_6_2_location }}/splunklib-1.6.2"
