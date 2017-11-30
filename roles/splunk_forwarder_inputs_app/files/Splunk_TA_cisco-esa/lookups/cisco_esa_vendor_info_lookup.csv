@@ -1,5 +1,0 @@
-sourcetype,vendor,product,app
-cisco:esa:syslog,Cisco,ESA,Ironport
-cisco:esa:textmail,Cisco,ESA,Ironport
-cisco:esa:authentication,Cisco,ESA,ssh
-cisco:esa:http,Cisco,ESA
