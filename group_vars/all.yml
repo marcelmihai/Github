@@ -11,7 +11,7 @@ SPLUNK_RELEASE_DEST: "{{SPLUNK_ETC}}/deployment-apps"
 SPLUNK_BINARY: "{{ ANSIBLE_HOME }}/splunk_binary/splunk-6.6.3-e21ee54bc796-Linux-x86_64.tgz"
 SPLUNK_VERSION: "6.6.2"
 SPLUNK_LEGACY: "6.5.1"
-splunklib_1_6_6_location: /opt/splunk
+splunklib_1_6_2_location: /opt/splunk
 cluster_master_usstl: usstl-splunk-cm01
 cluster_master_gblo: uklon-splunk-cm01
 cluster_master_cnhk: cnhkg-splunk-cm01
