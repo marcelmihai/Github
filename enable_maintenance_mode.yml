@@ -5,4 +5,4 @@
   become_user: splunk
   tasks:
   - block:
-        - include: tasks\enable_cm_maintenance_mode.yml
+        - include: tasks/enable_cm_maintenance_mode.yml

@@ -1,6 +1,4 @@
 - name: copy distsearch.conf
-  copy:
-    src: /opt/splunk/etc/system/local/distsearch.conf
-    dest: /tmp/
+  shell: cp /opt/splunk/etc/system/local/distsearch.conf /tmp/
   become: true
   become_user: "{{ SPLUNK_USER }}"
