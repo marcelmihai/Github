@@ -1,15 +1,3 @@
-
-# This playbook sets up basic splunk security
-- name: change default password
-  splunk_user:
-    auth_user: admin
-    auth_password: changeme
-    name: admin
-    password: "{{ splunk_new_password }}"
-    splunklib: "{{ splunklib_1_6_2_location }}/splunklib-1.6.2"
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
-
 #- name: change default password
 #  command: /opt/splunk/bin/splunk edit user admin -password 'gQS,i,0n{W\Cnr}J>:%j' -role admin -auth admin:changeme
 #  become: true
