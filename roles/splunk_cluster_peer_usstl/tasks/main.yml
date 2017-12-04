@@ -48,18 +48,16 @@
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
-- name: backing up indexes.conf and deploymentclient.conf
-  copy:
-     src: /opt/splunk/etc/system/local/{{ item }}
-     dest: /tmp/
+- name: backing up indexes.conf, distsearch.conf and deploymentclient.conf
+  command: cp /opt/splunk/etc/system/local/{{ item }} /tmp/
   with_items:
   - indexes.conf
   - deploymentclient.conf
+  - distsearch.conf
   ignore_errors: yes
   become: true
-  become_user: "{{ splunk_user }}"
+  become_user: "{{ SPLUNK_USER }}"
 
-# Add a task for removing indexes.conf in all indexers
 - name: remove indexes.conf and deploymentclient.conf
   file:
     state: absent
@@ -88,7 +86,6 @@
   ignore_errors: yes
 
 - name: configure pass4SymmKey
-  validate_certs: false
   splunk_config_stanza:
     auth_user: admin
     auth_password: "{{ splunk_new_password }}"
