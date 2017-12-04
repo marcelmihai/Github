@@ -1,3 +1,5 @@
 - hosts: new_*
+  serial: 100
+  gather_facts: no
   roles:
     - role: splunk
