@@ -1,4 +1,6 @@
 - hosts: skcm_*
+  serial: 100
+  gather_facts: no
   roles:
     - role: splunk_cluster_master_node
 
@@ -9,14 +11,21 @@
 - include: copy_remove_distributedsearch.yml
 
 - hosts: skid_usstl
+  serial: 1
+  gather_facts: no
   roles:
     - role: splunk_cluster_peer_usstl
 
 - hosts: skid_gblo
+  serial: 50
+  strategy: debug
+  gather_facts: no
   roles:
     - role: splunk_cluster_peer_gblo
 
 - hosts: skid_cnhk
+  serial: 50
+  gather_facts: no
   roles:
     - role: splunk_cluster_peer_cnhk
 
@@ -24,5 +33,7 @@
 - include: disable_maintenance_mode.yml
 
 - hosts: sksh
+  serial: 100
+  gather_facts: no
   roles:
     - role: splunk_integrate_sh_cluster_with_idx_cluster
