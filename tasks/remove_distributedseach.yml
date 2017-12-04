@@ -1,5 +1,6 @@
 # Remove the distsearch stanza in /etc/system/local/distsearch.conf on all searchheads
 - name: remove distributedSearch stanza in distsearch.conf
   shell: for i in $(seq 1 2); do sed -i '$d' /opt/splunk/etc/system/local/distsearch.conf; done;
+  ignore_errors: yes
   become: true
   become_user: "{{ SPLUNK_USER }}"

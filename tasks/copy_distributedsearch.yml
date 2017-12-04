@@ -1,4 +1,5 @@
 - name: copy distsearch.conf
   shell: cp /opt/splunk/etc/system/local/distsearch.conf /tmp/
+  ignore_errors: yes
   become: true
   become_user: "{{ SPLUNK_USER }}"
