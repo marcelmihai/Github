@@ -1,7 +1,6 @@
 
 # This playbook sets up basic splunk security
 - name: change default password
-  validate_certs: false
   splunk_user:
     auth_user: admin
     auth_password: changeme
