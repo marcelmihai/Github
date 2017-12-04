@@ -1,4 +1,13 @@
----
+
+- name: restart splunk
+  command: "{{ SPLUNK_HOME }}/bin/splunk restart"
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+
+- name: Wait for Splunk startup
+  wait_for: port=8089 timeout=30
+  ignore_errors: yes
+  
 # This playbook sets up basic splunk security
 - name: change default password
   splunk_user:
