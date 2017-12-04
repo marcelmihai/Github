@@ -14,7 +14,7 @@
   shell: tar -czf /opt/splunk/etc/apps-local.tar.gz /opt/splunk/etc/apps
   ignore_errors: yes
   become: true
-  become_user: "{{ splunk_user }}"
+  become_user: "{{ SPLUNK_USER }}"
 
 # Added a new task for removing all custom apps under /opt/splunk/etc/apps/
 - name: remove all custom apps in the existing indexers
