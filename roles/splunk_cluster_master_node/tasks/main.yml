@@ -18,31 +18,5 @@
   become_user: "{{ SPLUNK_USER }}"
 
 - name: Wait for Splunk startup
-  wait_for: port=8089 timeout=30
-  ignore_errors: yes
-
-- name: configure pass4SymmKey
-  splunk_config_stanza:
-   auth_user: admin
-   auth_password: "{{ splunk_new_password }}"
-   app: cluster_master_app
-   file: server
-   stanza: clustering
-   values:
-     mode: master
-     multisite: true
-     cluster_label: cluster1
-     available_sites: site1
-     site_replication_factor: origin:3, total:3
-     site_search_factor: origin:2, total:2
-     pass4SymmKey: "{{ cluster_secret }}"
-   splunklib: "{{ splunklib_1_6_2_location }}/splunklib-1.6.2"
-
-- name: restart splunk
-  command: "{{ SPLUNK_HOME }}/bin/splunk restart"
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
-
-- name: Wait for Splunk startup
   wait_for: port=8089 timeout=300 delay=30
   ignore_errors: yes
