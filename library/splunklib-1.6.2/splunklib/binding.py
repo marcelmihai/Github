@@ -1183,7 +1183,7 @@ class HttpLib(object):
         # to support the receivers/stream endpoint.
         if 'body' in kwargs:
             # We only use application/x-www-form-urlencoded if there is no other
-            # Content-Type header present. This can happen in cases where we 
+            # Content-Type header present. This can happen in cases where we
             # send requests as application/json, e.g. for KV Store.
             if len(filter(lambda x: x[0].lower() == "content-type", headers)) == 0:
                 headers.append(("Content-Type", "application/x-www-form-urlencoded"))
