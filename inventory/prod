@@ -41,8 +41,6 @@ usstl-splunk-idx21 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-idx22 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-idx23 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-idx24 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
-
-[new_skid_usstl]
 usstl-splunk-idx25 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-idx26 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
 usstl-splunk-idx27 		SPLUNK_ENV=PROD  SPLUNK_SITE=USSTL
@@ -66,8 +64,6 @@ uklon-splunk-idx1 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 uklon-splunk-idx2 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 uklon-splunk-idx3 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 uklon-splunk-idx4 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
-
-[new_skid_gblo]
 uklon-splunk-idx05 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 uklon-splunk-idx06 		SPLUNK_ENV=PROD  SPLUNK_SITE=GBLO
 
@@ -83,8 +79,6 @@ cnhkg-splunk-idx1 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 cnhkg-splunk-idx2 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 cnhkg-splunk-idx3 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 cnhkg-splunk-idx4 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
-
-[new_skid_cnhk]
 cnhkg-splunk-idx05 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 cnhkg-splunk-idx06 		SPLUNK_ENV=PROD  SPLUNK_SITE=CNHK
 
