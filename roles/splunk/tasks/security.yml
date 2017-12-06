@@ -1,7 +1,7 @@
-- name: change default password
-  command: /opt/splunk/bin/splunk edit user admin -password 'gQS,i,0n{W\Cnr}J>:%j' -role admin -auth admin:changeme
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
+#- name: change default password
+#  command: /opt/splunk/bin/splunk edit user admin -password 'gQS,i,0n{W\Cnr}J>:%j' -role admin -auth admin:changeme
+#  become: true
+#  become_user: "{{ SPLUNK_USER }}"
 
 #- name: create certs folder
 #  tags:
