@@ -1,0 +1,8 @@
+- hosts: new_*
+  serial: 100
+  name: copy authorize.conf and authentication.conf
+  become: yes
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks\copy_authorize_authentication.yml
