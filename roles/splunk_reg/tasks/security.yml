@@ -60,6 +60,5 @@
     owner=splunk
     group=splunk
     mode=700
-  notify: restart splunk
   become: true
   become_user: "{{ SPLUNK_USER }}"
