@@ -5,4 +5,4 @@
   become_user: splunk
   tasks:
   - block:
-        - include: tasks\copy_files_to_splunk_servers.yml
+        - include: tasks/copy_files_to_splunk_servers.yml
