@@ -2,7 +2,7 @@
 
 # INFO: Verify captain via a splunk search
 #
-- hosts: usstlecpsecap43
+- hosts: usstl-splunk-sh1
   serial: 1
   name: Verify search heads
   vars_prompt:
