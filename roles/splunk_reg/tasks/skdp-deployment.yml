@@ -3,7 +3,7 @@
     src=/export/home/mmuralikri/splunkds/{{ item }}
     dest=/splunkds/deployment-apps/
   with_items:
-  - splunk-unix-global-UF-CIRT_microservice
+  - emr-cirt-global-UF-microservice
   become: true
   become_user: "{{ SPLUNK_USER }}"
 

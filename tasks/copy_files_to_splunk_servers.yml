@@ -3,6 +3,6 @@
     src=/export/home/mmuralikri/shcluster/{{ item }}
     dest=/opt/splunk/etc/shcluster/apps/
   with_items:
-  - splunk-unix-global-SH-CIRT_microservice
+  - emr-cirt-global-SH-microservice
   become: true
   become_user: "{{ SPLUNK_USER }}"
