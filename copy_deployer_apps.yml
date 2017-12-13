@@ -1,4 +1,4 @@
-- hosts: skdp
+- hosts: skdr
   serial: 100
   name: Copy apps from local to deployer
   become: yes
