@@ -37,28 +37,28 @@
 #  become: true
 #  become_user: "{{ SPLUNK_USER }}"
 
-- name: copy authorize.conf
-  tags:
-    - install
-    - security
-  copy:
-    src=opt/splunk/etc/system/local/authorize.conf
-    dest=/opt/splunk/etc/system/local
-    owner=splunk
-    group=splunk
-    mode=700
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
+#- name: copy authorize.conf
+#  tags:
+#    - install
+#    - security
+#  copy:
+#    src=opt/splunk/etc/system/local/authorize.conf
+#    dest=/opt/splunk/etc/system/local
+#    owner=splunk
+#    group=splunk
+#    mode=700
+#  become: true
+#  become_user: "{{ SPLUNK_USER }}"
 
-- name: copy authentication.conf
-  tags:
-    - install
-    - security
-  copy:
-    src=opt/splunk/etc/system/local/authentication.conf
-    dest=/opt/splunk/etc/system/local
-    owner=splunk
-    group=splunk
-    mode=700
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
+#- name: copy authentication.conf
+#  tags:
+#    - install
+#    - security
+#  copy:
+#    src=opt/splunk/etc/system/local/authentication.conf
+#    dest=/opt/splunk/etc/system/local
+#    owner=splunk
+#    group=splunk
+#    mode=700
+#  become: true
+#  become_user: "{{ SPLUNK_USER }}"

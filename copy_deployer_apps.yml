@@ -1,0 +1,8 @@
+- hosts: skdp
+  serial: 100
+  name: Copy apps from local to deployer
+  become: yes
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks\copy_files_to_splunk_servers.yml
