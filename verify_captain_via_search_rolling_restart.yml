@@ -2,7 +2,7 @@
 
 # INFO: Verify captain via a splunk search
 #
-- hosts: sksh*
+- hosts: sksh
   serial: 1
   name: Verify search heads
   vars_prompt:
