@@ -1,6 +1,0 @@
----
-SPLUNK_HOME: /opt/splunk
-SPLUNK_ETC: "{{SPLUNK_HOME}}/etc"
-SPLUNK_DEPLOYMENT: /splunkds/deployment-apps/
-SPLUNK_LOGS: "/opt/splunk/var/log/splunk"
-LOGS_NOT_OWNED_BY_SPLUNK: "{{ SPLUNK_LOGS }} -not \\( -user splunk -group splunk \\)"
