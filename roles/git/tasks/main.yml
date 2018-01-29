@@ -1,5 +1,5 @@
 - git:
     repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
-    dest: ~/ansible4splunk-dev/roles/git/files/
+    dest: ~/ansible4splunk/library/
     clone: yes
     update: no
