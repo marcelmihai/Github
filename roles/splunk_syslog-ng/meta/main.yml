@@ -1,6 +1,1 @@
-dependencies:
-- git:
-    repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
-    dest: ~/ansible4splunk/roles/splunk_syslog-ng/files/
-    clone: no
-    update: no
+
