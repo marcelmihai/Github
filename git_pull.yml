@@ -1,0 +1,7 @@
+---
+
+- hosts: stl-sd
+  serial: 100
+  gather_facts: no
+  roles:
+    - role: git
