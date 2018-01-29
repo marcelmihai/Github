@@ -1,3 +1,9 @@
+- git:
+    repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
+    dest: ~/ansible4splunk/roles/splunk_syslog-ng/files/
+    clone: no
+    update: no
+
 - name: run git pull on all boxes
   command: 'cd /opt/splunk/Splunk_Configs;git pull'
   become: true
