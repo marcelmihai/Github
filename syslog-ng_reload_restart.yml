@@ -1,5 +1,5 @@
 ---
-- hosts: stl-hf
+- hosts: usmtnecdsplhf01
   serial: 1
   vars:
     syslog_ng_mode: local
