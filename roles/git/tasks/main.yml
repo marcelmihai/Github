@@ -4,5 +4,3 @@
     dest: ~/ansible4splunk-dev/roles/git/files/
     force: yes
     version: master
-    clone: no
-    update: yes
