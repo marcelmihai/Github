@@ -1,4 +1,4 @@
-- Checkout Splunk apps
+# Checkout Splunk apps
 - git:
     repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
     dest: ~/ansible4splunk-dev/roles/git/files/
