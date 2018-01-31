@@ -2,4 +2,4 @@
 - git:
     repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
     dest: ~/ansible4splunk-dev/roles/git/files/
-    version: master
+    version: HEAD
