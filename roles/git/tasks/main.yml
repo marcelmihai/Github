@@ -6,4 +6,4 @@
     force: yes
     recursive: no
     key_file: ~/.ssh/id_rsa
-    depth: {{ repo_depth }}
+    depth: 1
