@@ -2,3 +2,5 @@
 - git:
   repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
   dest: ~/
+  clone: yes
+  update: no
