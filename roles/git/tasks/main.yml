@@ -1,5 +1,4 @@
 # Checkout Splunk apps
 - git:
     repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
-    dest: ~/
-    refspec: '+refs/pull/*:refs/heads/*'
+    dest: ~/ssh-key-setup/
