@@ -1,4 +1,4 @@
 # Checkout Splunk apps
 - git:
     repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
-    dest: ~/ssh-key-setup/
+    dest: ~/configs/
