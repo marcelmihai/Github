@@ -1,7 +1,7 @@
 # Checkout Splunk apps
 - git:
     repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
-    dest: ~/configs/
+    dest: ~/
     accept_hostkey: yes
     force: yes
     recursive: no
