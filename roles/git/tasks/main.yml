@@ -2,3 +2,8 @@
 - git:
     repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
     dest: ~/
+    accept_hostkey: yes
+    force: yes
+    recursive: no
+    key_file: ~/.ssh/id_rsa
+    depth: 1
