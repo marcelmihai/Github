@@ -2,4 +2,5 @@
 - git:
     repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
     dest: ~/ansible4splunk-dev/roles/git/files/
-    refspec: '+refs/pull/*:refs/heads/*'
+    accept_hostkey: yes
+    key_file: "~/.ssh/id_rsa.pub"
