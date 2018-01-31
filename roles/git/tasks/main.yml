@@ -5,4 +5,3 @@
     force: yes
     version: master
     accept_hostkey: yes
-    become: yes
