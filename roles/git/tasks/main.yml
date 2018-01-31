@@ -1,6 +1,6 @@
 # Checkout Splunk apps
 - git:
-    repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
+    repo: 'https://git.emrsn.org/SecurityToolsSplunk/ansible4splunk.git'
     dest: ~/
     accept_hostkey: yes
     force: yes
