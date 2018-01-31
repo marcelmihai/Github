@@ -1,9 +1,9 @@
-# Checkout Splunk apps
-#- git:
-#    repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
-#    dest: ~/ansible4splunk-dev/roles/git/files/
-
-# Pull new changes
-- name: git pull
-  command: "cd /ansible4splunk-dev/roles/git/files;git pull"
+# Cleanup the existing repo
+- name: Remove the old Splunk-Config files
+  command: rm -rf ~/ansible4splunk-dev/roles/git/files/
   become: true
+
+# Checkout Splunk apps
+- git:
+    repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
+    dest: ~/ansible4splunk-dev/roles/git/files/
