@@ -1,0 +1,14 @@
+- hosts: usstlecpsplsh01
+  serial: 100
+  vars_prompt:
+  - name: SPLUNK_USER_NAME
+    promt: "Splunk User ID"
+    private: no
+  - name: SPLUNK_USER_PWD
+    promt: "Splunk Password"
+    private: yes
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+  - name: SearchHead rolling restart
+    shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_USER_NAME }}:{{ SPLUNK_USER_PWD }}"
