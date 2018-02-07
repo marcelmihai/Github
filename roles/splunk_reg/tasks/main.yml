@@ -1,9 +1,0 @@
----
-# This playbook contains common tasks in this role
-- include: apply_shcluster_bundle.yml
-  tags:
-  - apply_shcluster_bundle
-
-- include: verify_captain_via_search_rolling_restart.yml
-  tags:
-  - rolling_restart
