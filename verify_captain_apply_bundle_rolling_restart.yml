@@ -1,4 +1,12 @@
 ---
+# Apply shcluster bundle
+#- hosts: usstlecpsplds02
+#  serial: 100
+#  become: true
+#  become_user: "{{ SPLUNK_USER }}"
+#  tasks:
+#  - name: apply shcluster bundle from deployer
+#    shell: /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://usstlecpsplsh01.emrsn.org:8089 -auth admin:"{{ splunk_new_password }}"
 
 # INFO: Verify captain via a splunk search
 - hosts: usstlecpsplsh01
@@ -11,15 +19,6 @@
     action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -auth admin:"{{ splunk_new_password }}"
     register: search_output
   - debug: var=search_output.stdout_lines
-
-# Apply shcluster bundle
-#- hosts: usstlecpsplds02
-#  serial: 100
-#  become: true
-#  become_user: "{{ SPLUNK_USER }}"
-#  tasks:
-#  - name: apply shcluster bundle from deployer
-#    shell: /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://usstlecpsplsh01.emrsn.org:8089 -auth admin:"{{ splunk_new_password }}"
 
 - hosts: localhost
   serial: 1
@@ -42,17 +41,8 @@
   become_user: "{{ SPLUNK_USER }}"
   tasks:
   - name: "Checking rolling restart"
-    action: shell grep 'Rolling Restart' /opt/splunk/var/log/splunk/audit.log | awk '{print $13, $14, $15, $16, $17}'
+    action: shell /opt/splunk/bin/splunk search 'index=_audit rolling-restart action="ROLLING-RESTART-SHCLUSTER-MEMBERS" source=audittrail sourcetype=audittrail' -auth admin:"{{ splunk_new_password }}"
     register: restart_status
   - fail: "Rolling restart not initiated on {{ ansible_host }}"
     when: restart_status.rc != 0
   - debug: var=restart_status.stdout_lines
-
-# INFO: Apply the SearchHead rolling-restart
-- hosts: sksh_captain
-  serial: 1
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
-  tasks:
-  - name: SearchHead rolling restart
-    shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -status 1 -auth admin:"{{ splunk_new_password }}"
