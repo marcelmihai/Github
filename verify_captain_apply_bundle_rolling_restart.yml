@@ -41,7 +41,7 @@
   become_user: "{{ SPLUNK_USER }}"
   tasks:
   - name: "Checking rolling restart"
-    action: shell /opt/splunk/bin/splunk search 'index=_audit rolling-restart action="ROLLING-RESTART-SHCLUSTER-MEMBERS" source=audittrail sourcetype=audittrail' -auth admin:"{{ splunk_new_password }}"
+    action: shell /opt/splunk/bin/splunk search 'earliest=-15m index=_audit rolling-restart action="ROLLING-RESTART-SHCLUSTER-MEMBERS" source=audittrail sourcetype=audittrail' -auth admin:"{{ splunk_new_password }}"
     register: restart_status
   - fail: "Rolling restart not initiated on {{ ansible_host }}"
     when: restart_status.rc != 0
