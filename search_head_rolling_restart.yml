@@ -41,7 +41,7 @@
   become_user: "{{ SPLUNK_USER }}"
   tasks:
   - name: "Checking rolling restart"
-    action: shell tail -100 /opt/splunk/var/log/splunk/audit.log | grep 'Rolling Restart' | awk '{print $13, $14, $15, $16, $17}'
+    action: /opt/splunk/bin/splunk rolling-restart shcluster-members -status 1 -auth admin:"{{ splunk_new_password }}"
     register: restart_status
   - fail: "Rolling restart not initiated on {{ ansible_host }}"
     when: restart_status.rc != 0
