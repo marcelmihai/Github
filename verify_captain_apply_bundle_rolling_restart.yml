@@ -24,7 +24,7 @@
     private: no
   tasks:
   - name: apply shcluster bundle from deployer
-    shell: /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://"{{Captain}}".emrsn.org:8089 -auth admin:{{ splunk_new_password }}"
+    shell: /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://"{{Captain}}".emrsn.org:8089 -auth admin:"{{ splunk_new_password }}"
 
 - hosts: localhost
   serial: 1
