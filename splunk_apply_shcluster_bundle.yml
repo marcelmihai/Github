@@ -1,57 +1,24 @@
+---
+# Apply shcluster bundle
 - hosts: usstlecpsplds02
   serial: 100
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:
   - name: apply shcluster bundle from deployer
-    shell: /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://{{ item }}.emrsn.org:8089 -auth "{{ SPLUNK_ADMIN }}:{{ splunk_new_password }}"
-  with_items:
-  - usstlecpsplsh01
-  - usstlecpsplsh02
-  - usstlecpsplsh03
-  - usstlecpsplsh04
-  - usstlecpsplsh05
-
----
+    shell: /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://usstlecpsplsh01.emrsn.org:8089 -auth admin:"{{ splunk_new_password }}"
 
 # INFO: Verify captain via a splunk search
-#
-- hosts: usmtnecdsplsh01
+- hosts: usstlecpsplsh01
   serial: 1
   name: Verify search heads
-  vars_prompt:
-  - name: SPLUNK_USER_NAME
-    promt: "Splunk User ID"
-    private: no
-  - name: SPLUNK_USER_PWD
-    promt: "Splunk Password"
-    private: yes
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:
   - name: Get_Captain
-    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -auth "{{ SPLUNK_USER_NAME }}:{{ SPLUNK_USER_PWD }}"
+    action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -auth admin:"{{ splunk_new_password }}"
     register: search_output
   - debug: var=search_output.stdout_lines
-
-# Apply shcluster bundle
-- hosts: usmtnecdsplsd01
-  serial: 100
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
-  vars_prompt:
-  - name: SPLUNK_USER_NAME
-    promt: "Splunk User ID"
-    private: no
-  - name: SPLUNK_USER_PWD
-    promt: "Splunk Password"
-    private: yes
-  - name: Captain
-    promt: "Copy the Captain"
-    private: no
-  tasks:
-  - name: apply shcluster bundle from deployer
-    shell: /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://"{{Captain}}".emrsn.org:8089 -auth "{{ SPLUNK_USER_NAME }}:{{ SPLUNK_USER_PWD }}"
 
 - hosts: localhost
   serial: 1
@@ -66,20 +33,16 @@
         name: "{{ target_host }}"
         groups: sksh_captain
 
-
-# INFO: Apply the SearchHead rolling-restart
-
+# INFO: Verify audit.log has "rolling restart" lines
 - hosts: sksh_captain
   serial: 1
-  vars_prompt:
-  - name: SPLUNK_USER_NAME
-    promt: "Splunk User ID"
-    private: no
-  - name: SPLUNK_USER_PWD
-    promt: "Splunk Password"
-    private: yes
+  name: Verify rolling restart via log file
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:
-  - name: SearchHead rolling restart
-    shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth "{{ SPLUNK_USER_NAME }}:{{ SPLUNK_USER_PWD }}"
+  - name: "Checking rolling restart"
+    action: shell /opt/splunk/bin/splunk search 'earliest=-60m index=_audit rolling-restart action="ROLLING-RESTART-SHCLUSTER-MEMBERS" source=audittrail sourcetype=audittrail' -auth admin:"{{ splunk_new_password }}"
+    register: restart_status
+  - fail: "Rolling restart not initiated on {{ ansible_host }}"
+    when: restart_status.rc != 0
+  - debug: var=restart_status.stdout_lines
