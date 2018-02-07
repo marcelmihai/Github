@@ -43,9 +43,9 @@
   tasks:
   - name: "Checking rolling restart"
     action: shell grep 'Rolling Restart' /opt/splunk/var/log/splunk/audit.log | awk '{print $13, $14, $15, $16, $17}'
- register: restart_status
+    register: restart_status
   - fail: "Rolling restart not initiated on {{ ansible_host }}"
- when: restart_status.rc != 0
+    when: restart_status.rc != 0
   - debug: var=restart_status.stdout_lines
 
 # INFO: Apply the SearchHead rolling-restart
