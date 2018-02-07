@@ -1,4 +1,9 @@
 ---
 # This playbook contains common tasks in this role
-#- include: security.yml
-- include: skdp-deployment.yml
+- include: apply_shcluster_bundle.yml
+  tags:
+  - apply_shcluster_bundle
+
+- include: verify_captain_via_search_rolling_restart.yml
+  tags:
+  - rolling_restart
