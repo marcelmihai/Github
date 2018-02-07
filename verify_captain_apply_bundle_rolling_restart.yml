@@ -27,7 +27,6 @@
 
 - hosts: localhost
   serial: 1
-  debug: msg='No need to restart the SearchHeads'
   vars_prompt:
   - name: target_host
     prompt: please select the target captain
@@ -40,7 +39,6 @@
         groups: sksh_captain
 
 # INFO: Verify audit.log has "rolling restart" lines
-#
 - hosts: sksh_captain
   serial: 1
   name: Verify rolling restart via log file
@@ -48,7 +46,7 @@
   become_user: "{{ SPLUNK_USER }}"
   tasks:
   - name: "Checking rolling restart"
-    action: shell grep 'Rolling Restart of peers completed as follows' /opt/splunk/var/log/splunk/audit.log | awk '{print $13, $14, $15, $16, $17}'
+    action: shell grep 'Rolling Restart' /opt/splunk/var/log/splunk/audit.log | awk '{print $13, $14, $15, $16, $17}'
  register: restart_status
   - fail: "Rolling restart not initiated on {{ ansible_host }}"
  when: restart_status.rc != 0
