@@ -2,7 +2,7 @@
 
 # INFO: Verify captain via a splunk search
 #
-- hosts: usmtnecdsplsh01
+- hosts: usstlecpsplsh01
   serial: 1
   name: Verify search heads
   become: true
@@ -14,7 +14,7 @@
   - debug: var=search_output.stdout_lines
 
 # Apply shcluster bundle
-- hosts: usmtnecdsplsd01
+- hosts: usstlecpsplds02
   serial: 100
   become: true
   become_user: "{{ SPLUNK_USER }}"
