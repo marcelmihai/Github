@@ -13,13 +13,13 @@
   - debug: var=search_output.stdout_lines
 
 # Apply shcluster bundle
-- hosts: usstlecpsplds02
-  serial: 100
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
-  tasks:
-  - name: apply shcluster bundle from deployer
-    shell: /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://usstlecpsplsh01.emrsn.org:8089 -auth admin:"{{ splunk_new_password }}"
+#- hosts: usstlecpsplds02
+#  serial: 100
+#  become: true
+#  become_user: "{{ SPLUNK_USER }}"
+#  tasks:
+#  - name: apply shcluster bundle from deployer
+#    shell: /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://usstlecpsplsh01.emrsn.org:8089 -auth admin:"{{ splunk_new_password }}"
 
 - hosts: localhost
   serial: 1
