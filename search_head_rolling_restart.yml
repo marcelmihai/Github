@@ -33,6 +33,10 @@
     shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth admin:"{{ splunk_new_password }}"
     register: restart_status_on_captain
 
+# Pause for 5 minutes
+- pause:
+    minutes: 1
+
 # INFO: Verify audit.log has "rolling restart" lines
 - hosts: sksh_captain
   serial: 1
