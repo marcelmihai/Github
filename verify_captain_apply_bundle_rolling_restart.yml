@@ -56,4 +56,3 @@
   tasks:
   - name: SearchHead rolling restart
     shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -status 1 -auth admin:"{{ splunk_new_password }}"
-    when: restart_status.stat.exists == false
