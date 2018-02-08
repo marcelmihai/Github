@@ -4,6 +4,9 @@
     clone: no
     update: no
 
+- name: git clone without .git directory
+  command: rm -rf ~/ansible4splunk/roles/splunk_syslog-ng/files/.git 
+  
 - name: run git pull on all boxes
   command: 'cd /opt/splunk/Splunk_Configs;git pull'
   become: true
