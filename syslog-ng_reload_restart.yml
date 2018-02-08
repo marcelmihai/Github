@@ -1,5 +1,5 @@
 ---
-- hosts: usstlecpsecap25
+- hosts: usstlecpsplds02
   serial: 1
   vars:
     syslog_ng_mode: local
