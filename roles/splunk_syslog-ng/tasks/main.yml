@@ -11,3 +11,4 @@
   command: 'cd /opt/splunk/Splunk_Configs;git pull'
   become: true
   become_user: "{{ SPLUNK_USER }}"
+  
