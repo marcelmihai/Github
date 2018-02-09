@@ -7,6 +7,8 @@
   tasks:
   - name: git pull on all servers
     shell: 'cd /opt/splunk/Splunk-Configs;git pull'
+    register: pull_status
+  - debug: var=pull_status.stdout_lines
 
 # Reload the deploy server
 #- hosts: usstlecpsplds01
