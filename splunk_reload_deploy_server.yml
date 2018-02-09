@@ -9,7 +9,7 @@ tasks:
   shell: 'cd /opt/splunk/Splunk-Configs;git pull'
 
 # Reload the deploy server
-hosts: usstlecpsplds02
+hosts: usstlecpsplds01
 serial: 1
 gather_facts: no
 become: true
@@ -17,4 +17,3 @@ become_user: "{{ SPLUNK_USER }}"
 tasks:
 - name: reload deploy server
   shell: /opt/splunk/bin/splunk reload deploy-server
-  
