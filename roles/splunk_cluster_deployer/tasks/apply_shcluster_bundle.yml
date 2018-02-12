@@ -27,7 +27,7 @@
 - name: "Checking rolling restart"
   shell: /opt/splunk/bin/splunk search 'earliest=-60m index=_audit rolling-restart action="ROLLING-RESTART-SHCLUSTER-MEMBERS" source=audittrail sourcetype=audittrail' -auth admin:"{{ splunk_new_password }}"
   register: restart_status
-  until: restart_status.stdout.find("RESTART-COMPLETE") != -1
+  until: restart_status.stdout.find("'| RESTART-COMPLETE |'\n'| RESTART-COMPLETE |'\n'| RESTART-COMPLETE |'\n'| RESTART-COMPLETE |'") != -1
 - debug: var=restart_status.stdout_lines
   retries: 5
   delay: 10
