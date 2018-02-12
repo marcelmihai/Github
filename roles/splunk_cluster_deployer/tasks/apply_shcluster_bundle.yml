@@ -25,10 +25,10 @@
 #  #become_user: "{{ SPLUNK_USER }}"
 
 - name: "Checking rolling restart"
-  action: shell /opt/splunk/bin/splunk search 'earliest=-60m index=_audit rolling-restart action="ROLLING-RESTART-SHCLUSTER-MEMBERS" source=audittrail sourcetype=audittrail' -auth admin:"{{ splunk_new_password }}"
+  shell: /opt/splunk/bin/splunk search 'earliest=-60m index=_audit rolling-restart action="ROLLING-RESTART-SHCLUSTER-MEMBERS" source=audittrail sourcetype=audittrail' -auth admin:"{{ splunk_new_password }}"
   register: restart_status
   until: result.stdout.find("RESTART-COMPLETE") != -1
-  retries:20
+  retries: 5
   delay: 10
   become: true
   become_user: "{{ SPLUNK_USER }}"
