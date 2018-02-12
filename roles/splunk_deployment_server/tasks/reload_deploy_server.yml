@@ -1,0 +1,7 @@
+# Reload the deploy server
+- name: reload deploy server
+  shell: /opt/splunk/bin/splunk reload deploy-server -auth admin:"{{ splunk_new_password }}"
+  register: reload_status
+- debug: var=reload_status.stdout
+  become: true
+  become_user: "{{ SPLUNK_USER }}"

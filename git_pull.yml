@@ -1,7 +1,11 @@
----
-
-- hosts: stl-sd
+# Run git pull on all servers.
+- hosts: all
   serial: 100
   gather_facts: no
-  roles:
-    - role: git
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+  - name: git pull on all servers
+    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
+    register: pull_status
+  - debug: var=pull_status.stdout

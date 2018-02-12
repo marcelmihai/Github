@@ -1,23 +1,7 @@
-# Run git pull on all servers.
-- hosts: all
+- hosts: usstlecpsplds01
   serial: 100
   gather_facts: no
   become: true
   become_user: "{{ SPLUNK_USER }}"
-  tasks:
-  - name: git pull on all servers
-    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
-    register: pull_status
-  - debug: var=pull_status.stdout
-
-# Reload the deploy server
-- hosts: usstlecpsplds01
-  serial: 1
-  gather_facts: no
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
-  tasks:
-  - name: reload deploy server
-    shell: /opt/splunk/bin/splunk reload deploy-server -auth admin:"{{ splunk_new_password }}"
-    register: reload_status
-  - debug: var=reload_status.stdout
+  roles:
+    - role: splunk_deployment_server

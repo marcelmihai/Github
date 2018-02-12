@@ -1,0 +1,4 @@
+---
+# This playbook contains common tasks in this role
+
+- include: reload_deploy_server.yml
