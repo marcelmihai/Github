@@ -7,15 +7,16 @@
 
 # INFO: Verify captain via a splunk search
 - name: Get_Captain
-  action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -auth admin:"{{ splunk_new_password }}"
+  action: shell /opt/splunk/bin/splunk search '| rest splunk_server=usstl-splunk-sh1 /services/shcluster/captain/info | rename label as Captain | fields Captain' -auth admin:"{{ splunk_new_password }}"
   register: search_output
 - debug: var=search_output.stdout_lines
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
-
 - name: "Checking rolling restart"
-  action: shell /opt/splunk/bin/splunk search 'earliest=-60m index=_audit rolling-restart action="ROLLING-RESTART-SHCLUSTER-MEMBERS" source=audittrail sourcetype=audittrail' -auth admin:"{{ splunk_new_password }}"
+  wait_for: 
+    path: /opt/splunk/var/log/splunk/audit.log
+    search_regex: 'RESTART-COMPLETE'
   register: restart_status
 - fail: "Rolling restart not initiated on {{ ansible_host }}"
   when: restart_status.rc != 0
