@@ -2,8 +2,8 @@
   copy:
     src:/opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{item}}
     dest:/etc/syslog-ng/buckets.d/
-    owner: 
-    group:
+    owner: syslog-ng
+    group: syslog-ng
     remote_src: yes
     mode: 0644
   with_items:
