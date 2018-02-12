@@ -1,7 +1,7 @@
 - name: copy syslog-ng file to buckets.d
   copy:
     src=/opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{item}}
-    dest= /etc/syslog-ng/buckets.d/
+    dest=/etc/syslog-ng/buckets.d/
   with_items:
   - ace_cisco.conf
   - acs_cisco.conf
