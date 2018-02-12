@@ -1,8 +1,8 @@
 - name: copy syslog-ng file to buckets.d
   copy:
+    remote_src: yes
     src=/opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{item}}
     dest=/etc/syslog-ng/buckets.d/
-  remote_src: yes
   with_items:
   - ace_cisco.conf
   - acs_cisco.conf
