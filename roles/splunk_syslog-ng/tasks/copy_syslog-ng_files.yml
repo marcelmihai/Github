@@ -1,0 +1,13 @@
+- name: copy syslog-ng file to buckets.d
+  copy:
+    src=/opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{item}}
+    dest= /etc/syslog-ng/buckets.d/
+    owner=syslog-ng
+    group=syslog-ng
+    mode=700
+  notify: 
+  - stop syslog-ng
+  notify: 
+  - start syslog-ng
+  become: true
+  become_user: syslog-ng
