@@ -1,8 +1,11 @@
 - name: copy syslog-ng file to buckets.d
   copy:
+    src:/opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{item}}
+    dest:/etc/syslog-ng/buckets.d/
+    owner: 
+    group:
     remote_src: yes
-    src=/opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{item}}
-    dest=/etc/syslog-ng/buckets.d/
+    mode: 0644
   with_items:
   - ace_cisco.conf
   - acs_cisco.conf
@@ -37,8 +40,5 @@
   - wlan_cisco_prime.conf
   - wlan_controllers2_cisco.conf
   - wlan_controllers_cisco.conf
-  notify: 
-  - stop syslog-ng
-  - start syslog-ng
   become: true
   become_user: syslog-ng
