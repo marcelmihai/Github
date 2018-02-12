@@ -36,9 +36,6 @@
   - wlan_cisco_prime.conf
   - wlan_controllers2_cisco.conf
   - wlan_controllers_cisco.conf
-    owner=syslog-ng
-    group=syslog-ng
-    mode=700
   notify: 
   - stop syslog-ng
   - start syslog-ng
