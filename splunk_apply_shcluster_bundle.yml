@@ -1,5 +1,7 @@
 - hosts: usstlecpsplds02
   serial: 100
   gather_facts: no
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
   roles:
     - role: splunk_cluster_deployer
