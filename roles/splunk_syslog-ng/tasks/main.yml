@@ -1,14 +1,4 @@
-- git:
-    repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
-    dest: ~/ansible4splunk/roles/splunk_syslog-ng/files/
-    clone: no
-    update: no
+---
+# This playbook contains common tasks in this role
 
-- name: git clone without .git directory
-  command: rm -rf ~/ansible4splunk/roles/splunk_syslog-ng/files/.git 
-  
-- name: run git pull on all boxes
-  command: 'cd /opt/splunk/Splunk_Configs;git pull'
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
-  
+- include: copy_syslog-ng_files.yml

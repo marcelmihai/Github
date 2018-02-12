@@ -2,12 +2,45 @@
   copy:
     src=/opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{item}}
     dest= /etc/syslog-ng/buckets.d/
+  with_items:
+  - ace_cisco.conf
+  - acs_cisco.conf
+  - airwatch_app.conf
+  - apache.conf
+  - bmf.conf
+  - damballa_nid.conf
+  - dhcp_windows.conf
+  - expressways.conf
+  - f5_f5networks.conf
+  - fireeye_nid.conf
+  - fireeye_test.conf
+  - firewalls_cisco.conf
+  - honeypot.conf
+  - infoblox_app.conf
+  - ironport_cisco.conf
+  - ise_cisco.conf
+  - lieberman_app.confexit
+  - observable_nid.conf
+  - paloalto.conf
+  - radius_cisco.conf
+  - routers_cisco.conf
+  - sep_symantec.conf
+  - sslvp_cisco.conf
+  - switches_cisco.conf
+  - tomcat_app.conf
+  - unknowns.conf
+  - waas_cisco.conf
+  - wcg_websense.conf
+  - websense.conf
+  - websense_dlp.conf
+  - wlan_cisco_prime.conf
+  - wlan_controllers2_cisco.conf
+  - wlan_controllers_cisco.conf
     owner=syslog-ng
     group=syslog-ng
     mode=700
   notify: 
   - stop syslog-ng
-  notify: 
   - start syslog-ng
   become: true
   become_user: syslog-ng
