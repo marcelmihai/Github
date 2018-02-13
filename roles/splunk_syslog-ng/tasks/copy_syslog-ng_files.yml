@@ -23,7 +23,7 @@
   - infoblox_app.conf
   - ironport_cisco.conf
   - ise_cisco.conf
-  - lieberman_app.confexit
+  - lieberman_app.conf
   - observable_nid.conf
   - paloalto.conf
   - radius_cisco.conf

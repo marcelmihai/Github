@@ -1,0 +1,9 @@
+- name: stop syslog-ng
+  shell: sudo /sbin/service syslog-ng stop
+  become: true
+  become_user: syslog-ng
+
+- name: start syslog-ng
+  shell: sudo /sbin/service syslog-ng start
+  become: true
+  become_user: syslog-ng
