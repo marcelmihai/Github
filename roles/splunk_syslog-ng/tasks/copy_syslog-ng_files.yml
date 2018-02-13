@@ -40,5 +40,3 @@
   - wlan_cisco_prime.conf
   - wlan_controllers2_cisco.conf
   - wlan_controllers_cisco.conf
-  become: true
-  become_user: syslog-ng
