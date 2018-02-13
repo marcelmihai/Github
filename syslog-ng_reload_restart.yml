@@ -1,7 +1,7 @@
 # Run git pull on all servers
 - include: git_pull.yml
 
-- hosts: usstlecpsplhf01,usstlecpsplhf02,usstlecpsplhf03,usstlecpsplhf04
+- hosts: all-hf 
   serial: 100
   gather_facts: no
   become: true
