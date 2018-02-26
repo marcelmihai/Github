@@ -2,7 +2,7 @@
   shell: /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://usstlecpsplsh01.emrsn.org:8089 -auth admin:"{{ splunk_new_password }}"
   register: bundle_status
 - debug: var=bundle_status.stdout_lines
- become: true
+  become: true
   become_user: "{{ SPLUNK_USER }}"
 
 # INFO: Verify captain via a splunk search
