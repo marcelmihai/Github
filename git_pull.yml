@@ -8,5 +8,5 @@
   - name: pull from git
     git:
       repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
-      dest: /opt/splunk/Splunk-Configs
+      dest: /opt/splunk/Splunk-Configs/
       update: yes
