@@ -5,3 +5,18 @@
   become_user: "{{ SPLUNK_USER }}"
   roles:
     - role: splunk_cluster_deployer
+
+- hosts: localhost
+  any_errors_fatal: yes
+  vars_prompt:
+    name: "confirmation"
+    prompt: "Are you sure you want to restart the Splunk Service? Answer with 'YES'"
+    default: "NO"
+    private: no
+
+  tasks:
+    - name: Check Confirmation
+      fail: msg="Playbook run confirmation failed"
+      when: confirmation != "YES"
+
+- include: splunk_search_head_rolling_restart.yml

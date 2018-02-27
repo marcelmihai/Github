@@ -1,0 +1,19 @@
+# INFO: Verify captain via a splunk search
+- name: Get_Captain
+  action: shell /opt/splunk/bin/splunk search '| rest splunk_server=local /services/shcluster/captain/info | rename label as Captain | fields Captain' -auth admin:"{{ splunk_new_password }}"
+  register: search_output
+- debug: var=search_output.stdout_lines
+
+- name: SearchHead rolling restart
+  shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -auth admin:"{{ splunk_new_password }}"
+  register: restart_status_on_captain
+- debug: var=restart_status_on_captain.stdout_lines
+
+- name: Wait for Splunk startup
+  wait_for: port=8089 timeout=900 delay=30
+  ignore_errors: yes
+
+- name: "Checking rolling restart status"
+  shell: /opt/splunk/bin/splunk rolling-restart shcluster-members -status 1 -auth admin:"{{ splunk_new_password }}"
+  register: restart_status
+- debug: var=restart_status.stdout_lines
