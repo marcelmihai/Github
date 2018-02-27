@@ -12,4 +12,4 @@
       update: yes
       force: yes
       accept_hostkey: yes
-      key_file: "/opt/splunk/.ssh/id_rsa_deploy.pub"
+      key_file: "/opt/splunk/.ssh/id_rsa_deploy"
