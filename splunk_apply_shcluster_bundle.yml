@@ -1,3 +1,6 @@
+# before apply shcluster bundle, run git pull on all server 
+- include: git_pull.yml
+
 - hosts: usstlecpsplds02
   serial: 100
   gather_facts: no
