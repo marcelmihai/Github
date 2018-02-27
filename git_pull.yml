@@ -6,9 +6,6 @@
   become_user: "{{ SPLUNK_USER }}"
   tasks:
   - name: pull from git
-    git:
-      repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
-      dest: /opt/splunk/Splunk-Configs/
-      update: yes
-      version: master
-      force: yes
+    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
+    register: pull_status
+    until: pull_status|succeeded
