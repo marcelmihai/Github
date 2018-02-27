@@ -10,6 +10,5 @@
       repo: 'git@git.emrsn.org:SecurityToolsSplunk/Splunk-Configs.git'
       dest: /opt/splunk/Splunk-Configs/
       update: yes
+      version: master
       force: yes
-      accept_hostkey: yes
-      key_file: "/opt/splunk/.ssh/id_rsa_deploy"
