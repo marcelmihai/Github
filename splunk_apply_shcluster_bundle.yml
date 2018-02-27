@@ -13,7 +13,7 @@
   any_errors_fatal: yes
   vars_prompt:
     name: "confirmation"
-    prompt: "Are you sure you want to restart the Splunk Service? Answer with 'YES'"
+    prompt: "Are you sure you want to restart the SearchHeads Splunk Service? Answer with 'YES'"
     default: "NO"
     private: no
 
