@@ -9,3 +9,4 @@
     shell: 'cd /opt/splunk/Splunk-Configs;git pull'
     register: pull_status
     until: pull_status|succeeded
+  - debug: var=pull_status.stdout
