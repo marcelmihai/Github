@@ -1,0 +1,7 @@
+- hosts: all-cm
+  serial: 100
+  name: apply cluster bundle in all regions
+  become: yes
+  become_user: "{{ SPLUNK_USER }}"
+  roles:
+    - role: splunk_cluster_master_node

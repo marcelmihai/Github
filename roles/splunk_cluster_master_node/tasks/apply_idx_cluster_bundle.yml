@@ -1,0 +1,6 @@
+- name: apply cluster bundle from ClusterMaster
+  shell: /opt/splunk/bin/splunk apply cluster-bundle -auth admin:"{{ splunk_new_password }}"
+  register: bundle_status
+- debug: var=bundle_status.stdout_lines
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
