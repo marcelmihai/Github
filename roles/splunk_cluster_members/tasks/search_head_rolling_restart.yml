@@ -1,6 +1,6 @@
 # INFO: Verify captain via a splunk search
 - name: Get_Captain
-  shell: /opt/splunk/bin/splunk search '| rest splunk_server=usstl-splunk-sh1 /services/shcluster/captain/info | rename label as Captain | fields Captain' -auth admin:"{{ splunk_new_password }}"
+  command: /opt/splunk/bin/splunk search '| rest splunk_server=usstl-splunk-sh1 /services/shcluster/captain/info | rename label as Captain | fields Captain' -auth admin:"{{ splunk_new_password }}"
   register: search_output
 - debug: var=search_output.stdout_lines
 
