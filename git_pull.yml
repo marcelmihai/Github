@@ -10,3 +10,5 @@
     register: pull_status
     until: pull_status|succeeded
   - debug: var=pull_status.stdout
+    tags:
+       - git_pull
