@@ -1,3 +1,0 @@
-- hosts: skc*
-  roles:
-    - role: splunk_uninstall
