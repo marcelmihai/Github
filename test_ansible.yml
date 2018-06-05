@@ -1,9 +1,0 @@
-- hosts: skid*
-  serial: 1
-  name: Prepare all members for upgrade
-  become: yes
-  become_user: splunk
-  tasks:
-  - block:
-        - include: tasks/backup_local_apps.yml
-
