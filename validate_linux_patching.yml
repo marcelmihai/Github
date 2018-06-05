@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ SPLUNK_SITE }}"
+- hosts: all
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:
