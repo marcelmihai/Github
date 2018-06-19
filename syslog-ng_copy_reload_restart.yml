@@ -1,6 +1,5 @@
 # Run git pull on all servers
-- include: git_pull.yml
-
+#- include: git_pull.yml
 - hosts: all-hf 
   serial: 100
   gather_facts: no
