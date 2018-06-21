@@ -2,4 +2,4 @@
 # This playbook contains common tasks in this role
 
 - include: copy_syslog-ng_files.yml
-- include: syslog-ng_services.yml
+#- include: syslog-ng_services.yml
