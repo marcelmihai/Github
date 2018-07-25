@@ -1,0 +1,4 @@
+- lineinfile:
+    path: /opt/splunk/etc/apps/cluster_peer_app/local/server.conf
+    regexp: '^master_uri = '
+    line: 'master_uri = https:///usstl-splunk-cm01.emrsn.org:8089'

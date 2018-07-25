@@ -1,0 +1,18 @@
+---
+- hosts: stl-ix
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+    - include: tasks/update_usstl_cluster_peer_master_uri_value.yml
+
+- hosts: lon-ix
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+    - include: tasks/update_uklon_cluster_peer_master_uri_value.yml
+
+- hosts: hkg-ix
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+    - include: tasks/update_cnhkg_cluster_peer_master_uri_value.yml
