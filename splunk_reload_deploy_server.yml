@@ -9,3 +9,20 @@
   become_user: "{{ SPLUNK_USER }}"
   roles:
     - role: splunk_deployment_server
+
+- hosts: usstlecpsplds01
+  gather_facts: false
+  become: true
+  become_user: splunk
+  vars_prompt:
+    - name: ServerClass
+      prompt: Enter the required server class
+      private: false
+  pre_tasks:
+    - name: "set_vars"
+      set_fact: ServerClass={{ ServerClass }}
+  tasks:
+  - name: reload deploy server
+    shell: /opt/splunk/bin/splunk reload deploy-server -class "{{ ServerClass }}" -auth admin:"{{ splunk_new_password }}"
+    register: reload_status
+  - debug: var=reload_status.stdout
