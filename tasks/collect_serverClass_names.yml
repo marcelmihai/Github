@@ -1,5 +1,5 @@
-# INFO: Verify captain via a splunk search
+# INFO: Get ServerClass names
 - name: Get Server Classes
-  action: shell /opt/splunk/bin/splunk search '| rest /services/deployment/server/clients splunk_server="usmtnecdsplsd01" | rename splunk_server as deployment_server | eval sourceHost = if( isnull(sourceDomain), hostname, sourceHost ) | eval sourceHost = upper(sourceHost) | rex field=utsname "(?<os>[^\-]+)\-(?<arch>.+)" | eval os = case( os = "linux", "Linux", os = "windows", "Windows" ) | fields - utsname hostname | rename sourceHost as hostname | fields serverClasses*stateOnClient | rename serverClasses.*.stateOnClient as * | stats count(*) as * values(*) as *.val | transpose | rename column as "Server Classes" "row 1" as "count" | search "Server Classes"!=*.val' -auth admin:"{{ splunk_new_password }}"
+  action: shell /opt/splunk/bin/splunk search '| REST /services/deployment/server/clients | search name="$host$"| fields serverClasses*stateOnClient | rename serverClasses.*.stateOnClient as * | transpose | rename column as "Server Classes"' -auth admin:"{{ splunk_new_password }}"
   register: search_output
 - debug: var=search_output.stdout_lines
