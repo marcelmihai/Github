@@ -22,16 +22,3 @@
 #  - block:
 #        - include: tasks/collect_server_class_names.yml
 #
-- name: target required serverClass and reload deploy server
-  vars_prompt:
-    - name: ServerClass
-      prompt: Enter the required server class
-      private: false
-  pre_tasks:
-    - name: "set_vars"
-      set_fact: ServerClass={{ ServerClass }}
-  tasks:
-  - name: reload deploy server
-    shell: /opt/splunk/bin/splunk reload deploy-server -class "{{ ServerClass }}" -auth admin:"{{ splunk_new_password }}"
-    register: reload_status
-  - debug: var=reload_status.stdout
