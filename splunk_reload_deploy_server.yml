@@ -7,9 +7,8 @@
   gather_facts: no
   become: true
   become_user: "{{ SPLUNK_USER }}"
-  tasks:
-  - block:
-        - include: tasks/collect_serverClass_names.yml
+  roles:
+    - { role: 'splunk_deployment_server' }
 
 - hosts: stl-ds
   gather_facts: no
@@ -27,3 +26,15 @@
     shell: /opt/splunk/bin/splunk reload deploy-server -class "{{ ServerClass }}" -auth admin:"{{ splunk_new_password }}"
     register: reload_status
   - debug: var=reload_status.stdout
+
+- hosts: stl-ds
+  gather_facts: no
+  become: true
+  become_user: splunk
+  tasks:
+    - name: Reload all serverclasses
+      shell: '/opt/splunk/bin/splunk reload deploy-server -auth admin:"{{ splunk_new_password }}"'
+      register: reload_status
+    - debug: var=reload_status.stdout
+  tags:
+    - all
