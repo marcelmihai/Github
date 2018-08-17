@@ -1,5 +1,5 @@
 # INFO: Get ServerClass names
 - name: Get Server Classes
-  action: shell /opt/splunk/bin/splunk search '| REST /services/deployment/server/clients | search name="$host$"| fields serverClasses*stateOnClient | rename serverClasses.*.stateOnClient as * | transpose | rename column as "Server Classes"' -auth admin:"{{ splunk_new_password }}"
+  action: shell grep -oP '(?<=serverClass:)(?<serverclass>[^:]+?)(?=:)' /opt/splunk/etc/system/local/serverclass.conf
   register: search_output
 - debug: var=search_output.stdout_lines
