@@ -1,5 +1,5 @@
 # before reload, run git pull on all server 
-#- include: git_pull.yml
+- include: git_pull.yml
 
 # reload deployment server
 - hosts: stl-ds

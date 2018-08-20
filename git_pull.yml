@@ -1,6 +1,6 @@
 # Run git pull on all servers.
 - hosts: all
-  serial: 25
+  serial: 50
   gather_facts: no
   become: true
   become_user: "{{ SPLUNK_USER }}"
