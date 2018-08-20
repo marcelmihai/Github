@@ -37,4 +37,4 @@
       register: reload_status
     - debug: var=reload_status.stdout
   tags:
-    - all
+    - reloadAll
