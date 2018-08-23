@@ -30,14 +30,10 @@
       remote_src: yes
       mode: 0644
   - name: Stop the syslog-ng, if running
-    service:
-      name: syslog-ng
-      state: stopped
+    shell: service syslog-ng stop
   
   - name: Start the syslog-ng, if stoppped
-    service:
-      name: syslog-ng
-      state: started
+    shell: service syslog-ng start
   
   - name: Status of the syslog-ng
     shell: service syslog-ng status
