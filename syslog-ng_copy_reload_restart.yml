@@ -37,12 +37,10 @@
   - name: Start the syslog-ng, if stoppped
     service:
       name: syslog-ng
-      state: start
+      state: started
   
   - name: Status of the syslog-ng
-    service:
-      name: syslog-ng
-      state: stopped
+    shell: service syslog-ng status
 
 #- hosts: all-hf
 #  serial: 1
