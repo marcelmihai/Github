@@ -1,5 +1,5 @@
 # Run git pull on all servers
-- include: git_pull.yml
+#- include: git_pull.yml
 
 # Display syslog-ng .conf file names
 - hosts: stl-ds
