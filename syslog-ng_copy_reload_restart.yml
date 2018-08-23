@@ -22,7 +22,7 @@
   tasks: 
   - name: copy syslog-ng file to buckets.d
     copy:
-      src: /opt/splunk/Splunk-Configs/syslog-ng/buckets.d/"{{ syslog-ng }}""
+      src: /opt/splunk/Splunk-Configs/syslog-ng/buckets.d/"{{syslog-ng}}"
       dest: /etc/syslog-ng/buckets.d/
       owner: syslog-ng
       group: syslog-ng
