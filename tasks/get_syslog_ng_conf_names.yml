@@ -1,5 +1,5 @@
 # INFO: Get syslog-ng .conf names
 - name: Get syslog-ng .conf names
-  action: shell ls -lah /opt/splunk/Splunk-Configs/syslog-ng/buckets.d/| grep -rL ".conf"
+  action: shell ls /opt/splunk/Splunk-Configs/syslog-ng/buckets.d/
   register: search_output
 - debug: var=search_output.stdout_lines
