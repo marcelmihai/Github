@@ -1,10 +1,10 @@
-- name: copy syslog-ng file to buckets.d
-  copy:
-    src: /opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{item}}
-    dest: /etc/syslog-ng/buckets.d/
-    owner: syslog-ng
-    group: syslog-ng
-    remote_src: yes
-    mode: 0644
-  become: true	
-  become_user: syslog-ng
+#- name: copy syslog-ng file to buckets.d
+#  copy:
+#    src: /opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{item}}
+#    dest: /etc/syslog-ng/buckets.d/
+#    owner: syslog-ng
+#    group: syslog-ng
+#    remote_src: yes
+#    mode: 0644
+#  become: true	
+#  become_user: syslog-ng
