@@ -14,3 +14,6 @@ cluster_master_usstl: usstl-splunk-cm01
 cluster_master_gblo: uklon-splunk-cm01
 cluster_master_cnhk: cnhkg-splunk-cm01
 SPLUNK_ADMIN: 'admin'
+syslog_ng_config_dir: "/etc/syslog-ng"
+syslog_ng_user: syslog-ng
+syslog_ng_config_default_port: 514

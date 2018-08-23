@@ -9,10 +9,10 @@
   tasks:
     - include: tasks/get_syslog_ng_conf_names.yml
 
-- hosts: all-hf
+- hosts: hkg-hf
   gather_facts: no
   become: true
-  become_user: syslog-ng
+  become_user: "{{ syslog_ng_user }}"
   vars_prompt:
     - name: syslog
       prompt: Please enter the syslog-ng file name
@@ -29,11 +29,25 @@
       group: syslog-ng
       remote_src: yes
       mode: 0644
+  - name: Stop the syslog-ng, if running
+    service:
+      name: syslog-ng
+      state: stopped
+  
+  - name: Start the syslog-ng, if stoppped
+    service:
+      name: syslog-ng
+      state: start
+  
+  - name: Status of the syslog-ng
+    service:
+      name: syslog-ng
+      state: stopped
 
-- hosts: all-hf
-  serial: 1
-  gather_facts: no
-  become: true
-  become_user: syslog-ng
-  roles:
-    - { role: 'splunk_syslog-ng' }
+#- hosts: all-hf
+#  serial: 1
+#  gather_facts: no
+#  become: true
+#  become_user: syslog-ng
+#  roles:
+#    - { role: 'splunk_syslog-ng' }
