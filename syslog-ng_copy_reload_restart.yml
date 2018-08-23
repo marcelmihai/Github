@@ -31,7 +31,7 @@
       mode: 0644
 
 - hosts: all-hf
-  serial: 100
+  serial: 1
   gather_facts: no
   become: true
   become_user: syslog-ng
