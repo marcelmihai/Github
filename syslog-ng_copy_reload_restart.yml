@@ -29,10 +29,10 @@
       remote_src: yes
       mode: 0644
 
-- hosts: all-hf
-  serial: 100
-  gather_facts: no
-  become: true
-  become_user: syslog-ng
-  roles:
-    - { role: 'splunk_syslog-ng' }
+#- hosts: all-hf
+#  serial: 100
+#  gather_facts: no
+#  become: true
+#  become_user: syslog-ng
+#  roles:
+#    - { role: 'splunk_syslog-ng' }
