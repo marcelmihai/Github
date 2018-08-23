@@ -14,16 +14,16 @@
   become: true
   become_user: syslog-ng
   vars_prompt:
-    - name: syslog-ng
+    - name: syslog
       prompt: Please enter the syslog-ng file name
       private: false
   pre_tasks:
     - name: "set_vars"
-      set_fact: syslog-ng={{ syslog-ng }}
+      set_fact: syslog={{ syslog }}
   tasks: 
   - name: copy syslog-ng file to buckets.d
     copy:
-      src: /opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{syslog-ng}}
+      src: /opt/splunk/Splunk-Configs/syslog-ng/buckets.d/{{syslog}}
       dest: /etc/syslog-ng/buckets.d/
       owner: syslog-ng
       group: syslog-ng
