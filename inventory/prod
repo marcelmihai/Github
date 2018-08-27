@@ -9,6 +9,9 @@ usstlecpsplds02
 [sh]
 usstlecpsplsh[01:05]
 
+[dev-sh]
+usmtnecdsplsh11
+
 # All indexers
 [all-ix:children]
 stl-ix
