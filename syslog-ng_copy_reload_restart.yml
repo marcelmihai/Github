@@ -9,7 +9,7 @@
   tasks:
     - include: tasks/get_syslog_ng_conf_names.yml
 
-- hosts: hkg-hf
+- hosts: all-hf
   gather_facts: no
   become: true
   become_user: "{{ syslog_ng_user }}"
