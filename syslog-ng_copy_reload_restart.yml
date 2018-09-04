@@ -1,5 +1,5 @@
 # Run git pull on all servers
-#- include: git_pull.yml
+- include: git_pull.yml
 
 # Display syslog-ng .conf file names
 - hosts: stl-ds
@@ -30,7 +30,7 @@
       remote_src: yes
       mode: 0644
 
-- hosts: hkg-hf
+- hosts: all-hf
   gather_facts: no
   become: false
   tasks:
@@ -48,11 +48,3 @@
       shell: sudo /sbin/service syslog-ng status
       register: syslog_status
     - debug: var=syslog_status.stdout_lines
-
-#- hosts: all-hf
-#  serial: 1
-#  gather_facts: no
-#  become: true
-#  become_user: syslog-ng
-#  roles:
-#    - { role: 'splunk_syslog-ng' }
