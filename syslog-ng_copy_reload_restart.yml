@@ -32,7 +32,7 @@
 
 - hosts: hkg-hf
   gather_facts: no
-  become: true
+  become: false
   tasks:
     - name: Stop the syslog-ng, if running
       shell: sudo /sbin/service syslog-ng stop
