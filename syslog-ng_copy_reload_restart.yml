@@ -35,13 +35,13 @@
   become: true
   tasks:
     - name: Stop the syslog-ng, if running
-      shell: service syslog-ng stop
+      shell: sudo /sbin/service syslog-ng stop
   
     - name: Start the syslog-ng, if stoppped
-      shell: service syslog-ng start
+      shell: sudo /sbin/service syslog-ng start
   
     - name: Status of the syslog-ng
-      shell: service syslog-ng status
+      shell: sudo /sbin/service syslog-ng status
 
 #- hosts: all-hf
 #  serial: 1
