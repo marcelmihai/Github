@@ -29,14 +29,20 @@
       group: syslog-ng
       remote_src: yes
       mode: 0644
-  - name: Stop the syslog-ng, if running
-    shell: service syslog-ng stop
+
+- hosts: hkg-hf
+  gather_facts: no
+  become: true
+  become_user: "{{ ansible_user }}"
+  tasks:
+    - name: Stop the syslog-ng, if running
+      shell: service syslog-ng stop
   
-  - name: Start the syslog-ng, if stoppped
-    shell: service syslog-ng start
+    - name: Start the syslog-ng, if stoppped
+      shell: service syslog-ng start
   
-  - name: Status of the syslog-ng
-    shell: service syslog-ng status
+    - name: Status of the syslog-ng
+      shell: service syslog-ng status
 
 #- hosts: all-hf
 #  serial: 1
