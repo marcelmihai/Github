@@ -36,12 +36,18 @@
   tasks:
     - name: Stop the syslog-ng, if running
       shell: sudo /sbin/service syslog-ng stop
+      register: syslog_status
+    - debug: var=syslog_status.stdout_lines
   
     - name: Start the syslog-ng, if stoppped
       shell: sudo /sbin/service syslog-ng start
+      register: syslog_status
+    - debug: var=syslog_status.stdout_lines
   
     - name: Status of the syslog-ng
       shell: sudo /sbin/service syslog-ng status
+      register: syslog_status
+    - debug: var=syslog_status.stdout_lines
 
 #- hosts: all-hf
 #  serial: 1
