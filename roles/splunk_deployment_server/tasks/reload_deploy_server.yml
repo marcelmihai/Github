@@ -1,5 +1,4 @@
-# INFO: Get ServerClass names
-- name: Get Server Classes
-  action: shell grep -oP '(?<=serverClass:)(?<serverclass>[^:]+?)(?=])' /opt/splunk/etc/system/local/serverclass.conf
-  register: search_output
-- debug: var=search_output.stdout_lines
+- name: Reload deployment server
+  shell: '/opt/splunk/bin/splunk reload deploy-server -auth admin:"{{ splunk_new_password }}"'
+  register: reload_status
+- debug: var=reload_status.stdout

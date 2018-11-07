@@ -1,0 +1,31 @@
+# before reload, run git pull on all servers
+- include: git_pull.yml
+
+# reload deployment server by server-class.
+- hosts: stl-ds
+  serial: 100
+  name: Get server class names
+  gather_facts: no
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+  - block:
+        - include: tasks/get_serverclass_names.yml
+
+- hosts: stl-ds
+  gather_facts: no
+  name: reload deployment server by server-class
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  vars_prompt:
+    - name: ServerClass
+      prompt: Enter the required server class name
+      private: false
+  pre_tasks:
+    - name: "set_vars"
+      set_fact: ServerClass={{ ServerClass }}
+  tasks:
+  - name: reload deploy server
+    shell: /opt/splunk/bin/splunk reload deploy-server -class "{{ ServerClass }}" -auth admin:"{{ splunk_new_password }}"
+    register: reload_status
+  - debug: var=reload_status.stdout
