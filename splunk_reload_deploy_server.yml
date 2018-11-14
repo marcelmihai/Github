@@ -1,5 +1,5 @@
 # before reload, run git pull on all server 
-- hosts: stl-sd
+- hosts: stl-ds
   serial: 100
   gather_facts: no
   become: true
