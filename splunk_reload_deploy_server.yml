@@ -1,6 +1,6 @@
 # before reload, run git pull on all server 
 - hosts: stl-sd
-  serial: 50
+  serial: 100
   gather_facts: no
   become: true
   become_user: "{{ SPLUNK_USER }}"

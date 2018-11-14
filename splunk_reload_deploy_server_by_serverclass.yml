@@ -1,5 +1,17 @@
-# before reload, run git pull on all servers
-- include: git_pull.yml
+# Run git pull on ds02 servers.
+- hosts: stl-sd
+  serial: 100
+  gather_facts: no
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+  - name: pull from git
+    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
+    register: pull_status
+    until: pull_status|succeeded
+  - debug: var=pull_status.stdout
+    tags:
+       - git_pull
 
 # reload deployment server by server-class.
 - hosts: stl-ds
