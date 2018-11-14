@@ -1,4 +1,4 @@
-# before reload, run git pull on all server 
+# Run git pull on ds02 server.
 - hosts: stl-ds
   serial: 100
   gather_facts: no

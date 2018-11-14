@@ -1,4 +1,4 @@
-# Run git pull on ds02 servers.
+# Run git pull on ds02 server.
 - hosts: stl-ds
   serial: 100
   gather_facts: no
