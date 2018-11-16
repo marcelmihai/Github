@@ -5,10 +5,5 @@
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:
-  - name: pull from git
-    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
-    register: pull_status
-    until: pull_status|succeeded
-  - debug: var=pull_status.stdout
-    tags:
-       - git_pull
+    - include: tasks/run_git_pull.yml
+    
