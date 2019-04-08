@@ -1,0 +1,5 @@
+- name: move server.pem to server.pem.bkp
+  shell: mv /opt/splunk/etc/auth/server.pem /opt/splunk/etc/auth/server.pem_backup
+  ignore_errors: yes
+  become: true
+  become_user: "{{ SPLUNK_USER }}"

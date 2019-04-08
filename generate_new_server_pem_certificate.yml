@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+    - include: tasks/genarate_server_pem_certificate.yml
