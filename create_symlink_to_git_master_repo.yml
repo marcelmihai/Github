@@ -1,3 +1,7 @@
+########################################################################################################################## 
+# ansible-playbook create_symlink_to_git_master_repo.yml  -e "SOURCE_FOLDER=splunk_7_0_overview" --ask-vault #############
+# ansible-playbook create_symlink_to_git_master_repo.yml  -e "SOURCE_FOLDER=splunk_7_0_overview" -t all-cm --ask-vault ###
+##########################################################################################################################
 
 - hosts: stl-sd
   gather_facts: no
