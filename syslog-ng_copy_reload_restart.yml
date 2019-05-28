@@ -45,19 +45,27 @@
 - hosts: all-hf
   serial: 1%
   gather_facts: no
-  become: false
+  become: true
   tasks:
     - name: Stop the syslog-ng, if running
       shell: sudo /sbin/service syslog-ng stop
+      ignore_errors: yes
       register: syslog_status
     - debug: var=syslog_status.stdout_lines
+    
+    - name: sleep for 10 seconds and continue with play
+      wait_for:
+      timeout: 10
+      delegate_to: localhost
   
     - name: Start the syslog-ng, if stoppped
       shell: sudo /sbin/service syslog-ng start
+      ignore_errors: yes
       register: syslog_status
     - debug: var=syslog_status.stdout_lines
   
     - name: Status of the syslog-ng
       shell: sudo /sbin/service syslog-ng status
+      ignore_errors: yes
       register: syslog_status
     - debug: var=syslog_status.stdout_lines

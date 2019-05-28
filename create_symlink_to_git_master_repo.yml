@@ -5,11 +5,10 @@
 
 - hosts: stl-sd
   gather_facts: no
-  name: Create Symlink
+  name: Create Symbolic link for SearchDeployer App/Add-on
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:     
-  - name: Create Symbolic link for SearchDeployer App/Add-on
     file:
      src: "/opt/splunk/Splunk-Configs/search-deployer/{{ SOURCE_FOLDER }}"
      dest: "/opt/splunk/etc/shcluster/apps/{{ SOURCE_FOLDER }}"
@@ -19,11 +18,10 @@
 
 - hosts: all-cm
   gather_facts: no
-  name: Create Symlink
+  name: Create Symbolic link for Cluster Master App/Add-on
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:
-  - name: Create Symbolic link for Cluster Master App/Add-on
     file:
      src: "/opt/splunk/Splunk-Configs/indexer-cluster/master-apps/{{ SOURCE_FOLDER }}"
      dest: "/opt/splunk/etc/master-apps/{{ SOURCE_FOLDER }}"
@@ -33,11 +31,10 @@
 
 - hosts: stl-ds
   gather_facts: no
-  name: Create Symlink
+  name: Create Symbolic link for Deployment Server App/Add-on
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:     
-  - name: Create Symbolic link for Deployment Server App/Add-on
     file:
      src: "/opt/splunk/Splunk-Configs/deployment-server/deployment-apps/{{ SOURCE_FOLDER }}"
      dest: /splunkds/deployment-apps/"{{ SOURCE_FOLDER }}"
