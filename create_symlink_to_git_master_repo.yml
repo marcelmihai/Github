@@ -1,20 +1,27 @@
 
+- hosts: stl-sd
+  gather_facts: no
+  name: Create Symlink
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:     
+  - name: Create Symbolic link for SearchDeployer App/Add-on
+    file:
+     src: "/opt/splunk/Splunk-Configs/search-deployer/{{ SOURCE_FOLDER }}"
+     dest: "/opt/splunk/etc/shcluster/apps/{{ SOURCE_FOLDER }}"
+     state: link
+  tags:
+    - stl-sd
+
 - hosts: all-cm
   gather_facts: no
   name: Create Symlink
   become: true
   become_user: "{{ SPLUNK_USER }}"
-  vars_prompt:
-    - name: SOURCE_FOLDER
-      prompt: Enter the App/Add-on Name
-      private: false
-  pre_tasks:
-    - name: "set_vars"
-      set_fact: SOURCE_FOLDER={{ SOURCE_FOLDER }}
   tasks:
   - name: Create Symbolic link for Cluster Master App/Add-on
     file:
-     src: "/opt/splunk/Splunk-Configs/indexer-cluster/master-apps/{{ SOURCE_FOLDER }}/"
+     src: "/opt/splunk/Splunk-Configs/indexer-cluster/master-apps/{{ SOURCE_FOLDER }}"
      dest: "/opt/splunk/etc/master-apps/{{ SOURCE_FOLDER }}"
      state: link
   tags:
@@ -25,55 +32,11 @@
   name: Create Symlink
   become: true
   become_user: "{{ SPLUNK_USER }}"
-  vars_prompt:
-    - name: SOURCE_FOLDER
-      prompt: Enter the App/Add-on Name
-      private: false
-  pre_tasks:
-    - name: "set_vars"
-      set_fact: SOURCE_FOLDER={{ SOURCE_FOLDER }}
   tasks:     
   - name: Create Symbolic link for Deployment Server App/Add-on
     file:
-     src: "/opt/splunk/Splunk-Configs/deployment-server/deployment-apps/{{ SOURCE_FOLDER }}/"
+     src: "/opt/splunk/Splunk-Configs/deployment-server/deployment-apps/{{ SOURCE_FOLDER }}"
      dest: /splunkds/deployment-apps/"{{ SOURCE_FOLDER }}"
      state: link
   tags:
     - stl-ds
-
-- hosts: stl-sd
-  gather_facts: no
-  name: Create Symlink
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
-  vars_prompt:
-    - name: SOURCE_FOLDER
-      prompt: Enter the App/Add-on Name
-      private: false
-  pre_tasks:
-    - name: "set_vars"
-      set_fact: SOURCE_FOLDER={{ SOURCE_FOLDER }}
-  tasks:     
-  - name: Create Symbolic link for SearchDeployer App/Add-on
-    file:
-     src: "/opt/splunk/Splunk-Configs/search-deployer/{{ SOURCE_FOLDER }}/"
-     dest: "/opt/splunk/etc/shcluster/apps/{{ SOURCE_FOLDER }}"
-     state: link
-  tags:
-    - stl-sd
-
-- hosts: skid
-  gather_facts: no
-  name: Create Symlink
-  vars_prompt:
-    - name: SRC
-      promt: "Symlink from?"
-      private: false
-    - name: TGT
-      prompt: "Target directory"
-      private: false
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
-  tasks:
-  - name: Create Symbolic link
-    action: shell ln -s /opt/splunk/{{ SRC }}/ {{ TGT }}
