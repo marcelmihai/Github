@@ -9,7 +9,7 @@
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:     
-    file:
+  - file:
      src: "/opt/splunk/Splunk-Configs/search-deployer/{{ SOURCE_FOLDER }}"
      dest: "/opt/splunk/etc/shcluster/apps/{{ SOURCE_FOLDER }}"
      state: link
@@ -22,7 +22,7 @@
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:
-    file:
+  - file:
      src: "/opt/splunk/Splunk-Configs/indexer-cluster/master-apps/{{ SOURCE_FOLDER }}"
      dest: "/opt/splunk/etc/master-apps/{{ SOURCE_FOLDER }}"
      state: link
@@ -35,9 +35,9 @@
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:     
-    file:
+  - file:
      src: "/opt/splunk/Splunk-Configs/deployment-server/deployment-apps/{{ SOURCE_FOLDER }}"
-     dest: /splunkds/deployment-apps/"{{ SOURCE_FOLDER }}"
+     dest: "/splunkds/deployment-apps/{{ SOURCE_FOLDER }}"
      state: link
   tags:
     - stl-ds
