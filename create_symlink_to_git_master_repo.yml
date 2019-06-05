@@ -5,11 +5,17 @@
 
 - hosts: stl-sd
   gather_facts: no
-  name: Create Symbolic link for SearchDeployer App/Add-on
   become: true
   become_user: "{{ SPLUNK_USER }}"
-  tasks:     
-  - file:
+  tasks:
+  - name: Run git pull on Search Deployer
+    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
+    register: pull_status
+    until: pull_status|succeeded
+  - debug: var=pull_status.stdout
+
+  - name: Create Symbolic link for SearchDeployer App/Add-on
+    file:
      src: "/opt/splunk/Splunk-Configs/search-deployer/{{ SOURCE_FOLDER }}"
      dest: "/opt/splunk/etc/shcluster/apps/{{ SOURCE_FOLDER }}"
      state: link
@@ -18,11 +24,17 @@
 
 - hosts: all-cm
   gather_facts: no
-  name: Create Symbolic link for Cluster Master App/Add-on
   become: true
   become_user: "{{ SPLUNK_USER }}"
   tasks:
-  - file:
+  - name: Run git pull on all Cluster Master servers.
+    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
+    register: pull_status
+    until: pull_status|succeeded
+  - debug: var=pull_status.stdout
+
+  - name: Create Symbolic link for Cluster Master App/Add-on
+    file:
      src: "/opt/splunk/Splunk-Configs/indexer-cluster/master-apps/{{ SOURCE_FOLDER }}"
      dest: "/opt/splunk/etc/master-apps/{{ SOURCE_FOLDER }}"
      state: link
@@ -31,11 +43,17 @@
 
 - hosts: stl-ds
   gather_facts: no
-  name: Create Symbolic link for Deployment Server App/Add-on
   become: true
   become_user: "{{ SPLUNK_USER }}"
-  tasks:     
-  - file:
+  tasks:
+  - name: Run git pull on Deployment server.
+    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
+    register: pull_status
+    until: pull_status|succeeded
+  - debug: var=pull_status.stdout
+
+  - name: Create Symbolic link for Deployment Server App/Add-on
+    file:
      src: "/opt/splunk/Splunk-Configs/deployment-server/deployment-apps/{{ SOURCE_FOLDER }}"
      dest: "/splunkds/deployment-apps/{{ SOURCE_FOLDER }}"
      state: link
