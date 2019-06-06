@@ -45,7 +45,7 @@
 - hosts: all-hf
   serial: 1%
   gather_facts: no
-  become: true
+  become: false
   tasks:
     - name: Stop the syslog-ng, if running
       shell: sudo /sbin/service syslog-ng stop
@@ -69,3 +69,5 @@
       ignore_errors: yes
       register: syslog_status
     - debug: var=syslog_status.stdout_lines
+  tags:
+     - restart
