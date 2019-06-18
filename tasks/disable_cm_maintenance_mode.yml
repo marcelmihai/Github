@@ -1,4 +1,4 @@
 - name: enable maintainence mode
-  command: "{{ SPLUNK_HOME }}/bin/splunk disable maintenance-mode -auth admin:'{{ splunk_new_password}}' --answer-yes"
+  command: "{{ SPLUNK_HOME }}/bin/splunk disable maintenance-mode -auth admin:'{{ splunk_password }}' --answer-yes"
   become: true
   become_user: "{{ SPLUNK_USER }}"
