@@ -1,47 +1,10 @@
-## Run git pull on Search Deployer.
-#- hosts: stl-sd
-#  serial: 100
-#  gather_facts: no
-#  become: true
-#  become_user: "{{ SPLUNK_USER }}"
-#  tasks:
-#  - name: pull from git
-#    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
-#    register: pull_status
-#    until: pull_status|succeeded
-#  - debug: var=pull_status.stdout
-#    tags:
-#       - git_pull
-
 # Run git pull on Search Deployer.
 - hosts: stl-sd
+  name: run git pull and apply SH cluster bundle
   serial: 100
   gather_facts: no
   become: true
   become_user: "{{ SPLUNK_USER }}"
   roles:
-    - role: git
-      tags: pull
-
-#- hosts: stl-sd
-#  serial: 100
-#  gather_facts: no
-#  become: true
-#  become_user: "{{ SPLUNK_USER }}"
-#  roles:
-#    - role: splunk_cluster_deployer
-
-#- hosts: localhost
-#  any_errors_fatal: yes
-#  vars_prompt:
-#    name: "confirmation"
-#    prompt: "Are you sure you want to restart the SearchHeads Splunk Service? Answer with 'YES'"
-#    default: "NO"
-#    private: no
-#
-#  tasks:
-#    - name: Check Confirmation
-#      fail: msg="Playbook run confirmation failed"
-#      when: confirmation != "YES"
-#
-#- include: splunk_search_head_rolling_restart.yml
+    - git
+    - splunk_cluster_deployer
