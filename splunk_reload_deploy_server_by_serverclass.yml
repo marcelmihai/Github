@@ -3,15 +3,9 @@
   serial: 100
   gather_facts: no
   become: true
-  become_user: "{{ SPLUNK_USER }}"
-  tasks:
-  - name: pull from git
-    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
-    register: pull_status
-    until: pull_status|succeeded
-  - debug: var=pull_status.stdout
-    tags:
-       - git_pull
+  become_user: splunk
+  roles:
+    - git
 
 # reload deployment server by server-class.
 - hosts: stl-ds
@@ -19,7 +13,7 @@
   name: Get server class names
   gather_facts: no
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   tasks:
   - block:
         - include: tasks/get_serverclass_names.yml
@@ -28,7 +22,7 @@
   gather_facts: no
   name: reload deployment server by server-class
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   vars_prompt:
     - name: ServerClass
       prompt: Enter the required server class name
@@ -38,6 +32,6 @@
       set_fact: ServerClass={{ ServerClass }}
   tasks:
   - name: reload deploy server
-    shell: /opt/splunk/bin/splunk reload deploy-server -class "{{ ServerClass }}" -auth admin:"{{ splunk_new_password }}"
+    shell: /opt/splunk/bin/splunk reload deploy-server -class "{{ ServerClass }}" -auth admin:"{{ splunk_password }}"
     register: reload_status
   - debug: var=reload_status.stdout

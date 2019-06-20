@@ -6,7 +6,7 @@
 - hosts: stl-sd
   gather_facts: no
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   tasks:
   - name: Run git pull on Search Deployer
     shell: 'cd /opt/splunk/Splunk-Configs;git pull'
@@ -25,7 +25,7 @@
 - hosts: all-cm
   gather_facts: no
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   tasks:
   - name: Run git pull on all Cluster Master servers.
     shell: 'cd /opt/splunk/Splunk-Configs;git pull'
@@ -44,7 +44,7 @@
 - hosts: stl-ds
   gather_facts: no
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   tasks:
   - name: Run git pull on Deployment server.
     shell: 'cd /opt/splunk/Splunk-Configs;git pull'

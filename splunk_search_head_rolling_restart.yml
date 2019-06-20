@@ -2,6 +2,6 @@
   serial: 1
   gather_facts: no
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   roles:
     - role: splunk_cluster_members

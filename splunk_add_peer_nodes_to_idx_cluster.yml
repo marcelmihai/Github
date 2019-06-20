@@ -13,9 +13,9 @@
   hosts: stl-g4ix
   serial: 100
   become: yes
-  become_user: {{ SPLUNK_USER }}
+  become_user: splunk
   roles:
-    - { role: splunk_cluster_peer_usstl }
+    - splunk_cluster_peer_usstl
 
 # disable maintenance mode on the cluster master
 - hosts: stl-skcm

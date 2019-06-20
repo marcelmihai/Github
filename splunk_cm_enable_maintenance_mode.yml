@@ -2,7 +2,7 @@
   serial: 100
   name: enable clustermaster maintenance mode in all regions
   become: yes
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   tasks:
   - block:
         - include: tasks/enable_cm_maintenance_mode.yml

@@ -1,18 +1,24 @@
 ---
 - hosts: stl-ix
+  serial: 100%
+  gather_facts: no
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   tasks:
     - include: tasks/update_usstl_cluster_peer_master_uri_value.yml
 
 - hosts: lon-ix
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  serial: 100%
+  gather_facts: no
+  become_user: splunk
   tasks:
     - include: tasks/update_uklon_cluster_peer_master_uri_value.yml
 
 - hosts: hkg-ix
+  serial: 100%
+  gather_facts: no
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   tasks:
     - include: tasks/update_cnhkg_cluster_peer_master_uri_value.yml
