@@ -1,8 +1,0 @@
-
-#Dynamic source type for Bro. This should be moved to its own app -MyH  7/24/14
-[BroIdsAutoType]
-SOURCE_KEY = MetaData:Source
-DEST_KEY   = MetaData:Sourcetype
-REGEX      = (var/opt/bro/spool/manager/)(\w+)(.log)
-FORMAT     = sourcetype::bro_$2
-WRITE_META = true

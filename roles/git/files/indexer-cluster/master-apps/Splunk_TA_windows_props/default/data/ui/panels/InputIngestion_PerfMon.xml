@@ -1,9 +1,0 @@
-<panel>
-  <title>Windows - Performance Monitor ingestion over 24 hours</title>
-
-  <table>
-    <searchString>eventtype=perfmon_windows | `compute-ingestion-stats`</searchString>
-    <earliestTime>-24h@h</earliestTime>
-    <latestTime>now</latestTime>
-  </table>
-</panel>
