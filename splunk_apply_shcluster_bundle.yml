@@ -4,7 +4,7 @@
   serial: 100
   gather_facts: no
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   roles:
     - git
     - splunk_cluster_deployer
