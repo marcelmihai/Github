@@ -1,4 +1,4 @@
-- hosts: new_*
+- hosts: new-idx
   serial: 100
   gather_facts: no
   roles:
