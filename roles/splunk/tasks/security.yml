@@ -1,20 +1,15 @@
-#- name: change default password
-#  command: /opt/splunk/bin/splunk edit user admin -password 'gQS,i,0n{W\Cnr}J>:%j' -role admin -auth admin:changeme
-#  become: true
-#  become_user: "{{ SPLUNK_USER }}"
-
-#- name: create certs folder
-#  tags:
-#   - install
-#   - security
-#  file:
-#    path=/opt/splunk/etc/auth/splunkweb
-#    owner=splunk
-#    group=splunk
-#    mode=700
-#    state=directory
-#  become: true
-#  become_user: "{{ SPLUNK_USER }}"
+- name: create certs folder
+  tags:
+   - install
+   - security
+  file:
+    path=/opt/splunk/etc/auth/splunkweb
+    owner=splunk
+    group=splunk
+    mode=700
+    state=directory
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
 
 #- name: copy splunkkey.key
 #  tags:
@@ -42,29 +37,29 @@
 #  become: true
 #  become_user: "{{ SPLUNK_USER }}"
 
-- name: copy authorize.conf
-  tags:
-    - install
-    - security
-  copy:
-    src=opt/splunk/etc/system/local/authorize.conf
-    dest=/opt/splunk/etc/system/local
-    owner=splunk
-    group=splunk
-    mode=700
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
+#- name: copy authorize.conf
+#  tags:
+#    - install
+#    - security
+#  copy:
+#    src=opt/splunk/etc/system/local/authorize.conf
+#    dest=/opt/splunk/etc/system/local
+#    owner=splunk
+#    group=splunk
+#    mode=700
+#  become: true
+#  become_user: "{{ SPLUNK_USER }}"
 
-- name: copy authentication.conf
-  tags:
-    - install
-    - security
-  copy:
-    src=opt/splunk/etc/system/local/authentication.conf
-    dest=/opt/splunk/etc/system/local
-    owner=splunk
-    group=splunk
-    mode=700
-  notify: restart splunk
-  become: true
-  become_user: "{{ SPLUNK_USER }}"
+#- name: copy authentication.conf
+#  tags:
+#    - install
+#    - security
+#  copy:
+#    src=opt/splunk/etc/system/local/authentication.conf
+#    dest=/opt/splunk/etc/system/local
+#    owner=splunk
+#    group=splunk
+#    mode=700
+#  notify: restart splunk
+#  become: true
+#  become_user: "{{ SPLUNK_USER }}"
