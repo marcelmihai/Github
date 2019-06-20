@@ -1,4 +1,5 @@
 ---
+ANSIBLE_HOME: "~/ansible4splunk"
 SPLUNK_USER: "splunk"
 splunk_group: "splunk"
 SPLUNK_HOME: "/opt/splunk"
@@ -7,6 +8,8 @@ SPLUNK_APP_DEST: "{{SPLUNK_HOME}}/etc/apps/"
 SPLUNK_DEPLOYMENT: "{{SPLUNK_ETC}}/deployment-apps"
 SPLUNK_RELEASE_SLEEPTIME: "480"
 SPLUNK_RELEASE_DEST: "{{SPLUNK_ETC}}/deployment-apps"
+SPLUNK_BINARY: "{{ ANSIBLE_HOME }}/splunk_binary/splunk-7.1.4-5a7a840afcb3-Linux-x86_64.tgz"
+SPLUNK_BINARY_APP: "{{ ANSIBLE_HOME }}/splunk_binary/master-apps.tgz"
 SPLUNK_VERSION: "6.6.2"
 SPLUNK_LEGACY: "6.5.1"
 splunklib_1_6_2_location: /opt/splunk
@@ -14,6 +17,8 @@ cluster_master_usstl: usstl-splunk-cm01
 cluster_master_gblo: uklon-splunk-cm01
 cluster_master_cnhk: cnhkg-splunk-cm01
 SPLUNK_ADMIN: 'admin'
+SPLUNK_LOCAL: "/opt/splunk/etc/system/local"
+SPLUNK_LM_URI: https://usstl-splunk-license.emrsn.org:8089
 syslog_ng_config_dir: "/etc/syslog-ng"
 syslog_ng_user: syslog-ng
 syslog_ng_config_default_port: 514
