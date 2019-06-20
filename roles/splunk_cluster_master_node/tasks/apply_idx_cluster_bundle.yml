@@ -1,7 +1,8 @@
 - name: apply cluster bundle from ClusterMaster
   shell: /opt/splunk/bin/splunk apply cluster-bundle -auth admin:"{{ splunk_password }}"
-  register: bundle_status
-  debug: var=bundle_status.stdout_lines
-  become: true
-  become_user: splunk
+  register: idx_bundle_status
+
+- name: print idx bundle status
+  debug: 
+     var: idx_bundle_status.stdout_lines
   
