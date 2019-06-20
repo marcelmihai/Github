@@ -1,8 +1,8 @@
-- hosts: skcm*
+- hosts: all-cm
   serial: 100
   name: enable clustermaster maintenance mode in all regions
   become: yes
-  become_user: splunk
+  become_user: "{{ SPLUNK_USER }}"
   tasks:
   - block:
         - include: tasks/enable_cm_maintenance_mode.yml

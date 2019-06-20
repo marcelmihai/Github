@@ -1,0 +1,28 @@
+# enter maintenance mode on the cluster master
+- hosts: stl-skcm
+  serial: 100
+  name: enable clustermaster maintenance mode in STL region
+  become: yes
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/enable_cm_maintenance_mode.yml
+
+# Add Peer Nodes to idx cluster
+- name: Setup config on Splunk Peer Nodes
+  hosts: stl-g4ix
+  serial: 100
+  become: yes
+  become_user: {{ SPLUNK_USER }}
+  roles:
+    - { role: splunk_cluster_peer_usstl }
+
+# disable maintenance mode on the cluster master
+- hosts: stl-skcm
+  serial: 100
+  name: disable clustermaster maintenance mode in STL region
+  become: yes
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/disable_cm_maintenance_mode.yml
