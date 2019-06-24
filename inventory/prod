@@ -32,13 +32,18 @@ cnhkgecpsplix[01:06]
 stl-g4ix
 lon-g4ix
 hkg-g4ix
-new-idx
+new-g4ix
+legacy-g4ix
 
 [stl-g4ix]
 usstlecpsplix[33:40]
 
 [new-idx]
 usstlecpsplix36
+usstlecpsplix40
+
+[legacy-g4ix]
+usstlecpsplix[01:08]
 
 [lon-g4ix]
 gblonecpsplix[05:06]

@@ -1,0 +1,4 @@
+- name: Put a peer into manual detention
+  command: "{{ SPLUNK_HOME }}/bin/splunk edit cluster-config -auth admin:'{{ splunk_password }}' -manual_detention on"
+  become: true
+  become_user: splunk

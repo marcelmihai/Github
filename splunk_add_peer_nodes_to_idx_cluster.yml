@@ -26,3 +26,23 @@
   tasks:
   - block:
         - include: tasks/disable_cm_maintenance_mode.yml
+
+# Put a peer into manual detention
+- hosts: legacy-idx
+  serial: 100
+  name: Put a peer into manual detention
+  become: yes
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/put_a_peer_into_manual_detention.yml
+
+# enter maintenance mode on the cluster master
+- hosts: stl-skcm
+  serial: 100
+  name: enable clustermaster maintenance mode in STL region
+  become: yes
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/enable_cm_maintenance_mode.yml
