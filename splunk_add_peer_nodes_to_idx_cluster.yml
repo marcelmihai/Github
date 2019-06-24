@@ -10,7 +10,7 @@
 
 # Add Peer Nodes to idx cluster
 - name: Setup config on Splunk Peer Nodes
-  hosts: stl-g4ix
+  hosts: new-g4ix
   serial: 100
   become: yes
   become_user: splunk
