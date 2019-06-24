@@ -1,5 +1,5 @@
 # enter maintenance mode on the cluster master
-- hosts: stl-skcm
+- hosts: stl-cm
   serial: 100
   name: enable clustermaster maintenance mode in STL region
   become: yes
@@ -38,7 +38,7 @@
         - include: tasks/put_a_peer_into_manual_detention.yml
 
 # enter maintenance mode on the cluster master
-- hosts: stl-skcm
+- hosts: stl-cm
   serial: 100
   name: enable clustermaster maintenance mode in STL region
   become: yes
