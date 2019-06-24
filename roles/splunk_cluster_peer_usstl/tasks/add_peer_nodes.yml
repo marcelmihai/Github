@@ -1,5 +1,6 @@
 - name: stop splunk
   command: /opt/splunk/bin/splunk stop
+  ignore_errors: yes
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
@@ -12,6 +13,7 @@
 
 - name: restart splunk
   command: "{{ SPLUNK_HOME }}/bin/splunk restart"
+  ignore_errors: yes
   become: true
   become_user: "{{ SPLUNK_USER }}"
 
