@@ -10,7 +10,7 @@
 
 # Add Peer Nodes to idx cluster
 - name: Setup config on Splunk Peer Nodes
-  hosts: new-g4ix
+  hosts: stl-g4ix
   serial: 100
   become: yes
   become_user: splunk
@@ -28,7 +28,7 @@
         - include: tasks/disable_cm_maintenance_mode.yml
 
 # Put a peer into manual detention
-- hosts: legacy-idx
+- hosts: legacy-g4ix
   serial: 100
   name: Put a peer into manual detention
   become: yes
