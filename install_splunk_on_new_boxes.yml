@@ -1,5 +1,7 @@
-- hosts: new-idx
+- hosts: stl-g4ix
   serial: 100
   gather_facts: no
+  become: yes
+  become_user: splunk
   roles:
     - role: splunk
