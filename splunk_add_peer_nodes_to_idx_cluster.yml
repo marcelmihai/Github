@@ -18,7 +18,7 @@
     - splunk_cluster_peer_usstl
 
 # disable maintenance mode on the cluster master
-- hosts: stl-skcm
+- hosts: stl-cm
   serial: 100
   name: disable clustermaster maintenance mode in STL region
   become: yes
