@@ -19,7 +19,7 @@ lon-ix
 hkg-ix
 
 [stl-ix]
-usstlecpsplix[01:32]
+usstlecpsplix[09:40]
 
 [lon-ix]
 gblonecpsplix[01:06]
@@ -32,13 +32,9 @@ cnhkgecpsplix[01:06]
 stl-g4ix
 lon-g4ix
 hkg-g4ix
-legacy-g4ix
 
 [stl-g4ix]
 usstlecpsplix[33:40]
-
-[legacy-g4ix]
-usstlecpsplix[01:08]
 
 [lon-g4ix]
 gblonecpsplix[05:06]
