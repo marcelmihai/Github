@@ -1,0 +1,6 @@
+---
+- hosts: stl-hf
+  become: true
+  become_user: splunk
+  tasks:
+    - include: tasks/backup_local_apps.yml
