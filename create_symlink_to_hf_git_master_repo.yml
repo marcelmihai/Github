@@ -1,0 +1,12 @@
+- hosts: all-hf
+  gather_facts: no
+  become: true
+  become_user: splunk
+  tasks:
+  - name: Run git pull on Search Deployer
+    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
+    register: pull_status
+    until: pull_status|succeeded
+  - debug: var=pull_status.stdout
+
+  - include: tasks/create_symlink_to_hf_apps.yml
