@@ -1,0 +1,5 @@
+---
+# This playbook contains common tasks in this role
+
+- include: splunk_remove_hf_apps.yml
+- include: create_symlink_to_hf_apps.yml

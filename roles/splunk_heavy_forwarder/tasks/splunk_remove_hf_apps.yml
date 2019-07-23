@@ -1,0 +1,38 @@
+  - name: Remove existing HeavyForwarder App/Add-on
+    file:
+     path: "/opt/splunk/etc/apps/{{ item.path }}" state: absent
+    with_items:
+    - {path: 'emr_all_hf_base'}
+    - {path: 'global_hfs_props'}
+    - {path: 'global_indexers_build'}
+    - {path: 'global_syslog_inputs'}
+    - {path: 'global_unix_inputs'}
+    - {path: 'isamonitor'}
+    - {path: 'splunk_app_infrastructure'}
+    - {path: 'Splunk_TA_bro_json'}
+    - {path: 'Splunk_TA_bro_props'}
+    - {path: 'Splunk_TA_cisco-asa'}
+    - {path: 'Splunk_TA_cisco-esa'}
+    - {path: 'Splunk_TA_cisco-ise'}
+    - {path: 'Splunk_TA_cloudsoc'}
+    - {path: 'Splunk_TA_idrac'}
+    - {path: 'Splunk_TA_infoblox'}
+    - {path: 'Splunk_TA_Infrastructure'}
+    - {path: 'Splunk_TA_microsoft-sqlserver'}
+    - {path: 'Splunk_TA_mvp'}
+    - {path: 'Splunk_TA_netinfo'}
+    - {path: 'Splunk_TA_oracle'}
+    - {path: 'Splunk_TA_paloalto'}
+    - {path: 'Splunk_TA_san'}
+    - {path: 'Splunk_TA_symantec-dlp'}
+    - {path: 'Splunk_TA_Titus'}
+    - {path: 'Splunk_TA_vcenter'}
+    - {path: 'Splunk_TA_Zscaler'}
+    - {path: 'Splunk_UF_agent'}
+    - {path: 'SSL-versions'}
+    - {path: 'TA-cisco-acs'}
+    - {path: 'TA-Damballa-Failsafe-520-v101'}
+    - {path: 'TA_pps'}
+    - {path: 'TA-Proofpoint-TAP'}
+    - {path: 'TA_sudo'}
+    - {path: 'VMwareNSXAppforSplunk'}
