@@ -137,7 +137,7 @@
     with_items:
     - {path: 'emea_hfs_outputs'}
 
-  - name: Create Symbolic link for HeavyForwarder04 App/Add-on
+  - name: Create Symbolic link for HeavyForwarder(01|02) App/Add-on
     file:
      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
@@ -157,7 +157,7 @@
     with_items:
     - {path: 'apac_hfs_outputs'}
 
-  - name: Create Symbolic link for HeavyForwarder04 App/Add-on
+  - name: Create Symbolic link for HeavyForwarder(01|02) App/Add-on
     file:
      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
      dest: "/opt/splunk/etc/apps/{{ item.dest }}"

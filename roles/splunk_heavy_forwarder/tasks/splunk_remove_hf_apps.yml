@@ -35,4 +35,6 @@
     - {path: 'TA_pps'}
     - {path: 'TA-Proofpoint-TAP'}
     - {path: 'TA_sudo'}
+    - {path: 'iseries'}
+    - {path: 'Splunk_TA_windows_props'}
     - {path: 'VMwareNSXAppforSplunk'}
