@@ -1,6 +1,7 @@
   - name: Remove existing HeavyForwarder App/Add-on
     file:
-     path: "/opt/splunk/etc/apps/{{ item.path }}" state: absent
+      state: absent
+      path: "/opt/splunk/etc/apps/{{ item.path }}" 
     with_items:
       - {path: 'emr_all_hf_base'}
       - {path: 'global_hfs_props'}
