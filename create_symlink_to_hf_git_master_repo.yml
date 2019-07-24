@@ -22,9 +22,9 @@
 
   - name: Create Symbolic link for HeavyForwarder01 App/Add-on
     file:
-     src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-     dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-     state: link
+       src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+       dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+       state: link
     with_items:
       - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
       - {path: 'TA-ObserveIT', dest: 'TA-ObserveIT'}
@@ -47,9 +47,9 @@
 
   - name: Create Symbolic link for HeavyForwarder02 App/Add-on
     file:
-     src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-     dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-     state: link
+      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+      state: link
     with_items:
       - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
       - {path: 'TA-Okta_Identity_Cloud_for_Splunk', dest: 'TA-Okta_Identity_Cloud_for_Splunk'}
@@ -72,9 +72,9 @@
 
   - name: Create Symbolic link for HeavyForwarder03 App/Add-on
     file:
-     src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-     dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-     state: link
+      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+      state: link
     with_items:
       - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
       - {path: 'splunk_app_db_connect', dest: 'splunk_app_db_connect'}
@@ -95,9 +95,9 @@
 
   - name: Create Symbolic link for HeavyForwarder04 App/Add-on
     file:
-     src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-     dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-     state: link
+      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+      state: link
     with_items:
       - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
       - {path: 'Splunk_TA_microsoft-cloudservices', dest: 'Splunk_TA_microsoft-cloudservices'}
@@ -117,9 +117,9 @@
 
   - name: Create Symbolic link for HeavyForwarder04 App/Add-on
     file:
-     src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-     dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-     state: link
+      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+      state: link
     with_items:
       - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
       - {path: 'TA_pps', dest: 'TA_pps'}
@@ -139,9 +139,9 @@
 
   - name: Create Symbolic link for HeavyForwarder(01|02) App/Add-on
     file:
-     src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-     dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-     state: link
+      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+      state: link
     with_items:
       - {path: 'emea_hfs_outputs', dest: 'emea_hfs_outputs'}
 
@@ -159,9 +159,9 @@
 
   - name: Create Symbolic link for HeavyForwarder(01|02) App/Add-on
     file:
-     src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-     dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-     state: link
+      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+      state: link
     with_items:
       - {path: 'apac_hfs_outputs', dest: 'apac_hfs_outputs'}
 

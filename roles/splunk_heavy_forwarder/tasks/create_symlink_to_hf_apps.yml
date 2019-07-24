@@ -1,8 +1,8 @@
   - name: Create Symbolic link for HeavyForwarder App/Add-on
     file:
-     src: "/opt/splunk/Splunk-Configs/search-deployer/{{ item.path }}"
-     dest: "/opt/splunk/etc/shcluster/apps/{{ item.dest }}"
-     state: link
+      src: "/opt/splunk/Splunk-Configs/search-deployer/{{ item.path }}"
+      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+      state: link
     with_items:
       - {path: 'emr_all_hf_base', dest: 'emr_all_hf_base'}
       - {path: 'global_hfs_props', dest: 'global_hfs_props'}
