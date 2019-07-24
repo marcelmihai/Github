@@ -1,6 +1,6 @@
   - name: Create Symbolic link for HeavyForwarder App/Add-on
     file:
-      src: "/opt/splunk/Splunk-Configs/search-deployer/{{ item.path }}"
+      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
       dest: "/opt/splunk/etc/apps/{{ item.dest }}"
       state: link
     with_items:
