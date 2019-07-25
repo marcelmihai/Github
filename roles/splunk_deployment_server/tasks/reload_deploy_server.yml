@@ -1,4 +1,7 @@
 - name: Reload deployment server
-  shell: '/opt/splunk/bin/splunk reload deploy-server -auth admin:"{{ splunk_new_password }}"'
+  shell: '/opt/splunk/bin/splunk reload deploy-server -auth admin:"{{ splunk_password }}"'
   register: reload_status
-- debug: var=reload_status.stdout
+
+- name: print reload status
+  debug: 
+     var: reload_status.stdout_lines

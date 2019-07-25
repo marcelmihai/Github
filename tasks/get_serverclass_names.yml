@@ -2,4 +2,7 @@
 - name: Get Server Classes
   action: shell grep -oP '(?<=serverClass:)(?<serverclass>[^:]+?)(?=])' /opt/splunk/etc/system/local/serverclass.conf
   register: search_output
-- debug: var=search_output.stdout_lines
+
+- name: print serverclass names
+  debug: 
+     var: search_output.stdout_lines
