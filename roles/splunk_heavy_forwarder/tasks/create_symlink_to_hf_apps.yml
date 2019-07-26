@@ -11,7 +11,6 @@
       - {path: 'global_unix_inputs', dest: 'global_unix_inputs'}
       - {path: 'isamonitor', dest: 'isamonitor'}
       - {path: 'splunk_app_infrastructure', dest: 'splunk_app_infrastructure'}
-      - {path: 'Splunk_TA_bro_json', dest: 'Splunk_TA_bro_json'}
       - {path: 'Splunk_TA_bro_props', dest: 'Splunk_TA_bro_props'}
       - {path: 'Splunk_TA_cisco-asa', dest: 'Splunk_TA_cisco-asa'}
       - {path: 'Splunk_TA_cisco-esa', dest: 'Splunk_TA_cisco-esa'}
