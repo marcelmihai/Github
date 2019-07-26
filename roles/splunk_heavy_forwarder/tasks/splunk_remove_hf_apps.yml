@@ -40,3 +40,4 @@
       - {path: 'VMwareNSXAppforSplunk'}
       - {path: 'Splunk_TA_salesforce'}
       - {path: 'TA-MS_O365_Reporting'}
+      - {path: 'TA-ms-loganalytics'}

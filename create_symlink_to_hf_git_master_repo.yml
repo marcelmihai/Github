@@ -33,6 +33,7 @@
     with_items:
       - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
       - {path: 'TA-ObserveIT', dest: 'TA-ObserveIT'}
+      - {path: 'TA-ms-loganalytics', dest: 'TA-ms-loganalytics'}
 
 - hosts: usstlecpsplhf02
   gather_facts: no
