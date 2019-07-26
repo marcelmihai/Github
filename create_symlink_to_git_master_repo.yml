@@ -59,3 +59,22 @@
      state: link
   tags:
     - stl-ds
+
+- hosts: all-hf
+  gather_facts: no
+  become: true
+  become_user: splunk
+  tasks:
+  - name: Run git pull on heavy-forwarder.
+    shell: 'cd /opt/splunk/Splunk-Configs;git pull'
+    register: pull_status
+    until: pull_status|succeeded
+  - debug: var=pull_status.stdout
+
+  - name: Create Symbolic link for Deployment Server App/Add-on
+    file:
+     src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ SOURCE_FOLDER }}"
+     dest: "/opt/splunk/etc/apps/{{ SOURCE_FOLDER }}"
+     state: link
+  tags:
+    - all-hf
