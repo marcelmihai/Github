@@ -76,7 +76,7 @@
       path: "/opt/splunk/etc/apps/{{ item.path }}"
     with_items:
       - {path: 'nala_hfs_outputs'}
-      - {path: 'splunk_app_db_connect'}
+#      - {path: 'splunk_app_db_connect'}
       - {path: 'TA-Okta_Identity_Cloud_for_Splunk'}
 
   - name: Create Symbolic link for HeavyForwarder03 App/Add-on
@@ -86,7 +86,7 @@
       state: link
     with_items:
       - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
-      - {path: 'splunk_app_db_connect', dest: 'splunk_app_db_connect'}
+#      - {path: 'splunk_app_db_connect', dest: 'splunk_app_db_connect'}
 
 - hosts: usstlecpsplhf04
   gather_facts: no
