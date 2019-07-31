@@ -1,5 +1,3 @@
 ---
 - include: tasks/stop_splunk.yml
 - include: tasks/start_splunk.yml
-
-  when: RESTART_CONFIRMED

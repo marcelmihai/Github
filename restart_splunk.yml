@@ -16,17 +16,15 @@
   serial: 100
   gather_facts: no
   become: true
-  become_user: "{{ SPLUNK_USER }}"
+  become_user: splunk
   tasks:
     - include: tasks/run_git_pull.yml
 
-- hosts: *-hf
+- hosts: all-hf
   serial: 25%
-  vars_prompt:
-  - name: RESTART_CONFIRMED
-    prompt: "This will restart splunk. Did you specify a subset (-l) (True/False)"
-    default: no
-    private: no
-  - name: Restart the Splunk service
+  gather_facts: no
+  become: true
+  become_user: splunk
+  name: Restart the Splunk service
   tasks:
   - include: tasks/restart_splunk_service.yml
