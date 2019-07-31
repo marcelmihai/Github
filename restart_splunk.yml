@@ -11,6 +11,15 @@
 # #     ansible-playbook -i <inventory> -l "usstlecpsecap41" restart_splunk.yml
 # #
 # #
+# Run git pull on all servers.
+- hosts: all-hf
+  serial: 100
+  gather_facts: no
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+    - include: tasks/run_git_pull.yml
+
 - hosts: all-hf
   serial: 25%
   vars_prompt:
