@@ -4,15 +4,15 @@
 # # Usage: ansible-playbook -i <inventory> -l <pattern>
 # #
 # # Examples:
-# #  Restart current (v6) deployment servers:
-# #     ansible-playbook -i <inventory> -l "skdp*" restart_splunk.yml
+# #  Restart current heavy forwarder servers:
+# #     ansible-playbook -i <inventory> -l "all-hf*" restart_splunk.yml
 # #
-# #  Restart one search head:
-# #     ansible-playbook -i <inventory> -l "usstlecpsecap43" restart_splunk.yml
+# #  Restart one heavy forwarder:
+# #     ansible-playbook -i <inventory> -l "usstlecpsecap41" restart_splunk.yml
 # #
 # #
-- hosts: s*
-  serial: 50%
+- hosts: all-hf
+  serial: 25%
   vars_prompt:
   - name: RESTART_CONFIRMED
     prompt: "This will restart splunk. Did you specify a subset (-l) (True/False)"
@@ -21,4 +21,3 @@
   - name: Restart the Splunk service
   tasks:
   - include: tasks/restart_splunk_service.yml
-    when: SPLUNK_SITE == SITE

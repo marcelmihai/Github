@@ -1,0 +1,7 @@
+---
+
+- name: Ensure Splunk is Started
+  command: /opt/splunk/bin/splunk start
+
+- name: Ensure Splunk is Stoppped
+  command: /opt/splunk/bin/splunk stop
