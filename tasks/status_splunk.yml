@@ -1,0 +1,9 @@
+---
+- name: Splunk status
+  command: /opt/splunk/bin/splunk status
+  register: splunk_service_status
+
+- name: print idx bundle status
+  debug: 
+     var: splunk_service_status.stdout_lines
+     

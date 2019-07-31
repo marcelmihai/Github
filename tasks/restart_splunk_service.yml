@@ -1,3 +1,4 @@
 ---
 - include: tasks/stop_splunk.yml
 - include: tasks/start_splunk.yml
+- include: tasks/status_splunk.yml
