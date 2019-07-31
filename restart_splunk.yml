@@ -20,7 +20,7 @@
   tasks:
     - include: tasks/run_git_pull.yml
 
-- hosts: all-hf
+- hosts: *-hf
   serial: 25%
   vars_prompt:
   - name: RESTART_CONFIRMED
