@@ -5,5 +5,5 @@
 
 - name: print syslog .conf file names
   debug: 
-     var: search_output.stdout_lines
+     var: syslog_output.stdout_lines
      
