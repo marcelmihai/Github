@@ -63,3 +63,4 @@
     - debug: var=syslog_status.stdout_lines
   tags:
      - restart
+     
