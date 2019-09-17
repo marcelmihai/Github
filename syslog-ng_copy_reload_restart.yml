@@ -36,6 +36,8 @@
       group: syslog-ng
       remote_src: yes
       mode: 0644
+  tags:
+     - copy
 
 - hosts: all-hf
   serial: 1%
