@@ -1,0 +1,16 @@
+---
+# This playbook contains common tasks in this role
+- block:
+      - include: verify_splunk_version.yml
+        vars:
+                EXPECTED_VERSION: "{{ SPLUNK_LEGACY }}"
+
+      - include: stop_splunk.yml
+
+      - include: splunk_tar_extraction.yml
+
+      - include: start_splunk.yml
+
+      - include: verify_splunk_version.yml
+        vars:
+                EXPECTED_VERSION: "{{ SPLUNK_VERSION }}"

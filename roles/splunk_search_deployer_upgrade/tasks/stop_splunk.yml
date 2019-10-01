@@ -1,0 +1,5 @@
+---
+
+- name: Ensure Splunk is Stoppped
+  command: /opt/splunk/bin/splunk stop
+  ignore_errors: yes

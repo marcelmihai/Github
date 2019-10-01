@@ -1,0 +1,150 @@
+########################################
+######## Upgrade the master node #######
+########################################
+
+- hosts: all-cm
+  serial: 100
+  gather_facts: no
+  name: Upgrading Splunk - Cluster Master Nodes - All regions
+  become: true
+  become_user: splunk
+  roles:
+    - role: splunk_cluster_master_upgrade
+
+########################################
+##### Upgrade the search head tier #####
+########################################
+
+# Upgrade the search head tier (Stop all cluster members and Upgrade all)
+- hosts: sh
+  serial: 100%
+  gather_facts: no
+  name: Upgrading Splunk - Search Head Nodes
+  become: true
+  become_user: splunk
+  roles:
+    - role: splunk_search_members_upgrade
+
+# Upgrade the deployer
+- hosts: stl-sd
+  serial: 100%
+  gather_facts: no
+  name: Upgrading Splunk - Deployer
+  become: true
+  become_user: splunk
+  roles:
+    - role: splunk_search_deployer_upgrade
+
+# Start the members
+- hosts: sh
+  serial: 100%
+  gather_facts: no
+  name: Start Search Head members
+  become: true
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/splunk_upgrade_start_splunk.yml
+  - name: Wait for Splunk startup
+    wait_for: port=8089 timeout=900 delay=30
+    ignore_errors: yes
+
+#####################################
+##### Upgrade the peer node tier #####
+#####################################
+
+# Enable maintenance-mode on the master. 
+- hosts: stl-cm
+  serial: 100%
+  gather_facts: no
+  name: enable clustermaster maintenance mode in STL region
+  become: true
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/enable_cm_maintenance_mode.yml
+
+# Upgrade STL peer nodes.
+- hosts: stl-ix
+  serial: 25%
+  gather_facts: no
+  name: Upgrading Splunk - STL Indexers
+  become: true
+  become_user: splunk
+  roles:
+    - role: splunk_cluster_peer_usstl_upgrade
+
+# Disable maintenance-mode on the master
+- hosts: stl-cm
+  serial: 100%
+  gather_facts: no
+  name: disable clustermaster maintenance mode in STL region
+  become: true
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/disable_cm_maintenance_mode.yml
+
+# Enable maintenance-mode on the master. 
+- hosts: lon-cm
+  serial: 100%
+  gather_facts: no
+  name: enable clustermaster maintenance mode in LON region
+  become: true
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/enable_cm_maintenance_mode.yml
+
+# Upgrade GBLO peer nodes.
+- hosts: lon-ix
+  serial: 100%
+  gather_facts: no
+  name: Upgrading Splunk - LON Indexers
+  become: true
+  become_user: splunk
+  roles:
+    - role: splunk_cluster_peer_gblo_upgrade
+
+# Disable maintenance-mode on the master
+- hosts: lon-cm
+  serial: 100%
+  gather_facts: no
+  name: disable clustermaster maintenance mode in LON region
+  become: true
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/disable_cm_maintenance_mode.yml
+
+# Enable maintenance-mode on the master. 
+- hosts: hkg-cm
+  serial: 100%
+  gather_facts: no
+  name: enable clustermaster maintenance mode in HKG region
+  become: true
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/enable_cm_maintenance_mode.yml
+
+# Upgrade CNHK peer nodes.
+- hosts: hkg-ix
+  serial: 100%
+  gather_facts: no
+  name: Upgrading Splunk - HKG Indexers
+  become: true
+  become_user: splunk
+  roles:
+    - role: splunk_cluster_peer_cnhk_upgrade
+
+# Disable maintenance-mode on the master
+- hosts: hkg-cm
+  serial: 100%
+  gather_facts: no
+  name: disable clustermaster maintenance mode in HKG region
+  become: true
+  become_user: splunk
+  tasks:
+  - block:
+        - include: tasks/disable_cm_maintenance_mode.yml

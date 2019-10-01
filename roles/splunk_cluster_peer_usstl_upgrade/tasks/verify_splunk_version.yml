@@ -1,0 +1,7 @@
+---
+  - block:
+        - name: Verify splunk version is {{ EXPECTED_VERSION }}
+          shell: /opt/splunk/bin/splunk --version | awk '{print $2}'
+          register: splunk_version
+          failed_when: "{{ splunk_version.stdout_lines[0] | version_compare(EXPECTED_VERSION, '!=') }}"
+          

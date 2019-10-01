@@ -1,0 +1,9 @@
+- hosts: all-hf
+  serial: 1
+  gather_facts: no
+  name: Upgrading Splunk - heavyforwarders - All regions
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  roles:
+    - role: splunk_heavy_forwarder_upgrade
+    

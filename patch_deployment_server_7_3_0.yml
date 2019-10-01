@@ -1,0 +1,9 @@
+- hosts: stl-ds
+  serial: 100%
+  gather_facts: no
+  name: Upgrading Splunk - Deployment Server
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  roles:
+    - role: splunk_deployment_server_upgrade
+    
