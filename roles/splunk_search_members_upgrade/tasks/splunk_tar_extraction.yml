@@ -6,4 +6,5 @@
     src: "{{ SPLUNK_BINARY }}"
     #dest is $SPLUNK_HOME/.., as the tarball contains splunk/ directory
     dest: "{{ SPLUNK_HOME }}/.."
-    creates: "{{ SPLUNK_HOME }}/splunk-6.6.2-4b804538c686-Linux-x86_64-mainfest"
+    creates: "{{ SPLUNK_HOME }}/splunk-7.3.2-c60db69f8e32-Linux-x86_64-mainfest"
+    
