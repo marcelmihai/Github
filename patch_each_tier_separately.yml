@@ -148,3 +148,23 @@
   tasks:
   - block:
         - include: tasks/disable_cm_maintenance_mode.yml
+
+# Upgrade Deployment server
+- hosts: stl-ds
+  serial: 100%
+  gather_facts: no
+  name: Upgrading Splunk - Deployment Server
+  become: true
+  become_user: splunk
+  roles:
+    - role: splunk_enterprise_upgrade
+
+# Upgrade HeavyForwarders
+- hosts: all-hf
+  serial: 1
+  gather_facts: no
+  name: Upgrading Splunk - heavyforwarders - All regions
+  become: true
+  become_user: splunk
+  roles:
+    - role: splunk_enterprise_upgrade
