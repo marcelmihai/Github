@@ -4,4 +4,4 @@
   command: /opt/splunk/bin/splunk start --answer-yes --no-prompt --accept-license
 
   become: true
-  become_user: "{{ splunk_user }}"
+  become_user: splunk

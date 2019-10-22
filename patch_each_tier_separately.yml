@@ -9,7 +9,7 @@
   become: true
   become_user: splunk
   roles:
-    - role: splunk_cluster_master_upgrade
+    - role: splunk_enterprise_upgrade
 
 ########################################
 ##### Upgrade the search head tier #####
@@ -33,7 +33,7 @@
   become: true
   become_user: splunk
   roles:
-    - role: splunk_search_deployer_upgrade
+    - role: splunk_enterprise_upgrade
 
 # Start the members
 - hosts: sh
@@ -72,7 +72,7 @@
   become: true
   become_user: splunk
   roles:
-    - role: splunk_cluster_peer_usstl_upgrade
+    - role: splunk_enterprise_upgrade
 
 # Disable maintenance-mode on the master
 - hosts: stl-cm
@@ -104,7 +104,7 @@
   become: true
   become_user: splunk
   roles:
-    - role: splunk_cluster_peer_gblo_upgrade
+    - role: splunk_enterprise_upgrade
 
 # Disable maintenance-mode on the master
 - hosts: lon-cm
@@ -136,7 +136,7 @@
   become: true
   become_user: splunk
   roles:
-    - role: splunk_cluster_peer_cnhk_upgrade
+    - role: splunk_enterprise_upgrade
 
 # Disable maintenance-mode on the master
 - hosts: hkg-cm
