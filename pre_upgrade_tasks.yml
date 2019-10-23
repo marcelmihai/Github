@@ -17,4 +17,13 @@
   tasks:
   - block:
         - include: tasks/backup_local_apps.yml
-        
+
+- hosts: sh
+  serial: 100%
+  gather_facts: no
+  name: Back up local apps
+  become: true
+  become_user: "{{ SPLUNK_USER }}"
+  tasks:
+  - block:
+        - include: tasks/backup_local_apps.yml    
