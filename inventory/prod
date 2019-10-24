@@ -62,9 +62,13 @@ cnhkgecpsplcm01
 stl-hf
 lon-hf
 hkg-hf
+stl-ext-hf
 
 [stl-hf]
 usstlecpsplhf[01:05]
+
+[stl-ext-hf]
+usstlecpsecwi[03:04]
 
 [lon-hf]
 gblonecpsplhf[01:02]

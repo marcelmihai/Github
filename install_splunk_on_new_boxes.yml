@@ -1,4 +1,4 @@
-- hosts: stl-g4ix
+- hosts: stl-ext-hf
   serial: 100
   gather_facts: no
   become: yes

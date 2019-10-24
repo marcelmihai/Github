@@ -66,7 +66,7 @@
 
 # Upgrade STL peer nodes.
 - hosts: stl-ix
-  serial: 25%
+  serial: 5%
   gather_facts: no
   name: Upgrading Splunk - STL Indexers
   become: true
@@ -98,7 +98,7 @@
 
 # Upgrade GBLO peer nodes.
 - hosts: lon-ix
-  serial: 100%
+  serial: 1
   gather_facts: no
   name: Upgrading Splunk - LON Indexers
   become: true
@@ -130,7 +130,7 @@
 
 # Upgrade CNHK peer nodes.
 - hosts: hkg-ix
-  serial: 100%
+  serial: 1
   gather_facts: no
   name: Upgrading Splunk - HKG Indexers
   become: true
