@@ -1,4 +1,4 @@
-- hosts: all-hf
+- hosts: stl-ext-hf
   gather_facts: no
   serial: 1
   ignore_errors: yes
@@ -8,129 +8,129 @@
     - git
     - splunk_heavy_forwarder
 
-- hosts: usstlecpsplhf01
+#- hosts: usstlecpsplhf01
+#  gather_facts: no
+#  ignore_errors: yes
+#  become: true
+#  become_user: splunk
+#  tasks:
+#  - name: Removing pre-existing app/add-on
+#    file:
+#      state: absent
+#      path: "/opt/splunk/etc/apps/{{ item.path }}"
+#    with_items:
+#      - {path: 'TA-ObserveIT'}
+#      - {path: 'nala_hfs_outputs'}
+#      - {path: 'TA-sailpoint-identitynow-auditevent-add-on'}
+#      - {path: 'TA-Proofpoint-TAP'}
+#      - {path: 'TA_pps'}
+#
+#  - name: Create Symbolic link for HeavyForwarder01 App/Add-on
+#    file:
+#       src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+#       dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+#       state: link
+#    with_items:
+#      - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
+#      - {path: 'TA-ObserveIT', dest: 'TA-ObserveIT'}
+#      - {path: 'TA-ms-loganalytics', dest: 'TA-ms-loganalytics'}
+#
+#- hosts: usstlecpsplhf02
+#  gather_facts: no
+#  ignore_errors: yes
+#  become: true
+#  become_user: splunk
+#  tasks:
+#  - name: Removing pre-existing app/add-on
+#    file:
+#      state: absent
+#      path: "/opt/splunk/etc/apps/{{ item.path }}"
+#    with_items:
+#      - {path: 'nala_hfs_outputs'}
+#      - {path: 'TA-sailpoint-identitynow-auditevent-add-on'}
+#      - {path: 'TA-Okta_Identity_Cloud_for_Splunk'}
+#      - {path: 'TA-Proofpoint-TAP'}
+#      - {path: 'TA_pps'}
+#
+#  - name: Create Symbolic link for HeavyForwarder02 App/Add-on
+#    file:
+#      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+#      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+#      state: link
+#    with_items:
+#      - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
+#      - {path: 'TA-Okta_Identity_Cloud_for_Splunk', dest: 'TA-Okta_Identity_Cloud_for_Splunk'}
+#      - {path: 'TA-sailpoint-identitynow-auditevent-add-on', dest: 'TA-sailpoint-identitynow-auditevent-add-on'}
+#      - {path: 'TA-MS_O365_Reporting', dest: 'TA-MS_O365_Reporting'}
+#      - {path: 'Splunk_TA_salesforce', dest: 'Splunk_TA_salesforce'}
+#    
+#- hosts: usstlecpsplhf03
+#  gather_facts: no
+#  ignore_errors: yes
+#  become: true
+#  become_user: splunk
+#  tasks:
+#  - name: Removing pre-existing app/add-on
+#    file:
+#      state: absent
+#      path: "/opt/splunk/etc/apps/{{ item.path }}"
+#    with_items:
+#      - {path: 'nala_hfs_outputs'}
+##      - {path: 'splunk_app_db_connect'}
+#      - {path: 'TA-Okta_Identity_Cloud_for_Splunk'}
+#
+#  - name: Create Symbolic link for HeavyForwarder03 App/Add-on
+#    file:
+#      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+#      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+#      state: link
+#    with_items:
+#      - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
+##      - {path: 'splunk_app_db_connect', dest: 'splunk_app_db_connect'}
+#
+#- hosts: usstlecpsplhf04
+#  gather_facts: no
+#  ignore_errors: yes
+#  become: true
+#  become_user: splunk
+#  tasks:
+#  - name: Removing pre-existing app/add-on
+#    file:
+#      state: absent
+#      path: "/opt/splunk/etc/apps/{{ item.path }}"
+#    with_items:
+#      - {path: 'nala_hfs_outputs'}
+#      - {path: 'Splunk_TA_microsoft-cloudservices'}
+#      - {path: 'Splunk_TA_aws'}
+#      - {path: 'TA-sailpoint-identitynow-auditevent-add-on'}
+#      - {path: 'TA-Proofpoint-TAP'}
+#      - {path: 'TA_pps'}
+#
+#  - name: Create Symbolic link for HeavyForwarder04 App/Add-on
+#    file:
+#      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+#      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+#      state: link
+#    with_items:
+#      - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
+#      - {path: 'Splunk_TA_microsoft-cloudservices', dest: 'Splunk_TA_microsoft-cloudservices'}
+#      - {path: 'Splunk_TA_aws', dest: 'Splunk_TA_aws'}
+
+- hosts: stl-ext-hf
   gather_facts: no
   ignore_errors: yes
   become: true
   become_user: splunk
   tasks:
-  - name: Removing pre-existing app/add-on
-    file:
-      state: absent
-      path: "/opt/splunk/etc/apps/{{ item.path }}"
-    with_items:
-      - {path: 'TA-ObserveIT'}
-      - {path: 'nala_hfs_outputs'}
-      - {path: 'TA-sailpoint-identitynow-auditevent-add-on'}
-      - {path: 'TA-Proofpoint-TAP'}
-      - {path: 'TA_pps'}
-
-  - name: Create Symbolic link for HeavyForwarder01 App/Add-on
-    file:
-       src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-       dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-       state: link
-    with_items:
-      - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
-      - {path: 'TA-ObserveIT', dest: 'TA-ObserveIT'}
-      - {path: 'TA-ms-loganalytics', dest: 'TA-ms-loganalytics'}
-
-- hosts: usstlecpsplhf02
-  gather_facts: no
-  ignore_errors: yes
-  become: true
-  become_user: splunk
-  tasks:
-  - name: Removing pre-existing app/add-on
-    file:
-      state: absent
-      path: "/opt/splunk/etc/apps/{{ item.path }}"
-    with_items:
-      - {path: 'nala_hfs_outputs'}
-      - {path: 'TA-sailpoint-identitynow-auditevent-add-on'}
-      - {path: 'TA-Okta_Identity_Cloud_for_Splunk'}
-      - {path: 'TA-Proofpoint-TAP'}
-      - {path: 'TA_pps'}
-
-  - name: Create Symbolic link for HeavyForwarder02 App/Add-on
-    file:
-      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-      state: link
-    with_items:
-      - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
-      - {path: 'TA-Okta_Identity_Cloud_for_Splunk', dest: 'TA-Okta_Identity_Cloud_for_Splunk'}
-      - {path: 'TA-sailpoint-identitynow-auditevent-add-on', dest: 'TA-sailpoint-identitynow-auditevent-add-on'}
-      - {path: 'TA-MS_O365_Reporting', dest: 'TA-MS_O365_Reporting'}
-      - {path: 'Splunk_TA_salesforce', dest: 'Splunk_TA_salesforce'}
-    
-- hosts: usstlecpsplhf03
-  gather_facts: no
-  ignore_errors: yes
-  become: true
-  become_user: splunk
-  tasks:
-  - name: Removing pre-existing app/add-on
-    file:
-      state: absent
-      path: "/opt/splunk/etc/apps/{{ item.path }}"
-    with_items:
-      - {path: 'nala_hfs_outputs'}
-#      - {path: 'splunk_app_db_connect'}
-      - {path: 'TA-Okta_Identity_Cloud_for_Splunk'}
-
-  - name: Create Symbolic link for HeavyForwarder03 App/Add-on
-    file:
-      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-      state: link
-    with_items:
-      - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
-#      - {path: 'splunk_app_db_connect', dest: 'splunk_app_db_connect'}
-
-- hosts: usstlecpsplhf04
-  gather_facts: no
-  ignore_errors: yes
-  become: true
-  become_user: splunk
-  tasks:
-  - name: Removing pre-existing app/add-on
-    file:
-      state: absent
-      path: "/opt/splunk/etc/apps/{{ item.path }}"
-    with_items:
-      - {path: 'nala_hfs_outputs'}
-      - {path: 'Splunk_TA_microsoft-cloudservices'}
-      - {path: 'Splunk_TA_aws'}
-      - {path: 'TA-sailpoint-identitynow-auditevent-add-on'}
-      - {path: 'TA-Proofpoint-TAP'}
-      - {path: 'TA_pps'}
-
-  - name: Create Symbolic link for HeavyForwarder04 App/Add-on
-    file:
-      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-      state: link
-    with_items:
-      - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
-      - {path: 'Splunk_TA_microsoft-cloudservices', dest: 'Splunk_TA_microsoft-cloudservices'}
-      - {path: 'Splunk_TA_aws', dest: 'Splunk_TA_aws'}
-
-- hosts: usstlecpsplhf05
-  gather_facts: no
-  ignore_errors: yes
-  become: true
-  become_user: splunk
-  tasks:
-  - name: Removing pre-existing app/add-on
-    file:
-      state: absent
-      path: "/opt/splunk/etc/apps/{{ item.path }}"
-    with_items:
-      - {path: 'nala_hfs_outputs'}
-      - {path: 'TA-sailpoint-identitynow-auditevent-add-on'}
-      - {path: 'TA-Proofpoint-TAP'}
-      - {path: 'TA_pps'}
+#  - name: Removing pre-existing app/add-on
+#    file:
+#      state: absent
+#      path: "/opt/splunk/etc/apps/{{ item.path }}"
+#    with_items:
+#      - {path: 'nala_hfs_outputs'}
+#      - {path: 'TA-sailpoint-identitynow-auditevent-add-on'}
+#      - {path: 'TA-Proofpoint-TAP'}
+#      - {path: 'TA_pps'}
 
   - name: Create Symbolic link for HeavyForwarder04 App/Add-on
     file:
@@ -142,44 +142,44 @@
       - {path: 'TA_pps', dest: 'TA_pps'}
       - {path: 'TA-Proofpoint-TAP', dest: 'TA-Proofpoint-TAP'}
 
-- hosts: gblonecpsplhf*
-  gather_facts: no
-  ignore_errors: yes
-  become: true
-  become_user: splunk
-  tasks:
-  - name: Removing pre-existing app/add-on
-    file:
-      path=/opt/splunk/etc/apps/{{ item.path }} state=absent
-    with_items:
-      - {path: 'emea_hfs_outputs'}
-
-  - name: Create Symbolic link for HeavyForwarder(01|02) App/Add-on
-    file:
-      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-      state: link
-    with_items:
-      - {path: 'emea_hfs_outputs', dest: 'emea_hfs_outputs'}
-
-- hosts: cnhkgecpsplhf*
-  gather_facts: no
-  ignore_errors: yes
-  become: true
-  become_user: splunk
-  tasks:
-  - name: Removing pre-existing app/add-on
-    file:
-      path=/opt/splunk/etc/apps/{{ item.path }} state=absent
-    with_items:
-      - {path: 'apac_hfs_outputs'}
-
-  - name: Create Symbolic link for HeavyForwarder(01|02) App/Add-on
-    file:
-      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-      state: link
-    with_items:
-      - {path: 'apac_hfs_outputs', dest: 'apac_hfs_outputs'}
+#- hosts: gblonecpsplhf*
+#  gather_facts: no
+#  ignore_errors: yes
+#  become: true
+#  become_user: splunk
+#  tasks:
+#  - name: Removing pre-existing app/add-on
+#    file:
+#      path=/opt/splunk/etc/apps/{{ item.path }} state=absent
+#    with_items:
+#      - {path: 'emea_hfs_outputs'}
+#
+#  - name: Create Symbolic link for HeavyForwarder(01|02) App/Add-on
+#    file:
+#      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+#      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+#      state: link
+#    with_items:
+#      - {path: 'emea_hfs_outputs', dest: 'emea_hfs_outputs'}
+#
+#- hosts: cnhkgecpsplhf*
+#  gather_facts: no
+#  ignore_errors: yes
+#  become: true
+#  become_user: splunk
+#  tasks:
+#  - name: Removing pre-existing app/add-on
+#    file:
+#      path=/opt/splunk/etc/apps/{{ item.path }} state=absent
+#    with_items:
+#      - {path: 'apac_hfs_outputs'}
+#
+#  - name: Create Symbolic link for HeavyForwarder(01|02) App/Add-on
+#    file:
+#      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+#      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+#      state: link
+#    with_items:
+#      - {path: 'apac_hfs_outputs', dest: 'apac_hfs_outputs'}
 
 
