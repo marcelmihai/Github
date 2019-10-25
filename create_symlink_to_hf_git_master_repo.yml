@@ -116,31 +116,31 @@
 #      - {path: 'Splunk_TA_microsoft-cloudservices', dest: 'Splunk_TA_microsoft-cloudservices'}
 #      - {path: 'Splunk_TA_aws', dest: 'Splunk_TA_aws'}
 
-- hosts: stl-ext-hf
-  gather_facts: no
-  ignore_errors: yes
-  become: true
-  become_user: splunk
-  tasks:
-#  - name: Removing pre-existing app/add-on
+#- hosts: stl-ext-hf
+#  gather_facts: no
+#  ignore_errors: yes
+#  become: true
+#  become_user: splunk
+#  tasks:
+##  - name: Removing pre-existing app/add-on
+##    file:
+##      state: absent
+##      path: "/opt/splunk/etc/apps/{{ item.path }}"
+##    with_items:
+##      - {path: 'nala_hfs_outputs'}
+##      - {path: 'TA-sailpoint-identitynow-auditevent-add-on'}
+##      - {path: 'TA-Proofpoint-TAP'}
+##      - {path: 'TA_pps'}
+#
+#  - name: Create Symbolic link for HeavyForwarder04 App/Add-on
 #    file:
-#      state: absent
-#      path: "/opt/splunk/etc/apps/{{ item.path }}"
+#      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
+#      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
+#      state: link
 #    with_items:
-#      - {path: 'nala_hfs_outputs'}
-#      - {path: 'TA-sailpoint-identitynow-auditevent-add-on'}
-#      - {path: 'TA-Proofpoint-TAP'}
-#      - {path: 'TA_pps'}
-
-  - name: Create Symbolic link for HeavyForwarder04 App/Add-on
-    file:
-      src: "/opt/splunk/Splunk-Configs/heavy-forwarder/{{ item.path }}"
-      dest: "/opt/splunk/etc/apps/{{ item.dest }}"
-      state: link
-    with_items:
-      - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
-      - {path: 'TA_pps', dest: 'TA_pps'}
-      - {path: 'TA-Proofpoint-TAP', dest: 'TA-Proofpoint-TAP'}
+#      - {path: 'nala_hfs_outputs', dest: 'nala_hfs_outputs'}
+#      - {path: 'TA_pps', dest: 'TA_pps'}
+#      - {path: 'TA-Proofpoint-TAP', dest: 'TA-Proofpoint-TAP'}
 
 #- hosts: gblonecpsplhf*
 #  gather_facts: no
