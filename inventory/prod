@@ -1,4 +1,9 @@
 # Ansible inventory for PROD
+[new_builds]
+usstlecpsplsh[06:08]
+usstlecpsplix[41:56]
+usstlecpsplhf[06:09]
+gblonecpsplhf[03:04]
 
 [stl-ds]
 usstlecpsplds01
@@ -8,6 +13,9 @@ usstlecpsplds02
 
 [sh]
 usstlecpsplsh[01:05]
+
+[sh_new]
+usstlecpsplsh[06:08]
 
 [dev-sh]
 usmtnecdsplsh11
@@ -34,10 +42,10 @@ lon-g4ix
 hkg-g4ix
 
 [stl-g4ix]
-usstlecpsplix[33:40]
+usstlecpsplix[41:56]
 
 [lon-g4ix]
-gblonecpsplix[05:06]
+gblonecpsplix[07:10]
 
 [hkg-g4ix]
 cnhkgecpsplix[05:06]
@@ -60,7 +68,9 @@ cnhkgecpsplcm01
 # All HeavyForwarders
 [all-hf:children]
 stl-hf
+stl-hf-new
 lon-hf
+lon-hf-new
 hkg-hf
 stl-ext-hf
 
@@ -70,8 +80,14 @@ usstlecpsplhf[01:05]
 [stl-ext-hf]
 usstlecpsecwi[03:04]
 
+[stl-hf-new]
+usstlecpsplhf[06:09]
+
 [lon-hf]
 gblonecpsplhf[01:02]
+
+[lon-hf-new]
+gblonecpsplhf[03:04]
 
 [hkg-hf]
 cnhkgecpsplhf[01:02]

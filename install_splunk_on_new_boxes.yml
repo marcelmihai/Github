@@ -1,4 +1,4 @@
-- hosts: stl-ext-hf
+- hosts: new_builds
   serial: 100
   gather_facts: no
   become: yes
